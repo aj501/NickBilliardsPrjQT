@@ -1,1 +1,52 @@
-Docs written here
+Operation Hours: 10 am to 2 am everyday
+
+TABLE # 1-10 (9-FOOTERS)
+TABLE # 11-20 (BAR BOX 7-FOOTERS)
+TABLE # 21-24 (SNOOKER/MISC. TABLE)
+
+EACH TABLE HAS A MEMO BOX
+ID TAKEN Checkbox
+TABLE TAB Checkbox
+
+Table time is prorated and adjustable to the # of player(s) because they pay after they are done playing.  
+
+Round up time to the nearest dollar.
+
+A confirmation of closing out a table and a reminder of giving ID back if taken
+
+RATES:
+
+DAILY SPECIAL 
+$10/PERSON OPEN TO 7 pm
+
+DAILY RATES:
+$3/HR PER PERSON OPEN - 7 pm
+
+7 PM to Closed:
+
+1 Player      $6/HR
+2 Players    $12/HR
+3 Players    $15/HR
+4 Players    $20/HR
+
+Any additional player(s):  $2/ Player
+Maximum of 8 players to a table
+
+POOL LEAGUE'S MEMBER RATES:
+(BAR BOX 7-FOOTER ONLY)
+
+$15/ Person 7 pm - Closed
+$20/ Person If Before 7 pm
+
+SENIORS AND MILITARY:
+1/2 OFF PER ID (TABLE TIME ONLY)
+
+
+End of Day Summary
+Confirmation of closing up the app. 
+
+OTHER FEATURES: 
+1.	Manager should be able to change the rate as needed
+2.	Add % discount button (5%, 10%, 15%,20% or maybe give options to give discount amount desired)
+3.	Occupied tables change color.
+4.	Transfer an open table to an unoccupied table
