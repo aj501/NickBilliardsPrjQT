@@ -25,14 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        dialog.cpp \
+        infobox.cpp \
         main.cpp \
-        nickbilliards.cpp
+        nickbilliards.cpp \
+        table.cpp
 
 HEADERS += \
-        nickbilliards.h
+        dialog.h \
+        infobox.h \
+        nickbilliards.h \
+        table.h
 
 FORMS += \
-        nickbilliards.ui
+        dialog.ui \
+        infobox.ui \
+        nickbilliards.ui \
+        table.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

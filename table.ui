@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<ui version="4.0">
+ <class>Table</class>
+ <widget class="QGroupBox" name="Table">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GroupBox</string>
+  </property>
+ </widget>
+</ui>
