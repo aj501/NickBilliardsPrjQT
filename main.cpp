@@ -8,4 +8,6 @@ int main(int argc, char *argv[])
     w.show();
 
     return a.exec();
+
+    //added this to main
 }
