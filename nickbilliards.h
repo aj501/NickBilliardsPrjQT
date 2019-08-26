@@ -15,6 +15,9 @@ public:
     explicit NickBilliards(QWidget *parent = nullptr);
     ~NickBilliards();
 
+private slots:
+    void on_Table8_linkActivated(const QString &link);
+
 private:
     Ui::NickBilliards *ui;
 };
