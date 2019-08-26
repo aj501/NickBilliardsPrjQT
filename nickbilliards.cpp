@@ -12,3 +12,8 @@ NickBilliards::~NickBilliards()
 {
     delete ui;
 }
+
+void NickBilliards::on_Table8_linkActivated(const QString &link)
+{
+
+}
