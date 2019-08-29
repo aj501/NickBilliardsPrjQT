@@ -12,3 +12,4 @@ infobox::~infobox()
 {
     delete ui;
 }
+

@@ -1,6 +1,7 @@
 #ifndef NICKBILLIARDS_H
 #define NICKBILLIARDS_H
 
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -16,10 +17,20 @@ public:
     ~NickBilliards();
 
 private slots:
-    void on_Table8_linkActivated(const QString &link);
+    void on_pushButton_clicked();
+
+    void on_pushButton_pressed();
 
 private:
     Ui::NickBilliards *ui;
+
 };
 
 #endif // NICKBILLIARDS_H
+
+
+//
+
+
+
+
