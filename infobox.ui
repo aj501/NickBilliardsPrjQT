@@ -1,17 +1,18 @@
-<?xml version='1.0'?>
 <ui version="4.0">
- <class>InfoBox</class>
- <widget class="QGroupBox" name="InfoBox">
+ <class>infobox</class>
+ <widget class="QDialog" name="infobox">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>320</width>
-    <height>240</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>GroupBox</string>
+   <string>Dialog</string>
   </property>
  </widget>
+ <resources/>
+ <connections/>
 </ui>

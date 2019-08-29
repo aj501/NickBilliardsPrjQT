@@ -1,22 +1,22 @@
 #ifndef INFOBOX_H
 #define INFOBOX_H
 
-#include <QGroupBox>
+#include <QDialog>
 
 namespace Ui {
-class InfoBox;
+class infobox;
 }
 
-class InfoBox : public QGroupBox
+class infobox : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit InfoBox(QWidget *parent = nullptr);
-    ~InfoBox();
+    explicit infobox(QWidget *parent = nullptr);
+    ~infobox();
 
 private:
-    Ui::InfoBox *ui;
+    Ui::infobox *ui;
 };
 
 #endif // INFOBOX_H
