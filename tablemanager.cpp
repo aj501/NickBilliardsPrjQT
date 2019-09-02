@@ -52,8 +52,7 @@ void TableManager::on_pushButton_clicked()
 
 void TableManager::on_pushButton_pressed()
 {
-    infobox infobox;
+    InfoBox infobox;
     infobox.setModal(true);
     infobox.exec();
 }
-

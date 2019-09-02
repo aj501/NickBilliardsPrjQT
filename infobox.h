@@ -4,22 +4,20 @@
 #include <QDialog>
 
 namespace Ui {
-class infobox;
+class InfoBox;
 }
 
-class infobox : public QDialog
+class InfoBox : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit infobox(QWidget *parent = nullptr);
-    ~infobox();
+    explicit InfoBox(QWidget *parent = nullptr);
+    ~InfoBox();
 
-private slots:
-    void on_pushButton_2_clicked();
 
 private:
-    Ui::infobox *ui;
+    Ui::InfoBox *ui;
 };
 
 #endif // INFOBOX_H
