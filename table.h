@@ -13,14 +13,19 @@ class Table : public QGroupBox
 
 public:
     explicit Table(QWidget *parent = nullptr);
-    ~Table();
+    ~Table() override;
 
     int getId() const;
     void setId(const int & id);
 
+protected:
+     void mousePressEvent (QMouseEvent *event) override;
+
 private:
     Ui::Table *ui;
     int id;
+
+
 };
 
 #endif // TABLE_H

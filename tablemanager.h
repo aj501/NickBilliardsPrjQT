@@ -16,7 +16,7 @@ public:
     explicit TableManager(QWidget *parent = nullptr);
     ~TableManager();
 
-private slots:
+public slots:
     void on_pushButton_clicked();
     void on_pushButton_pressed();
 

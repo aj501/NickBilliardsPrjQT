@@ -1,14 +1,14 @@
 #include "infobox.h"
 #include "ui_infobox.h"
 
-infobox::infobox(QWidget *parent) :
+InfoBox::InfoBox(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::infobox)
+    ui(new Ui::InfoBox)
 {
     ui->setupUi(this);
 }
 
-infobox::~infobox()
+InfoBox::~InfoBox()
 {
     delete ui;
 }
