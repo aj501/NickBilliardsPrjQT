@@ -13,3 +13,7 @@ infobox::~infobox()
     delete ui;
 }
 
+
+void infobox::on_pushButton_2_clicked()
+{
+}
