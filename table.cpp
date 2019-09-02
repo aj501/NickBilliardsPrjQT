@@ -1,6 +1,6 @@
 #include "table.h"
 #include "ui_table.h"
-#include "infobox.h"
+#include "util.h"
 #include <QtGui>
 
 Table::Table(QWidget *parent) :
@@ -8,6 +8,7 @@ Table::Table(QWidget *parent) :
     ui(new Ui::Table)
 {
     ui->setupUi(this);
+    this->infobox = new InfoBox();
 }
 
 Table::~Table()
@@ -26,8 +27,11 @@ int Table::getId () const
     return id;
 }
 
+double Table::getBill() {
+    return Util::priceCal(this->infobox);
+}
+
 void Table::mousePressEvent(QMouseEvent *event) {
-    InfoBox infobox;
-    infobox.setModal(true);
-    infobox.exec();
+    this->infobox->setModal(true);
+    this->infobox->exec();
 }
