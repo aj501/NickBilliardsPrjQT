@@ -1,13 +1,10 @@
-#include "nickbilliards.h"
+#include "tablemanager.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    NickBilliards w;
+    TableManager w;
     w.show();
-
     return a.exec();
-
-    //added this to main
 }

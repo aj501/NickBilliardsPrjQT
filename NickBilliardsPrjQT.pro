@@ -28,20 +28,20 @@ SOURCES += \
         dialog.cpp \
         infobox.cpp \
         main.cpp \
-        nickbilliards.cpp \
-        table.cpp
+        table.cpp \
+        tablemanager.cpp
 
 HEADERS += \
         dialog.h \
         infobox.h \
-        nickbilliards.h \
-        table.h
+        table.h \
+        tablemanager.h
 
 FORMS += \
         dialog.ui \
         infobox.ui \
-        nickbilliards.ui \
-        table.ui
+        table.ui \
+        tablemanager.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

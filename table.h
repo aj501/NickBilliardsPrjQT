@@ -15,8 +15,12 @@ public:
     explicit Table(QWidget *parent = nullptr);
     ~Table();
 
+    int getId() const;
+    void setId(const int & id);
+
 private:
     Ui::Table *ui;
+    int id;
 };
 
 #endif // TABLE_H
