@@ -13,3 +13,22 @@ InfoBox::~InfoBox()
     delete ui;
 }
 
+time_t InfoBox::getStartTime() const
+{
+    return startTime;
+}
+
+time_t InfoBox::getEndTime() const
+{
+    return endTime;
+}
+
+void InfoBox::setStartTime(const time_t & time)
+{
+    this->startTime = time;
+}
+
+void InfoBox::setEndTime(const time_t & time)
+{
+    this->startTime = time;
+}

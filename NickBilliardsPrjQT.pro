@@ -33,9 +33,11 @@ SOURCES += \
 
 HEADERS += \
         dialog.h \
+        enums.h \
         infobox.h \
         table.h \
-        tablemanager.h
+        tablemanager.h \
+        util.h
 
 FORMS += \
         dialog.ui \
