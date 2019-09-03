@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <infobox.h>
 #include "table.h"
+#include "control.h"
 #include "ui_table.h"
 
 TableManager::TableManager(QWidget *parent) :
@@ -42,17 +43,7 @@ TableManager::~TableManager()
     delete ui;
 }
 
-void TableManager::on_pushButton_clicked()
-{
-    QDialog Dialog;
-    Dialog.setModal(true);
-    Dialog.exec();
-}
-
-
-void TableManager::on_pushButton_pressed()
-{
-    InfoBox infobox;
-    infobox.setModal(true);
-    infobox.exec();
+void TableManager::changeControl(Table* table){
+    ((Control*)ui->control)->setType(table->getIsInUse());
+    table->setIsInUse(!table->getIsInUse());
 }

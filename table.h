@@ -4,6 +4,7 @@
 #include <QGroupBox>
 #include "infobox.h"
 #include "enums.h"
+#include "ui_table.h"
 
 namespace Ui {
 class Table;
@@ -20,6 +21,9 @@ public:
     int getId() const;
     void setId(const int & id);
 
+    bool getIsInUse() const;
+    void setIsInUse(const bool & isInUse);
+
     double getBill();
 
 protected:
@@ -29,7 +33,7 @@ private:
     Ui::Table *ui;
     int id;
     TableType type;
-    bool isInUse;
+    bool isInUse = false;
     bool isIdTaken;
 
     InfoBox *infobox;

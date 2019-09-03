@@ -25,25 +25,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        control.cpp \
         dialog.cpp \
         infobox.cpp \
         main.cpp \
         table.cpp \
-        tablemanager.cpp
+        tableedit.cpp \
+        tablemanager.cpp \
+        tablestart.cpp
 
 HEADERS += \
+        control.h \
         dialog.h \
         enums.h \
         infobox.h \
         table.h \
+        tableedit.h \
         tablemanager.h \
+        tablestart.h \
         util.h
 
 FORMS += \
+        control.ui \
         dialog.ui \
         infobox.ui \
         table.ui \
-        tablemanager.ui
+        tableedit.ui \
+        tablemanager.ui \
+        tablestart.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
