@@ -1,6 +1,5 @@
-#include "table.h"
-#include "ui_table.h"
 #include "util.h"
+#include "tablemanager.h"
 #include <QtGui>
 
 Table::Table(QWidget *parent) :
@@ -27,11 +26,22 @@ int Table::getId () const
     return id;
 }
 
+bool Table::getIsInUse () const
+{
+    return isInUse;
+}
+
+void Table::setIsInUse ( const bool & isInUse )
+{
+    this->isInUse = isInUse;
+}
+
+
 double Table::getBill() {
     return Util::priceCal(this->infobox);
 }
 
 void Table::mousePressEvent(QMouseEvent *event) {
-    this->infobox->setModal(true);
-    this->infobox->exec();
+    ((TableManager*) this->parent())->changeControl(this);
+    //this->infobox->exec();
 }

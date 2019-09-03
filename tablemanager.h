@@ -15,10 +15,7 @@ class TableManager : public QWidget
 public:
     explicit TableManager(QWidget *parent = nullptr);
     ~TableManager();
-
-public slots:
-    void on_pushButton_clicked();
-    void on_pushButton_pressed();
+    void changeControl(Table*);
 
 private:
     Ui::TableManager *ui;
