@@ -22,10 +22,10 @@
   <widget class="QLabel" name="Welcome">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>241</width>
-     <height>51</height>
+     <x>70</x>
+     <y>20</y>
+     <width>401</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -35,7 +35,7 @@
     <number>0</number>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; font-style:italic; color:#ba371e;&quot;&gt;WELCOME TO NICK'S BILLIARDS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; font-style:italic; color:#2d505c;&quot;&gt;WELCOME TO &lt;/span&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; font-style:italic; color:#e9a728;&quot;&gt;NICK'S BILLIARDS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
@@ -47,10 +47,10 @@
   <widget class="Table" name="table1" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>86</x>
+     <y>178</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
    </property>
    <property name="acceptDrops">
@@ -59,245 +59,451 @@
    <property name="toolTipDuration">
     <number>12</number>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
+   </property>
   </widget>
   <widget class="Table" name="table2" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>86</x>
+     <y>255</y>
+     <width>115</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table3" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>81</width>
-     <height>41</height>
+     <x>86</x>
+     <y>333</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table4" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>220</y>
-     <width>81</width>
-     <height>41</height>
+     <x>86</x>
+     <y>410</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table5" native="true">
    <property name="geometry">
     <rect>
-     <x>99</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>211</x>
+     <y>178</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table6" native="true">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>211</x>
+     <y>255</y>
+     <width>115</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table7" native="true">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>170</y>
-     <width>81</width>
-     <height>41</height>
+     <x>211</x>
+     <y>333</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table8" native="true">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>220</y>
-     <width>81</width>
-     <height>41</height>
+     <x>211</x>
+     <y>410</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table9" native="true">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>336</x>
+     <y>178</y>
+     <width>114</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table10" native="true">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>336</x>
+     <y>255</y>
+     <width>114</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(223, 167, 40);
+</string>
    </property>
   </widget>
   <widget class="Table" name="table11" native="true">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>336</x>
+     <y>333</y>
+     <width>114</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table12" native="true">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>336</x>
+     <y>410</y>
+     <width>114</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table13" native="true">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>170</y>
-     <width>81</width>
-     <height>41</height>
+     <x>460</x>
+     <y>178</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table14" native="true">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>220</y>
-     <width>81</width>
-     <height>41</height>
+     <x>460</x>
+     <y>255</y>
+     <width>115</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table15" native="true">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>460</x>
+     <y>333</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table16" native="true">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>460</x>
+     <y>410</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table17" native="true">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>170</y>
-     <width>81</width>
-     <height>41</height>
+     <x>585</x>
+     <y>178</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table18" native="true">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>220</y>
-     <width>81</width>
-     <height>41</height>
+     <x>585</x>
+     <y>255</y>
+     <width>115</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table19" native="true">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>585</x>
+     <y>333</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table20" native="true">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>585</x>
+     <y>410</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(45, 80, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table21" native="true">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>710</x>
+     <y>178</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(224, 59, 62);</string>
    </property>
   </widget>
   <widget class="Table" name="table22" native="true">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>710</x>
+     <y>255</y>
+     <width>115</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(224, 59, 62);</string>
    </property>
   </widget>
   <widget class="Table" name="table23" native="true">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>70</y>
-     <width>81</width>
-     <height>41</height>
+     <x>710</x>
+     <y>333</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(224, 59, 62);</string>
    </property>
   </widget>
   <widget class="Table" name="table24" native="true">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>120</y>
-     <width>81</width>
-     <height>41</height>
+     <x>710</x>
+     <y>410</y>
+     <width>115</width>
+     <height>67</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:25px;
+background-color: rgb(224, 59, 62);</string>
    </property>
   </widget>
   <widget class="QWidget" name="control" native="true">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>70</y>
+     <x>865</x>
+     <y>97</y>
      <width>341</width>
      <height>441</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>499</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:35px;
+background:rgb(223,167,40)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>485</x>
+     <y>499</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:rgb(45,80,92)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>735</x>
+     <y>499</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(224, 59, 62);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>113</x>
+     <y>499</y>
+     <width>63</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>    9 footer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>499</y>
+     <width>73</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>       7 footer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>765</x>
+     <y>499</y>
+     <width>50</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Snooker</string>
    </property>
   </widget>
  </widget>
