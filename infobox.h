@@ -16,13 +16,10 @@ public:
     explicit InfoBox(QWidget *parent = nullptr);
     ~InfoBox();
 
-<<<<<<< HEAD
-=======
     time_t getStartTime() const;
     time_t getEndTime() const;
     void setStartTime(const time_t & time);
     void setEndTime(const time_t & time);
->>>>>>> d388566ddb65981b428673eb2ece203325c5a20a
 
 private:
     Ui::InfoBox *ui;
