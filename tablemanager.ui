@@ -6,9 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
+    <width>800</width>
+    <height>500</height>
+=======
     <width>1166</width>
     <height>545</height>
+>>>>>>> 7589224ec230195722ab2daad4e948076252c96e
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>

@@ -13,6 +13,11 @@ InfoBox::~InfoBox()
     delete ui;
 }
 
+<<<<<<< HEAD
+
+void InfoBox::on_pushButton_2_clicked()
+{
+=======
 time_t InfoBox::getStartTime() const
 {
     return startTime;
@@ -31,4 +36,5 @@ void InfoBox::setStartTime(const time_t & time)
 void InfoBox::setEndTime(const time_t & time)
 {
     this->startTime = time;
+>>>>>>> d388566ddb65981b428673eb2ece203325c5a20a
 }
