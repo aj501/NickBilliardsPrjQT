@@ -7,7 +7,7 @@ Table::Table(QWidget *parent) :
     ui(new Ui::Table)
 {
     ui->setupUi(this);
-    this->infobox = new InfoBox();
+    this->infobox = new InfoBox(); 
 }
 
 Table::~Table()
