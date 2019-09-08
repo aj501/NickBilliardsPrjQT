@@ -17,6 +17,6 @@ TableStart::~TableStart()
 }
 
 void TableStart::on_pushButton_pressed() {
-    // Change color here...
+    //TODO: Change color here...
     this->table->setId(31);
 }
