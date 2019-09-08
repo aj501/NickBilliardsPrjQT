@@ -2,6 +2,7 @@
 #define CONTROL_H
 
 #include <QWidget>
+#include "table.h"
 
 namespace Ui {
 class Control;
@@ -15,7 +16,7 @@ public:
     explicit Control(QWidget *parent = nullptr);
     ~Control();
 
-    void setType(bool active);
+    void setType(Table* table);
 
 private:
     Ui::Control *ui;

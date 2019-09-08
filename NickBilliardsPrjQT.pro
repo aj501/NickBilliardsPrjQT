@@ -43,6 +43,7 @@ HEADERS += \
         tableedit.h \
         tablemanager.h \
         tablestart.h \
+        tabletype.h \
         util.h
 
 FORMS += \

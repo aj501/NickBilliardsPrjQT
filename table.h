@@ -2,9 +2,8 @@
 #define TABLE_H
 
 #include <QGroupBox>
-#include "infobox.h"
-#include "enums.h"
 #include "ui_table.h"
+#include "tabletype.h"
 
 namespace Ui {
 class Table;
@@ -24,7 +23,7 @@ public:
     bool getIsInUse() const;
     void setIsInUse(const bool & isInUse);
 
-    double getBill();
+    //double getBill();
 
 protected:
      void mousePressEvent (QMouseEvent *event) override;
@@ -35,9 +34,6 @@ private:
     TableType type;
     bool isInUse = false;
     bool isIdTaken;
-
-    InfoBox *infobox;
-
 };
 
 #endif // TABLE_H

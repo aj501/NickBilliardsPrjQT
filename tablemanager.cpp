@@ -44,6 +44,6 @@ TableManager::~TableManager()
 }
 
 void TableManager::changeControl(Table* table){
-    ((Control*)ui->control)->setType(table->getIsInUse());
-    table->setIsInUse(!table->getIsInUse());
+    ((Control*)ui->control)->setType(table);
+    //table->setIsInUse(!table->getIsInUse());
 }

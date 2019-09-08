@@ -7,7 +7,6 @@ Table::Table(QWidget *parent) :
     ui(new Ui::Table)
 {
     ui->setupUi(this);
-    this->infobox = new InfoBox(); 
 }
 
 Table::~Table()
@@ -36,10 +35,11 @@ void Table::setIsInUse ( const bool & isInUse )
     this->isInUse = isInUse;
 }
 
-
+/*
 double Table::getBill() {
     return Util::priceCal(this->infobox);
 }
+*/
 
 void Table::mousePressEvent(QMouseEvent *event) {
     ((TableManager*) this->parent())->changeControl(this);

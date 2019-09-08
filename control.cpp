@@ -18,16 +18,16 @@ Control::~Control()
     delete ui;
 }
 
-void Control::setType(bool isInUse) {
-    if (!isInUse) {
+void Control::setType(Table* table) {
+    if (!table->getIsInUse()) {
         qDeleteAll(this->children());
         QHBoxLayout *layout = new QHBoxLayout();
-        layout->addWidget(new TableStart);
+        layout->addWidget(new TableStart(table));
         setLayout(layout);
     } else {
         qDeleteAll(this->children());
         QHBoxLayout *layout = new QHBoxLayout();
-        layout->addWidget(new TableEdit);
+        layout->addWidget(new TableEdit(table));
         setLayout(layout);
     }
 }
