@@ -36,6 +36,7 @@ TableManager::TableManager(QWidget *parent) :
     ui->table22->setId(22);
     ui->table23->setId(23);
     ui->table24->setId(24);
+
 }
 
 TableManager::~TableManager()
