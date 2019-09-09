@@ -211,7 +211,7 @@ background-color: rgb(223, 167, 40);
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table12" native="true">
@@ -225,7 +225,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table13" native="true">
@@ -239,7 +239,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table14" native="true">
@@ -253,7 +253,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table15" native="true">
@@ -267,7 +267,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table16" native="true">
@@ -281,7 +281,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table17" native="true">
@@ -295,7 +295,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table18" native="true">
@@ -309,7 +309,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table19" native="true">
@@ -323,7 +323,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table20" native="true">
@@ -337,7 +337,7 @@ background-color: rgb(45, 80, 92);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-radius:25px;
-background-color: rgb(45, 80, 92);</string>
+background-color: rgb(45, 120, 92);</string>
    </property>
   </widget>
   <widget class="Table" name="table21" native="true">
@@ -400,7 +400,7 @@ background-color: rgb(224, 59, 62);</string>
    <property name="geometry">
     <rect>
      <x>865</x>
-     <y>97</y>
+     <y>110</y>
      <width>341</width>
      <height>441</height>
     </rect>

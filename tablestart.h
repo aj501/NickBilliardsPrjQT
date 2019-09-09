@@ -22,8 +22,8 @@ private:
     Table* table;
 
 private slots:
-    void on_pushButton_pressed();
-    void on_pushButton_2_clicked();
+    void on_startButton_pressed();
+    void on_cancelButton_clicked();
 };
 
 #endif // TABLESTART_H

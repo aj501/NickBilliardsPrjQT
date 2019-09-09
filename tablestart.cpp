@@ -8,24 +8,11 @@ TableStart::TableStart(QWidget *parent) :
 {
     ui->setupUi(this);
     this->table = dynamic_cast<Table*>(parent);
-    ui->comboBox->addItem("1");
-    ui->comboBox->addItem("2");
-    ui->comboBox->addItem("3");
-    ui->comboBox->addItem("4");
-    ui->comboBox->addItem("5");
-    ui->comboBox->addItem("6");
-    ui->comboBox->addItem("7");
-    ui->comboBox->addItem("8");
 
     for (int i = 0; i<=8;i++)
     {
-    ui->comboBox->addItem(QString::number(i));
+    ui->PlayerNum_ComboBox->addItem(QString::number(i));
     }
-    for (int i = 0; i<=24;i++)
-    {
-    ui->comboBox_2->addItem(QString::number(i));
-    }
-
 }
 
 TableStart::~TableStart()
@@ -33,16 +20,19 @@ TableStart::~TableStart()
     delete ui;
 }
 
-void TableStart::on_pushButton_pressed() {
-    //TODO: Change color here...
+void TableStart::on_startButton_pressed() {
+    //Color change using Qpallete
     QPalette pal = palette();
     pal.setColor(QPalette::Background, Qt::black);
     this->table->setAutoFillBackground(true);
     this->table->setPalette(pal);
     this->table->setIsOccupied(true);
+
+    //After start is clicked, it starts timing the table, save the info and also close out the current window
+    this->close();
 }
 
-void TableStart::on_pushButton_2_clicked()
+void TableStart::on_cancelButton_clicked()
 {
     this->close();
 }
