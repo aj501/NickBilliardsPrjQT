@@ -17,6 +17,15 @@ TableStart::TableStart(QWidget *parent) :
     ui->comboBox->addItem("7");
     ui->comboBox->addItem("8");
 
+    for (int i = 0; i<=8;i++)
+    {
+    ui->comboBox->addItem(QString::number(i));
+    }
+    for (int i = 0; i<=24;i++)
+    {
+    ui->comboBox_2->addItem(QString::number(i));
+    }
+
 }
 
 TableStart::~TableStart()
