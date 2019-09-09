@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1166</width>
-    <height>545</height>
+    <width>1574</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -406,7 +406,9 @@ background-color: rgb(224, 59, 62);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">border-color: rgb(252, 40, 73);
+border-right-color: rgb(252, 0, 10);
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -436,7 +438,7 @@ background:rgb(223,167,40)</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:rgb(45,80,92)</string>
+    <string notr="true">background:rgb(45,120,92)</string>
    </property>
    <property name="text">
     <string/>
@@ -504,6 +506,35 @@ background:rgb(223,167,40)</string>
    </property>
    <property name="text">
     <string>Snooker</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>560</y>
+     <width>741</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(120, 120, 120);</string>
+   </property>
+   <property name="placeholderText">
+    <string>Let your team members know of the goingons here </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>530</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Memo/Specials</string>
    </property>
   </widget>
  </widget>

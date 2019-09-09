@@ -31,7 +31,9 @@ SOURCES += \
         table.cpp \
         tableedit.cpp \
         tablemanager.cpp \
-        tablestart.cpp
+        tablestart.cpp \
+        tabletab.cpp \
+        transfertable.cpp
 
 HEADERS += \
         bill.h \
@@ -40,7 +42,9 @@ HEADERS += \
         tableedit.h \
         tablemanager.h \
         tablestart.h \
+        tabletab.h \
         tabletype.h \
+        transfertable.h \
         utils.h
 
 FORMS += \
@@ -48,7 +52,9 @@ FORMS += \
         table.ui \
         tableedit.ui \
         tablemanager.ui \
-        tablestart.ui
+        tablestart.ui \
+        tabletab.ui \
+        transfertable.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
