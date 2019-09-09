@@ -1,6 +1,5 @@
 #include "tablestart.h"
 #include "table.h"
-#include "infobox.h"
 #include "ui_tablestart.h"
 
 TableStart::TableStart(QWidget *parent) :
@@ -20,10 +19,6 @@ TableStart::TableStart(QWidget *parent) :
 
 }
 
-
-
-
-
 TableStart::~TableStart()
 {
     delete ui;
@@ -31,9 +26,11 @@ TableStart::~TableStart()
 
 void TableStart::on_pushButton_pressed() {
     //TODO: Change color here...
-   // this->table->setPalette(QPalette::Background green);
-    this->table->setIsInUse(1);
-
+    QPalette pal = palette();
+    pal.setColor(QPalette::Background, Qt::black);
+    this->table->setAutoFillBackground(true);
+    this->table->setPalette(pal);
+    this->table->setIsOccupied(true);
 }
 
 void TableStart::on_pushButton_2_clicked()

@@ -1,10 +1,10 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include "infobox.h"
+#include "bill.h"
 
 namespace Util {
-    double priceCal(const InfoBox * const info) {
+    double priceCal(const Bill * const bill) {
         return 0.0;
     }
 }

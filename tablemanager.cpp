@@ -2,7 +2,6 @@
 #include "ui_tablemanager.h"
 #include <QDialog>
 #include <QApplication>
-#include <infobox.h>
 #include "table.h"
 #include "control.h"
 #include "ui_table.h"
@@ -37,6 +36,31 @@ TableManager::TableManager(QWidget *parent) :
     ui->table23->setId(23);
     ui->table24->setId(24);
 
+    // Set up table type
+    ui->table1->setTableType(TableType::NineFooter);
+    ui->table2->setTableType(TableType::NineFooter);
+    ui->table3->setTableType(TableType::NineFooter);
+    ui->table4->setTableType(TableType::NineFooter);
+    ui->table5->setTableType(TableType::NineFooter);
+    ui->table6->setTableType(TableType::NineFooter);
+    ui->table7->setTableType(TableType::NineFooter);
+    ui->table8->setTableType(TableType::NineFooter);
+    ui->table9->setTableType(TableType::NineFooter);
+    ui->table10->setTableType(TableType::NineFooter);
+    ui->table11->setTableType(TableType::SevenFooter);
+    ui->table12->setTableType(TableType::SevenFooter);
+    ui->table13->setTableType(TableType::SevenFooter);
+    ui->table14->setTableType(TableType::SevenFooter);
+    ui->table15->setTableType(TableType::SevenFooter);
+    ui->table16->setTableType(TableType::SevenFooter);
+    ui->table17->setTableType(TableType::SevenFooter);
+    ui->table18->setTableType(TableType::SevenFooter);
+    ui->table19->setTableType(TableType::SevenFooter);
+    ui->table20->setTableType(TableType::SevenFooter);
+    ui->table21->setTableType(TableType::Snooker);
+    ui->table22->setTableType(TableType::Snooker);
+    ui->table23->setTableType(TableType::Snooker);
+    ui->table24->setTableType(TableType::Snooker);
 }
 
 TableManager::~TableManager()

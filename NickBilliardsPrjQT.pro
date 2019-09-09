@@ -25,9 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        bill.cpp \
         control.cpp \
-        dialog.cpp \
-        infobox.cpp \
         main.cpp \
         table.cpp \
         tableedit.cpp \
@@ -35,21 +34,17 @@ SOURCES += \
         tablestart.cpp
 
 HEADERS += \
+        bill.h \
         control.h \
-        dialog.h \
-        enums.h \
-        infobox.h \
         table.h \
         tableedit.h \
         tablemanager.h \
         tablestart.h \
         tabletype.h \
-        util.h
+        utils.h
 
 FORMS += \
         control.ui \
-        dialog.ui \
-        infobox.ui \
         table.ui \
         tableedit.ui \
         tablemanager.ui \

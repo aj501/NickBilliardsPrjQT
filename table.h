@@ -4,6 +4,7 @@
 #include <QGroupBox>
 #include "ui_table.h"
 #include "tabletype.h"
+#include "bill.h"
 
 namespace Ui {
 class Table;
@@ -20,10 +21,16 @@ public:
     int getId() const;
     void setId(const int & id);
 
-    bool getIsInUse() const;
-    void setIsInUse(const bool & isInUse);
+    bool getIsOccupied() const;
+    void setIsOccupied(const bool & is_occupied);
 
-    //double getBill();
+    TableType getTableType() const;
+    void setTableType(const TableType & table_type);
+
+    double getBillTotal();
+
+    void checkIn();
+    void checkOut();
 
 protected:
      void mousePressEvent (QMouseEvent *event) override;
@@ -32,8 +39,9 @@ private:
     Ui::Table *ui;
     int id;
     TableType type;
-    bool isInUse = false;
-    bool isIdTaken;
+    bool is_occupied = false;
+    bool is_id_taken;
+    Bill bill;
 };
 
 #endif // TABLE_H

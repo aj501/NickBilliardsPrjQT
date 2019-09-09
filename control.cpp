@@ -19,7 +19,7 @@ Control::~Control()
 }
 
 void Control::setType(Table* table) {
-    if (!table->getIsInUse()) {
+    if (!table->getIsOccupied()) {
         qDeleteAll(this->children());
         QHBoxLayout *layout = new QHBoxLayout();
         layout->addWidget(new TableStart(table));
