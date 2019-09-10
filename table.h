@@ -29,7 +29,7 @@ public:
 
     double getBillTotal();
 
-    void checkIn();
+    void checkIn(int numPlayers, bool isIdTaken);
     void checkOut();
 
 protected:

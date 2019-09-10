@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="numPlayersLabel">
    <property name="geometry">
     <rect>
      <x>92</x>
@@ -35,7 +35,7 @@
     <string># players</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="idTakenLabel">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -57,7 +57,7 @@
     <string>ID Taken</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="PlayerNum_ComboBox">
+  <widget class="QComboBox" name="numPlayersComboBox">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -67,7 +67,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="idTakenCheckBox">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -118,7 +118,7 @@
     <string>Cancel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="Start_New_Table_Label">
+  <widget class="QLabel" name="startNewTableLabel">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -159,7 +159,7 @@
     <string>Table #</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lTableNumber_Display">
+  <widget class="QLabel" name="tableNumberLabel">
    <property name="geometry">
     <rect>
      <x>180</x>

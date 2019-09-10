@@ -38,6 +38,8 @@ SOURCES += \
 HEADERS += \
         bill.h \
         control.h \
+        discounttype.h \
+        ratetype.h \
         table.h \
         tableedit.h \
         tablemanager.h \

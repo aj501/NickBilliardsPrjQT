@@ -37,7 +37,7 @@ void Table::setIsOccupied ( const bool & is_occupied )
 }
 
 double Table::getBillTotal() {
-    return Util::priceCal(&bill);
+    return Utils::priceCal(&bill);
 }
 
 TableType Table::getTableType() const{
@@ -48,8 +48,16 @@ void Table::setTableType(const TableType & table_type) {
     this->type = table_type;
 }
 
-void Table::checkIn()  {
-
+void Table::checkIn(int numPlayers, bool isIdTaken)  {
+    QPalette pal = palette();
+    pal.setColor(QPalette::Background, Qt::black);
+    this->setAutoFillBackground(true);
+    this->setPalette(pal);
+    this->setIsOccupied(true);
+    QDateTime now = QDateTime::currentDateTime();
+    QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+    this->is_id_taken = isIdTaken;
+    this->bill.setStartTime(now);
 }
 
 void Table::checkOut() {

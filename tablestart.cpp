@@ -11,7 +11,7 @@ TableStart::TableStart(QWidget *parent) :
 
     for (int i = 0; i<=8;i++)
     {
-    ui->PlayerNum_ComboBox->addItem(QString::number(i));
+    ui->numPlayersComboBox->addItem(QString::number(i));
     }
 }
 
@@ -21,14 +21,9 @@ TableStart::~TableStart()
 }
 
 void TableStart::on_startButton_pressed() {
-    //Color change using Qpallete
-    QPalette pal = palette();
-    pal.setColor(QPalette::Background, Qt::black);
-    this->table->setAutoFillBackground(true);
-    this->table->setPalette(pal);
-    this->table->setIsOccupied(true);
-
-    //After start is clicked, it starts timing the table, save the info and also close out the current window
+    int numPlayers = ui->numPlayersComboBox->currentText().toInt();
+    bool isIdTaken = ui->idTakenCheckBox->isChecked();
+    this->table->checkIn(numPlayers, isIdTaken);
     this->close();
 }
 
