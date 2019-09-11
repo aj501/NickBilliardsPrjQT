@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(69, 69, 69);</string>
+  </property>
   <widget class="QLabel" name="Welcome">
    <property name="geometry">
     <rect>
@@ -462,7 +465,7 @@ background:rgb(223,167,40)</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>460</y>
      <width>63</width>
      <height>16</height>
@@ -472,23 +475,23 @@ background:rgb(223,167,40)</string>
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>    9 footer</string>
+    <string>  9 footer</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>450</x>
      <y>461</y>
-     <width>73</width>
-     <height>16</height>
+     <width>71</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>       7 footer</string>
+    <string>   7 footer</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -496,7 +499,7 @@ background:rgb(223,167,40)</string>
     <rect>
      <x>760</x>
      <y>460</y>
-     <width>50</width>
+     <width>61</width>
      <height>16</height>
     </rect>
    </property>
@@ -504,7 +507,7 @@ background:rgb(223,167,40)</string>
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>Snooker</string>
+    <string> Snooker</string>
    </property>
   </widget>
   <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -540,16 +543,67 @@ background:rgb(223,167,40)</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>560</y>
+     <y>570</y>
      <width>331</width>
-     <height>181</height>
+     <height>161</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-color: rgb(255, 235, 70);
-background-color: rgb(41, 42, 42);</string>
+    <string notr="true">background-color: transparent;</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>560</y>
+     <width>351</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_8</zorder>
+  <zorder>Welcome</zorder>
+  <zorder>table1</zorder>
+  <zorder>table2</zorder>
+  <zorder>table3</zorder>
+  <zorder>table4</zorder>
+  <zorder>table5</zorder>
+  <zorder>table6</zorder>
+  <zorder>table7</zorder>
+  <zorder>table8</zorder>
+  <zorder>table9</zorder>
+  <zorder>table10</zorder>
+  <zorder>table11</zorder>
+  <zorder>table12</zorder>
+  <zorder>table13</zorder>
+  <zorder>table14</zorder>
+  <zorder>table15</zorder>
+  <zorder>table16</zorder>
+  <zorder>table17</zorder>
+  <zorder>table18</zorder>
+  <zorder>table19</zorder>
+  <zorder>table20</zorder>
+  <zorder>table21</zorder>
+  <zorder>table22</zorder>
+  <zorder>table23</zorder>
+  <zorder>table24</zorder>
+  <zorder>control</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>plainTextEdit</zorder>
+  <zorder>label_7</zorder>
+  <zorder>widget</zorder>
  </widget>
  <customwidgets>
   <customwidget>

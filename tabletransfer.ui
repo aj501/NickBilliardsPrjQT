@@ -14,12 +14,12 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color:rgb(69, 69, 69)</string>
   </property>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>120</x>
      <y>10</y>
      <width>91</width>
      <height>31</height>
@@ -32,7 +32,7 @@
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>80</x>
      <y>60</y>
      <width>59</width>
      <height>16</height>
@@ -45,8 +45,8 @@
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>100</y>
+     <x>80</x>
+     <y>90</y>
      <width>59</width>
      <height>16</height>
     </rect>
@@ -58,8 +58,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>140</y>
+     <x>130</x>
+     <y>130</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -75,20 +75,20 @@ background-color: rgb(223, 167, 40);</string>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>50</y>
-     <width>91</width>
-     <height>32</height>
+     <x>190</x>
+     <y>60</y>
+     <width>71</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox_2">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>90</y>
-     <width>91</width>
-     <height>32</height>
+     <x>190</x>
+     <y>91</y>
+     <width>71</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
