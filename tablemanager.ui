@@ -402,7 +402,7 @@ background-color: rgb(224, 59, 62);</string>
      <x>870</x>
      <y>140</y>
      <width>321</width>
-     <height>411</height>
+     <height>391</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -536,111 +536,19 @@ background:rgb(223,167,40)</string>
     <string>Memo/Specials</string>
    </property>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="TableTransfer" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>100</x>
      <y>560</y>
-     <width>351</width>
+     <width>331</width>
      <height>181</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(68, 68, 68);</string>
+    <string notr="true">border-color: rgb(255, 235, 70);
+background-color: rgb(41, 42, 42);</string>
    </property>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>10</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Transfer Table</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>60</y>
-      <width>59</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>From:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>90</y>
-      <width>59</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>To:</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="transferFrom_comboBox">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>50</y>
-      <width>61</width>
-      <height>32</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="transferTo_comboBox">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>80</y>
-      <width>61</width>
-      <height>32</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>131</y>
-      <width>71</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius:10;
-background-color: rgb(223, 167, 40);</string>
-    </property>
-    <property name="text">
-     <string>Cancel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>131</y>
-      <width>71</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius:10;
-background-color: rgb(223, 167, 40);</string>
-    </property>
-    <property name="text">
-     <string>Save</string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -648,6 +556,12 @@ background-color: rgb(223, 167, 40);</string>
    <class>Table</class>
    <extends>QWidget</extends>
    <header>table.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TableTransfer</class>
+   <extends>QWidget</extends>
+   <header location="global">tabletransfer.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

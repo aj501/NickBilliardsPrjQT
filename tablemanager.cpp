@@ -12,6 +12,7 @@ TableManager::TableManager(QWidget *parent) :
     ui(new Ui::TableManager)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-color: gray;");
     ui->table1->setId(1);
     ui->table2->setId(2);
     ui->table3->setId(3);
