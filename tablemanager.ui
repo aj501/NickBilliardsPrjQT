@@ -24,7 +24,7 @@
     <rect>
      <x>70</x>
      <y>20</y>
-     <width>401</width>
+     <width>481</width>
      <height>111</height>
     </rect>
    </property>
@@ -35,7 +35,7 @@
     <number>0</number>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; font-style:italic; color:#e7af65;&quot;&gt;WELCOME TO NICK'S BILLIARDS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; font-style:italic; color:#e7af65;&quot;&gt;WELCOME TO &lt;/span&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; font-style:italic; color:#e7af65;&quot;&gt;NICK'S BILLIARDS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
@@ -430,7 +430,7 @@ background:rgb(223,167,40)</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>430</x>
      <y>461</y>
      <width>16</width>
      <height>16</height>
@@ -478,7 +478,7 @@ background:rgb(223,167,40)</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>430</x>
      <y>461</y>
      <width>73</width>
      <height>16</height>
@@ -587,7 +587,7 @@ background:rgb(223,167,40)</string>
      <string>To:</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="transferFrom_comboBox">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -597,7 +597,7 @@ background:rgb(223,167,40)</string>
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="transferTo_comboBox">
     <property name="geometry">
      <rect>
       <x>200</x>

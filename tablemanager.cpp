@@ -6,6 +6,7 @@
 #include "control.h"
 #include "ui_table.h"
 
+
 TableManager::TableManager(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TableManager)
@@ -61,6 +62,8 @@ TableManager::TableManager(QWidget *parent) :
     ui->table22->setTableType(TableType::Snooker);
     ui->table23->setTableType(TableType::Snooker);
     ui->table24->setTableType(TableType::Snooker);
+
+    //Transfer Table ComboBox
 }
 
 TableManager::~TableManager()
@@ -72,3 +75,5 @@ void TableManager::changeControl(Table* table){
     ((Control*)ui->control)->setType(table);
     //table->setIsInUse(!table->getIsInUse());
 }
+
+

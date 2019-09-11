@@ -18,9 +18,7 @@ public:
 
 private slots:
     void on_editTable_CancelButton_clicked();
-    void on_editTable_TransferButton_clicked();
     void on_editTable_TabButton_clicked();
-
     void on_editTable_SaveButton_clicked();
 
 private:

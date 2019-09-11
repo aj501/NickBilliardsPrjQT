@@ -17,6 +17,7 @@ public:
     ~TableManager();
     void changeControl(Table*);
 
+
 private:
     Ui::TableManager *ui;
 };

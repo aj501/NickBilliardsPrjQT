@@ -1,6 +1,5 @@
 #include "tableedit.h"
 #include "ui_tableedit.h"
-#include "transfertable.h"
 #include "tabletab.h"
 
 
@@ -25,16 +24,6 @@ TableEdit::~TableEdit()
 void TableEdit::on_editTable_CancelButton_clicked()
 {
     this->close();
-}
-
-
-
-
-void TableEdit::on_editTable_TransferButton_clicked()
-{
-    transfertable transfertable;
-    transfertable.setModal(true);
-    transfertable.exec();
 }
 
 void TableEdit::on_editTable_TabButton_clicked()
