@@ -15,9 +15,7 @@ class TableManager : public QWidget
 public:
     explicit TableManager(QWidget *parent = nullptr);
     ~TableManager();
-    void changeControl(Table*);
-
-
+    void changeControl(Table*);    
 private:
     Ui::TableManager *ui;
 };

@@ -5,6 +5,7 @@
 #include "table.h"
 #include "control.h"
 #include "ui_table.h"
+#include <QPixmap>
 
 
 TableManager::TableManager(QWidget *parent) :
@@ -76,5 +77,6 @@ void TableManager::changeControl(Table* table){
     ((Control*)ui->control)->setType(table);
     //table->setIsInUse(!table->getIsInUse());
 }
+
 
 

@@ -26,5 +26,5 @@ TableTransfer::~TableTransfer()
 void TableTransfer::on_SaveTransfer_pushButton_clicked()
 {
     //On clicking save, table needs to transfer to new table, information needs to be saved
-    this->close();
+
 }

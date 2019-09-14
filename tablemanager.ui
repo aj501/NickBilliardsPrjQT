@@ -568,6 +568,37 @@ background:rgb(223,167,40)</string>
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>1200</x>
+     <y>10</y>
+     <width>54</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/info.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="autoRepeatDelay">
+    <number>1</number>
+   </property>
+   <property name="autoRepeatInterval">
+    <number>1</number>
+   </property>
+  </widget>
   <zorder>label_8</zorder>
   <zorder>Welcome</zorder>
   <zorder>table1</zorder>
@@ -604,6 +635,7 @@ background:rgb(223,167,40)</string>
   <zorder>plainTextEdit</zorder>
   <zorder>label_7</zorder>
   <zorder>widget</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <customwidgets>
   <customwidget>

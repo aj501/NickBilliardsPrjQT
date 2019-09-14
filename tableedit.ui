@@ -495,7 +495,7 @@
     <string>Table</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="tableNumberDisplay">
    <property name="geometry">
     <rect>
      <x>130</x>
