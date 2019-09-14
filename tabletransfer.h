@@ -15,6 +15,9 @@ public:
     explicit TableTransfer(QWidget *parent = nullptr);
     ~TableTransfer();
 
+private slots:
+    void on_SaveTransfer_pushButton_clicked();
+
 private:
     Ui::TableTransfer *ui;
 };

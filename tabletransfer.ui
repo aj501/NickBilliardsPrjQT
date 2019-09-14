@@ -55,7 +55,7 @@
     <string>To:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="SaveTransfer_pushButton">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -72,7 +72,7 @@ background-color: rgb(223, 167, 40);</string>
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="TransferFrom_comboBox">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -82,7 +82,7 @@ background-color: rgb(223, 167, 40);</string>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
+  <widget class="QComboBox" name="TransferTo_comboBox">
    <property name="geometry">
     <rect>
      <x>190</x>
