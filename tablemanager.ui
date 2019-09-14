@@ -539,7 +539,7 @@ background:rgb(223,167,40)</string>
     <string>Memo/Specials</string>
    </property>
   </widget>
-  <widget class="TableTransfer" name="widget" native="true">
+  <widget class="TableTransfer" name="transfer" native="true">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -634,8 +634,8 @@ background:rgb(223,167,40)</string>
   <zorder>label_6</zorder>
   <zorder>plainTextEdit</zorder>
   <zorder>label_7</zorder>
-  <zorder>widget</zorder>
   <zorder>pushButton</zorder>
+  <zorder>transfer</zorder>
  </widget>
  <customwidgets>
   <customwidget>
