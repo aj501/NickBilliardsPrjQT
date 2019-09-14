@@ -20,6 +20,7 @@ public:
 private:
     QDateTime start_time;
     QDateTime end_time;
+
     int num_players;
     double current_bill;
 };

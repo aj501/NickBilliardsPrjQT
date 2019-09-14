@@ -3,6 +3,8 @@
 #include <QDialog>
 #include <QApplication>
 #include "control.h"
+#include "ui_table.h"
+#include <QPixmap>
 
 TableManager::TableManager(QWidget *parent) :
     QWidget(parent),
@@ -36,7 +38,6 @@ TableManager::TableManager(QWidget *parent) :
     tables[23] = ui->table24;
     for (int i = 0; i < 24; i++) {
         tables[i]->setId(i+1);
-        tables[i]->show();
     }
     for (int i = 0; i < 10; i++) {
         tables[i]->setTableType(TableType::NineFooter);
@@ -72,4 +73,5 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
     double bill = tableFrom->checkOut();
     tableTo->checkIn(tableFrom->getNumPlayers(), tableFrom->getIsIdTaken(), bill);
 }
+
 

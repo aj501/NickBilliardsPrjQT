@@ -20,7 +20,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(50, 69, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">

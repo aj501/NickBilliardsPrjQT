@@ -21,8 +21,6 @@ public:
     void ToTableComboBoxRemoveTable(Table* table);
     void ToTableComboBoxAddTable(Table* table);
 
-
-
 private:
     Ui::TableTransfer *ui;
 };

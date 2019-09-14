@@ -14,12 +14,9 @@ int Bill::getNumPlayers() const {
     return num_players;
 }
 
-
 void Bill::setNumPlayers(const int &numPlayers) {
-    num_players = numPlayers;
+    this->num_players = numPlayers;
 }
-
-
 void Bill::setCurrentBill(const double &bill) {
     current_bill = bill;
 }

@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color:rgb(69, 69, 69)</string>
   </property>
-  <widget class="QLabel" name="transferTable">
+  <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -29,7 +29,7 @@
     <string>Transfer Table</string>
    </property>
   </widget>
-  <widget class="QLabel" name="fromLabel">
+  <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -42,7 +42,7 @@
     <string>From:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="toLabel">
+  <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -55,7 +55,7 @@
     <string>To:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="saveButton">
+  <widget class="QPushButton" name="SaveTransfer_pushButton">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -72,7 +72,7 @@ background-color: rgb(223, 167, 40);</string>
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="fromTableComboBox">
+  <widget class="QComboBox" name="TransferFrom_comboBox">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -82,7 +82,7 @@ background-color: rgb(223, 167, 40);</string>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="toTableComboBox">
+  <widget class="QComboBox" name="TransferTo_comboBox">
    <property name="geometry">
     <rect>
      <x>190</x>

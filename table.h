@@ -21,21 +21,20 @@ public:
     void setId(const int & id);
 
     bool getIsOccupied() const;
-    void setIsOccupied(const bool & is_occupied);
+    void setIsOccupied(const bool & isIdTaken);
+
+    bool getIsIdTaken() const;
+    void setIsIdTaken(const bool & isIdTaken);
 
     TableType getTableType() const;
     void setTableType(const TableType & table_type);
 
     double getBillTotal();
 
-    bool getIsIdTaken() const;
-    void setIsIdTaken(const bool & isIdTaken);
-
     void checkIn(int numPlayers, bool isIdTaken, double currentBill);
-    double checkOut(); //return total bill
+    double checkOut();
 
     int getNumPlayers();
-
 
 protected:
      void mousePressEvent (QMouseEvent *event) override;

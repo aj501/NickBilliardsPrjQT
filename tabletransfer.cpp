@@ -6,8 +6,9 @@ TableTransfer::TableTransfer(QWidget *parent) :
     ui(new Ui::TableTransfer)
 {
     ui->setupUi(this);
-    for (int i = 0; i<= 24; i++) {
-        ui->toTableComboBox->addItem(QString::number(i));
+    for(int i = 0; i<=24; i++)
+    {
+        ui->TransferTo_comboBox->addItem(QString::number(i));
     }
 }
 
@@ -17,17 +18,17 @@ TableTransfer::~TableTransfer()
 }
 
 void TableTransfer::FromTableComboBoxRemoveTable(Table* table) {
-    ui->fromTableComboBox->removeItem(table->getId());
+    ui->TransferFrom_comboBox->removeItem(table->getId());
 }
 
 void TableTransfer::FromTableComboBoxAddTable(Table* table) {
-    ui->fromTableComboBox->addItem(QString::number(table->getId()));
+    ui->TransferFrom_comboBox->addItem(QString::number(table->getId()));
 }
 
 void TableTransfer::ToTableComboBoxRemoveTable(Table* table) {
-    ui->toTableComboBox->removeItem(table->getId());
+    ui->TransferTo_comboBox->removeItem(table->getId());
 }
 
 void TableTransfer::ToTableComboBoxAddTable(Table* table) {
-    ui->toTableComboBox->addItem(QString::number(table->getId()));
+    ui->TransferTo_comboBox->addItem(QString::number(table->getId()));
 }

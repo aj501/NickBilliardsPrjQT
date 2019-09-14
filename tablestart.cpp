@@ -24,7 +24,7 @@ TableStart::~TableStart()
 void TableStart::on_startButton_pressed() {
     int numPlayers = ui->numPlayersComboBox->currentText().toInt();
     bool isIdTaken = ui->idTakenCheckBox->isChecked();
-    this->table->checkIn(numPlayers, isIdTaken, 0);
+    this->table->checkIn(numPlayers, isIdTaken, 0.0);
     this->close();
 }
 

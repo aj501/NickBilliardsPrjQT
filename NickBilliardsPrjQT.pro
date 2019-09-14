@@ -27,6 +27,7 @@ CONFIG += c++11
 SOURCES += \
         bill.cpp \
         control.cpp \
+        dailysummary.cpp \
         main.cpp \
         table.cpp \
         tableedit.cpp \
@@ -38,6 +39,7 @@ SOURCES += \
 HEADERS += \
         bill.h \
         control.h \
+        dailysummary.h \
         discounttype.h \
         ratetype.h \
         table.h \
@@ -51,6 +53,7 @@ HEADERS += \
 
 FORMS += \
         control.ui \
+        dailysummary.ui \
         table.ui \
         tableedit.ui \
         tablemanager.ui \
@@ -62,3 +65,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    icons.qrc

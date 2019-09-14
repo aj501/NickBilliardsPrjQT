@@ -48,6 +48,11 @@ void Table::setIsIdTaken(const bool &isIdTaken)
     this->is_id_taken = isIdTaken;
 }
 
+
+int Table::getNumPlayers() {
+    return this->bill.getNumPlayers();
+}
+
 double Table::getBillTotal() {
     return Utils::priceCal(&bill);
 }
@@ -113,10 +118,6 @@ void Table::setBorderColor() {
 
 double Table::checkOut() {
     return 0.0;
-}
-
-int Table::getNumPlayers() {
-    return this->bill.getNumPlayers();
 }
 
 void Table::mousePressEvent(QMouseEvent *event) {
