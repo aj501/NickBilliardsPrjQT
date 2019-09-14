@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "table.h"
+#include "tableedit.h"
+#include "tablestart.h"
 
 namespace Ui {
 class Control;

@@ -10,7 +10,7 @@ TableEdit::TableEdit(QWidget *parent) :
     ui->setupUi(this);
     for (int i = 0; i<=8; i++)
     {
-    ui->editPlayerNum_comboBox->addItem(QString::number(i));
+        ui->editPlayerNum_comboBox->addItem(QString::number(i));
     }
 }
 
@@ -19,8 +19,6 @@ TableEdit::~TableEdit()
     delete ui;
 }
 
-
-
 void TableEdit::on_editTable_CancelButton_clicked()
 {
     this->close();
@@ -28,9 +26,9 @@ void TableEdit::on_editTable_CancelButton_clicked()
 
 void TableEdit::on_editTable_TabButton_clicked()
 {
-TableTab tabletab;
-tabletab.setModal(true);
-tabletab.exec();
+    TableTab tabletab;
+    tabletab.setModal(true);
+    tabletab.exec();
 }
 
 void TableEdit::on_editTable_SaveButton_clicked()

@@ -1,16 +1,15 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include <QGroupBox>
 #include "ui_table.h"
 #include "tabletype.h"
 #include "bill.h"
-
+#include <QStyleOption>
 namespace Ui {
 class Table;
 }
 
-class Table : public QGroupBox
+class Table : public QWidget
 {
     Q_OBJECT
 
@@ -29,8 +28,14 @@ public:
 
     double getBillTotal();
 
-    void checkIn(int numPlayers, bool isIdTaken);
-    void checkOut();
+    bool getIsIdTaken() const;
+    void setIsIdTaken(const bool & isIdTaken);
+
+    void checkIn(int numPlayers, bool isIdTaken, double currentBill);
+    double checkOut(); //return total bill
+
+    int getNumPlayers();
+
 
 protected:
      void mousePressEvent (QMouseEvent *event) override;
@@ -42,6 +47,11 @@ private:
     bool is_occupied = false;
     bool is_id_taken;
     Bill bill;
+    QString colormap[3];
+    void setBackgroundColor();
+    void setBorderColor();
+
+    void paintEvent(QPaintEvent *) override;
 };
 
 #endif // TABLE_H

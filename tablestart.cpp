@@ -11,8 +11,9 @@ TableStart::TableStart(QWidget *parent) :
 
     for (int i = 0; i<=8;i++)
     {
-    ui->numPlayersComboBox->addItem(QString::number(i));
+        ui->numPlayersComboBox->addItem(QString::number(i));
     }
+    ui->tableNumberLabel->setText(QString::number(this->table->getId()));
 }
 
 TableStart::~TableStart()
@@ -23,7 +24,7 @@ TableStart::~TableStart()
 void TableStart::on_startButton_pressed() {
     int numPlayers = ui->numPlayersComboBox->currentText().toInt();
     bool isIdTaken = ui->idTakenCheckBox->isChecked();
-    this->table->checkIn(numPlayers, isIdTaken);
+    this->table->checkIn(numPlayers, isIdTaken, 0);
     this->close();
 }
 

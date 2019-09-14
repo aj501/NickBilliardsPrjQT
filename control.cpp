@@ -1,7 +1,5 @@
 #include <QHBoxLayout>
 #include "control.h"
-#include "tableedit.h"
-#include "tablestart.h"
 #include "ui_control.h"
 
 Control::Control(QWidget *parent) :
