@@ -36,6 +36,20 @@ void Table::setIsOccupied ( const bool & is_occupied )
     this->is_occupied = is_occupied;
 }
 
+bool Table::getIsIdTaken() const
+{
+    return is_id_taken;
+}
+
+void Table::setIsIdTaken(const bool &isIdTaken)
+{
+    this->is_id_taken = isIdTaken;
+}
+
+int Table::getNumPlayers() {
+    return this->bill.getNumPlayers();
+}
+
 double Table::getBillTotal() {
     return Utils::priceCal(&bill);
 }
@@ -48,7 +62,7 @@ void Table::setTableType(const TableType & table_type) {
     this->type = table_type;
 }
 
-void Table::checkIn(int numPlayers, bool isIdTaken)  {
+void Table::checkIn(int numPlayers, bool isIdTaken, double currentBill)  {
     QPalette pal = palette();
     pal.setColor(QPalette::Background, Qt::black);
     this->setAutoFillBackground(true);
@@ -58,10 +72,13 @@ void Table::checkIn(int numPlayers, bool isIdTaken)  {
     QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
     this->is_id_taken = isIdTaken;
     this->bill.setStartTime(now);
+    this->bill.setCurrentBill(currentBill);
+    this->bill.setNumPlayers(numPlayers);
+    ((TableManager*) this->parent())->notifyTableOccupied(this);
 }
 
-void Table::checkOut() {
-
+double Table::checkOut() {
+    return 0.0;
 }
 
 void Table::mousePressEvent(QMouseEvent *event) {

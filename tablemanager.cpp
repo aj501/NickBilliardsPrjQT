@@ -13,58 +13,44 @@ TableManager::TableManager(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setStyleSheet("background-color: gray;");
-    ui->table1->setId(1);
-    ui->table2->setId(2);
-    ui->table3->setId(3);
-    ui->table4->setId(4);
-    ui->table5->setId(5);
-    ui->table6->setId(6);
-    ui->table7->setId(7);
-    ui->table8->setId(8);
-    ui->table9->setId(9);
-    ui->table10->setId(10);
-    ui->table11->setId(11);
-    ui->table12->setId(12);
-    ui->table13->setId(13);
-    ui->table14->setId(14);
-    ui->table15->setId(15);
-    ui->table16->setId(16);
-    ui->table17->setId(17);
-    ui->table18->setId(18);
-    ui->table19->setId(19);
-    ui->table20->setId(20);
-    ui->table21->setId(21);
-    ui->table22->setId(22);
-    ui->table23->setId(23);
-    ui->table24->setId(24);
+    tables[0] = ui->table1;
+    tables[1] = ui->table2;
+    tables[2] = ui->table3;
+    tables[3] = ui->table4;
+    tables[4] = ui->table5;
+    tables[5] = ui->table6;
+    tables[6] = ui->table7;
+    tables[7] = ui->table8;
+    tables[8] = ui->table9;
+    tables[9] = ui->table10;
+    tables[10] = ui->table11;
+    tables[11] = ui->table12;
+    tables[12] = ui->table13;
+    tables[13] = ui->table14;
+    tables[14] = ui->table15;
+    tables[15] = ui->table16;
+    tables[16] = ui->table17;
+    tables[17] = ui->table18;
+    tables[18] = ui->table19;
+    tables[19] = ui->table20;
+    tables[20] = ui->table21;
+    tables[21] = ui->table22;
+    tables[22] = ui->table23;
+    tables[23] = ui->table24;
+    for (int i = 0; i < 24; i++) {
+        tables[i]->setId(i+1);
+    }
+    for (int i = 0; i < 10; i++) {
+        tables[i]->setTableType(TableType::NineFooter);
+    }
 
-    // Set up table type
-    ui->table1->setTableType(TableType::NineFooter);
-    ui->table2->setTableType(TableType::NineFooter);
-    ui->table3->setTableType(TableType::NineFooter);
-    ui->table4->setTableType(TableType::NineFooter);
-    ui->table5->setTableType(TableType::NineFooter);
-    ui->table6->setTableType(TableType::NineFooter);
-    ui->table7->setTableType(TableType::NineFooter);
-    ui->table8->setTableType(TableType::NineFooter);
-    ui->table9->setTableType(TableType::NineFooter);
-    ui->table10->setTableType(TableType::NineFooter);
-    ui->table11->setTableType(TableType::SevenFooter);
-    ui->table12->setTableType(TableType::SevenFooter);
-    ui->table13->setTableType(TableType::SevenFooter);
-    ui->table14->setTableType(TableType::SevenFooter);
-    ui->table15->setTableType(TableType::SevenFooter);
-    ui->table16->setTableType(TableType::SevenFooter);
-    ui->table17->setTableType(TableType::SevenFooter);
-    ui->table18->setTableType(TableType::SevenFooter);
-    ui->table19->setTableType(TableType::SevenFooter);
-    ui->table20->setTableType(TableType::SevenFooter);
-    ui->table21->setTableType(TableType::Snooker);
-    ui->table22->setTableType(TableType::Snooker);
-    ui->table23->setTableType(TableType::Snooker);
-    ui->table24->setTableType(TableType::Snooker);
+    for (int i = 10; i < 20; i++) {
+        tables[i]->setTableType(TableType::SevenFooter);
+    }
 
-    //Transfer Table ComboBox
+    for (int i = 20; i < 24; i++) {
+        tables[i]->setTableType(TableType::Snooker);
+    }
 }
 
 TableManager::~TableManager()
@@ -75,6 +61,19 @@ TableManager::~TableManager()
 void TableManager::changeControl(Table* table){
     ((Control*)ui->control)->setType(table);
     //table->setIsInUse(!table->getIsInUse());
+}
+
+
+void TableManager::notifyTableOccupied(Table * table) {
+    ((TableTransfer*)ui->transfer)->FromTableComboBoxAddTable(table);
+    ((TableTransfer*)ui->transfer)->ToTableComboBoxRemoveTable(table);
+}
+
+void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
+    Table* tableFrom = tables[fromTableIndex-1];
+    Table* tableTo = tables[toTableIndex-1];
+    double bill = tableFrom->checkOut();
+    tableTo->checkIn(tableFrom->getNumPlayers(), tableFrom->getIsIdTaken(), bill);
 }
 
 
