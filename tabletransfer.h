@@ -24,6 +24,8 @@ private:
     Ui::TableTransfer *ui;
     TableManager* table_manager;
 
+    QString convertToIDString(int id);
+
 
 private slots:
     void on_saveButton_pressed();

@@ -9,7 +9,7 @@ TableTransfer::TableTransfer(QWidget *parent) :
 
     for(int i = 1; i<=24; i++)
     {
-        ui->TransferTo_comboBox->addItem(QString::number(i));
+        ui->TransferTo_comboBox->addItem(convertToIDString(i));
     }
     this->table_manager = dynamic_cast<TableManager*>(parent);
 }
@@ -20,26 +20,36 @@ TableTransfer::~TableTransfer()
 }
 
 void TableTransfer::UpdateComboBox(Table* table) {
+    QString id = convertToIDString(table->getId());
     if (table->getIsOccupied()) {
-        ui->TransferFrom_comboBox->addItem(QString::number(table->getId()));
-        //ui->TransferFrom_comboBox->model()->sort(0);
-        int index = ui->TransferTo_comboBox->findText(QString::number(table->getId()));
+        ui->TransferFrom_comboBox->addItem(id);
+        ui->TransferFrom_comboBox->model()->sort(0);
+        int index = ui->TransferTo_comboBox->findText(id);
         if ( index != -1 ) { // -1 for not found
            ui->TransferTo_comboBox->removeItem(index);
         }
     } else {
-        ui->TransferTo_comboBox->addItem(QString::number(table->getId()));
-        //ui->TransferTo_comboBox->model()->sort(0);
-        int index = ui->TransferFrom_comboBox->findText(QString::number(table->getId()));
+        ui->TransferTo_comboBox->addItem(id);
+        ui->TransferTo_comboBox->model()->sort(0);
+        int index = ui->TransferFrom_comboBox->findText(id);
         if ( index != -1 ) { // -1 for not found
            ui->TransferFrom_comboBox->removeItem(index);
         }
     }
 }
 
+QString TableTransfer::convertToIDString(int id) {
+    QString idStr = "";
+    if (id < 10) {
+        idStr = " " + QString::number(id);
+    } else {
+        idStr = QString::number(id);
+    }
+    return idStr;
+}
+
 void TableTransfer::on_saveButton_pressed() {
     int fromTableIndex = ui->TransferFrom_comboBox->currentText().toInt();
     int toTableIndex = ui->TransferTo_comboBox->currentText().toInt();
-    //todo: exception when nothing is selected (no option for choosing table)
     this->table_manager->transferTable(fromTableIndex, toTableIndex);
 }
