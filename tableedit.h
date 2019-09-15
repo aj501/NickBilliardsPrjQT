@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QValidator>
+#include  "table.h"
 
 namespace Ui {
 class TableEdit;
@@ -23,6 +24,7 @@ private slots:
 
 private:
     Ui::TableEdit *ui;
+    Table* table;
 };
 
 #endif // TABLEEDIT_H

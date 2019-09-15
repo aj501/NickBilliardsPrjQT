@@ -2,7 +2,7 @@
 #include "ui_dailysummary.h"
 
 dailysummary::dailysummary(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::dailysummary)
 {
     ui->setupUi(this);

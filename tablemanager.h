@@ -23,6 +23,10 @@ public:
     void changeControl(Table*);
     void notify(Table*);
     void transferTable(int fromTableIndex, int toTableIndex);
+
+private slots:
+    void on_dailySummray_pushButton_clicked();
+
 private:
     Ui::TableManager *ui;
     Table* tables[24];

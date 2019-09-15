@@ -1,13 +1,13 @@
 #ifndef DAILYSUMMARY_H
 #define DAILYSUMMARY_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class dailysummary;
 }
 
-class dailysummary : public QWidget
+class dailysummary : public QDialog
 {
     Q_OBJECT
 

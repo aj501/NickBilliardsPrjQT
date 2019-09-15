@@ -694,7 +694,7 @@ background-color: rgb(223, 167, 40);</string>
     <string>$ F&amp;B</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lineEditFB">
    <property name="enabled">
     <bool>true</bool>
    </property>

@@ -20,7 +20,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(69, 69, 69);</string>
+   <string notr="true">background-color: rgb(69, 69, 69);
+border-color: rgb(54, 54, 54);</string>
   </property>
   <widget class="QLabel" name="Welcome">
    <property name="geometry">
@@ -375,7 +376,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(60, 60, 60);
+    <string notr="true">background-color: transparent;
 </string>
    </property>
   </widget>
@@ -534,10 +535,10 @@ background:rgb(223,167,40)</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="dailySummray_pushButton">
    <property name="geometry">
     <rect>
-     <x>1200</x>
+     <x>1130</x>
      <y>10</y>
      <width>54</width>
      <height>54</height>
@@ -565,6 +566,29 @@ background:rgb(223,167,40)</string>
     <number>1</number>
    </property>
   </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>130</y>
+     <width>341</width>
+     <height>411</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(68, 68, 68);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_9</zorder>
   <zorder>label_8</zorder>
   <zorder>Welcome</zorder>
   <zorder>table1</zorder>
@@ -600,7 +624,7 @@ background:rgb(223,167,40)</string>
   <zorder>label_6</zorder>
   <zorder>plainTextEdit</zorder>
   <zorder>label_7</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>dailySummray_pushButton</zorder>
   <zorder>transfer</zorder>
  </widget>
  <customwidgets>

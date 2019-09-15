@@ -1,6 +1,8 @@
 #include "tableedit.h"
 #include "ui_tableedit.h"
 #include "tabletab.h"
+#include "table.h"
+#include "tablestart.h"
 
 
 TableEdit::TableEdit(QWidget *parent) :
@@ -8,10 +10,13 @@ TableEdit::TableEdit(QWidget *parent) :
     ui(new Ui::TableEdit)
 {
     ui->setupUi(this);
-    for (int i = 0; i<=8; i++)
+    this->table = dynamic_cast<Table*>(parent);
+
+    for (int i = 1; i<=8;i++)
     {
         ui->editPlayerNum_comboBox->addItem(QString::number(i));
     }
+    ui->tableNumberDisplay->setText(QString::number(this->table->getId()));
 }
 
 TableEdit::~TableEdit()

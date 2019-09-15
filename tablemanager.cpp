@@ -5,6 +5,8 @@
 #include "control.h"
 #include "ui_table.h"
 #include <QPixmap>
+#include "dailysummary.h"
+
 
 TableManager::TableManager(QWidget *parent) :
     QWidget(parent),
@@ -80,3 +82,10 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
 }
 
 
+
+void TableManager::on_dailySummray_pushButton_clicked()
+{
+    dailysummary dailysum;
+    dailysum.setModal(true);
+    dailysum.exec();
+}
