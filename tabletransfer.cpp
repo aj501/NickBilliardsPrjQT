@@ -12,13 +12,6 @@ TableTransfer::TableTransfer(QWidget *parent) :
         ui->TransferTo_comboBox->addItem(QString::number(i));
     }
     this->table_manager = dynamic_cast<TableManager*>(parent);
-
-    ui->TransferFrom_comboBox->model()->sort(0);
-
-    proxyTo = new QSortFilterProxyModel();
-    proxyTo->setSourceModel(ui->TransferTo_comboBox->model());
-    proxyTo->sort(0);
-    ui->TransferTo_comboBox->setModel(proxyTo);
 }
 
 TableTransfer::~TableTransfer()

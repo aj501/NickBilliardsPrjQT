@@ -23,7 +23,6 @@ public:
 private:
     Ui::TableTransfer *ui;
     TableManager* table_manager;
-    QSortFilterProxyModel *proxyFrom, *proxyTo;
 
 
 private slots:
