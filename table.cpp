@@ -1,5 +1,5 @@
-#include "utils.h"
 #include "table.h"
+#include "utils.h"
 #include <QtGui>
 
 Table::Table(QWidget *parent) :
@@ -75,6 +75,7 @@ void Table::checkIn(int numPlayers, bool isIdTaken, double initBill)  {
     QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
     this->is_id_taken = isIdTaken;
     this->bill->setStartTime(now);
+    this->bill->setEndTime(now);
     this->bill->setNumPlayers(numPlayers);
     this->bill->setInitBill(initBill);
     table_manager->notify(this);
@@ -83,9 +84,22 @@ void Table::checkIn(int numPlayers, bool isIdTaken, double initBill)  {
 
 double Table::checkOut() {
     setBackgroundColor();
+    QDateTime now = QDateTime::currentDateTime();
+    QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+    this->bill->setEndTime(now);
+    double total = getBillTotal();
+    // Reset fields
     this->is_occupied = false;
+    this->is_id_taken = false;
+    this->bill->setInitBill(0.0);
+    this->bill->setStartTime(now);
+    this->bill->setNumPlayers(0);
+    this->bill->setFoodAndBeverage(0.0);
+    this->bill->setIsMember(false);
+    this->bill->setIsSeniorOrMilitary(false);
+    this->bill->setStartTime(now);
     table_manager->notify(this);
-    return 0.0;
+    return total;
 }
 
 

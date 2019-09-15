@@ -39,6 +39,9 @@ void TableTransfer::UpdateComboBox(Table* table) {
 }
 
 QString TableTransfer::convertToIDString(int id) {
+    // This function helps store id in order by filling zeros before
+    // id numbers that are less than 10
+    // This won't work if number of tables > 99
     QString idStr = "";
     if (id < 10) {
         idStr = " " + QString::number(id);

@@ -16,7 +16,7 @@ TableEdit::TableEdit(QWidget *parent) :
     {
         ui->editPlayerNum_comboBox->addItem(QString::number(i));
     }
-    ui->tableNumberDisplay->setText(QString::number(this->table->getId()));
+    ui->tableNumberLabel->setText(QString::number(this->table->getId()));
 }
 
 TableEdit::~TableEdit()

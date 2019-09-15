@@ -8,4 +8,5 @@ namespace Utils {
         return bill->getInitBill();
     }
 }
+
 #endif // UTILS_H
