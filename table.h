@@ -1,10 +1,11 @@
 #ifndef TABLE_H
 #define TABLE_H
-
 #include "ui_table.h"
 #include "tabletype.h"
 #include "bill.h"
+#include "tablemanager.h"
 #include <QStyleOption>
+
 namespace Ui {
 class Table;
 }
@@ -45,10 +46,12 @@ private:
     TableType type;
     bool is_occupied = false;
     bool is_id_taken;
-    Bill bill;
+    Bill* bill;
     QString colormap[3];
     void setBackgroundColor();
     void setBorderColor();
+
+    TableManager* table_manager;
 
     void paintEvent(QPaintEvent *) override;
 };

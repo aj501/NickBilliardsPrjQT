@@ -365,7 +365,7 @@
     <string notr="true"/>
    </property>
   </widget>
-  <widget class="QWidget" name="control" native="true">
+  <widget class="Control" name="control" native="true">
    <property name="geometry">
     <rect>
      <x>870</x>
@@ -613,7 +613,13 @@ background:rgb(223,167,40)</string>
   <customwidget>
    <class>TableTransfer</class>
    <extends>QWidget</extends>
-   <header location="global">tabletransfer.h</header>
+   <header>tabletransfer.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Control</class>
+   <extends>QWidget</extends>
+   <header location="global">control.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

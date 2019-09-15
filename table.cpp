@@ -1,5 +1,5 @@
 #include "utils.h"
-#include "tablemanager.h"
+#include "table.h"
 #include <QtGui>
 
 Table::Table(QWidget *parent) :
@@ -10,6 +10,8 @@ Table::Table(QWidget *parent) :
     colormap[0] = "rgb(223, 167, 40)";
     colormap[1] = "rgb(45, 120, 92)";
     colormap[2] = "rgb(224, 59, 62)";
+    this->table_manager = dynamic_cast<TableManager*>(parent);
+    this->bill = new Bill();
 }
 
 Table::~Table()
@@ -50,11 +52,11 @@ void Table::setIsIdTaken(const bool &isIdTaken)
 
 
 int Table::getNumPlayers() {
-    return this->bill.getNumPlayers();
+    return this->bill->getNumPlayers();
 }
 
 double Table::getBillTotal() {
-    return Utils::priceCal(&bill);
+    return Utils::priceCal(bill);
 }
 
 TableType Table::getTableType() const{
@@ -72,10 +74,20 @@ void Table::checkIn(int numPlayers, bool isIdTaken, double initBill)  {
     QDateTime now = QDateTime::currentDateTime();
     QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
     this->is_id_taken = isIdTaken;
-    this->bill.setStartTime(now);
-    this->bill.setNumPlayers(numPlayers);
-    ((TableManager*) this->parent())->notifyTableOccupied(this);
+    this->bill->setStartTime(now);
+    this->bill->setNumPlayers(numPlayers);
+    this->bill->setInitBill(initBill);
+    table_manager->notify(this);
 }
+
+
+double Table::checkOut() {
+    setBackgroundColor();
+    this->is_occupied = false;
+    table_manager->notify(this);
+    return 0.0;
+}
+
 
 void Table::setBackgroundColor() {
     QString color_setting = "";
@@ -114,15 +126,8 @@ void Table::setBorderColor() {
     ui->label->setStyleSheet("border-style:none; border-color: blue;");
 }
 
-
-
-double Table::checkOut() {
-    return 0.0;
-}
-
-void Table::mousePressEvent(QMouseEvent *event) {
-    ((TableManager*) this->parent())->changeControl(this);
-    //this->infobox->exec();
+void Table::mousePressEvent(QMouseEvent *) {
+    table_manager->changeControl(this);
 }
 
 void Table::paintEvent(QPaintEvent *){

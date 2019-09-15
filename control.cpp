@@ -29,3 +29,11 @@ void Control::setType(Table* table) {
         setLayout(layout);
     }
 }
+
+
+void Control::paintEvent(QPaintEvent *){
+    QStyleOption opt;
+    opt.init(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
+}

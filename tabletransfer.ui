@@ -55,7 +55,7 @@
     <string>To:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="SaveTransfer_pushButton">
+  <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
      <x>130</x>

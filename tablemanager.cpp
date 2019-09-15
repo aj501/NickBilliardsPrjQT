@@ -12,6 +12,8 @@ TableManager::TableManager(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setStyleSheet("background-color: gray;");
+    table_transfer = ui->transfer;
+    control = ui->control;
     tables[0] = ui->table1;
     tables[1] = ui->table2;
     tables[2] = ui->table3;
@@ -50,6 +52,7 @@ TableManager::TableManager(QWidget *parent) :
     for (int i = 20; i < 24; i++) {
         tables[i]->setTableType(TableType::Snooker);
     }
+
 }
 
 TableManager::~TableManager()
@@ -62,9 +65,8 @@ void TableManager::changeControl(Table* table){
     //table->setIsInUse(!table->getIsInUse());
 }
 
-void TableManager::notifyTableOccupied(Table * table) {
-    ((TableTransfer*)ui->transfer)->FromTableComboBoxAddTable(table);
-    ((TableTransfer*)ui->transfer)->ToTableComboBoxRemoveTable(table);
+void TableManager::notify(Table * table) {
+    ((TableTransfer*)ui->transfer)->UpdateComboBox(table);
 }
 
 void TableManager::transferTable(int fromTableIndex, int toTableIndex) {

@@ -2,6 +2,7 @@
 #define CONTROL_H
 
 #include <QWidget>
+#include <QPainter>
 #include "table.h"
 #include "tableedit.h"
 #include "tablestart.h"
@@ -22,6 +23,7 @@ public:
 
 private:
     Ui::Control *ui;
+     void paintEvent(QPaintEvent *) override;
 };
 
 #endif // CONTROL_H
