@@ -2,7 +2,11 @@
 #define TABLEMANAGER_H
 
 #include <QWidget>
-#include "table.h"
+#include <vector>
+
+class Table;
+class Control;
+class TableTransfer;
 
 namespace Ui {
 class TableManager;
@@ -17,11 +21,13 @@ public:
     ~TableManager();
 
     void changeControl(Table*);
-    void notifyTableOccupied(Table*);
+    void notify(Table*);
     void transferTable(int fromTableIndex, int toTableIndex);
 private:
     Ui::TableManager *ui;
     Table* tables[24];
+    Control* control;
+    TableTransfer* table_transfer;
 };
 
 #endif // TABLEMANAGER_H

@@ -5,7 +5,7 @@
 
 namespace Utils {
     double priceCal(const Bill * const bill) {
-        return 0.0;
+        return bill->getInitBill();
     }
 }
 #endif // UTILS_H

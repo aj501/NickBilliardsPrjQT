@@ -1,7 +1,5 @@
 #include <QHBoxLayout>
 #include "control.h"
-#include "tableedit.h"
-#include "tablestart.h"
 #include "ui_control.h"
 
 Control::Control(QWidget *parent) :
@@ -30,4 +28,12 @@ void Control::setType(Table* table) {
         layout->addWidget(new TableEdit(table));
         setLayout(layout);
     }
+}
+
+
+void Control::paintEvent(QPaintEvent *){
+    QStyleOption opt;
+    opt.init(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }

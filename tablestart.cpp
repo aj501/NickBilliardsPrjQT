@@ -11,8 +11,9 @@ TableStart::TableStart(QWidget *parent) :
 
     for (int i = 0; i<=8;i++)
     {
-    ui->numPlayersComboBox->addItem(QString::number(i));
+        ui->numPlayersComboBox->addItem(QString::number(i));
     }
+    ui->tableNumberLabel->setText(QString::number(this->table->getId()));
 }
 
 TableStart::~TableStart()

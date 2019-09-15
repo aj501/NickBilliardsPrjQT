@@ -14,16 +14,15 @@ public:
     int getNumPlayers() const;
     void setNumPlayers(const int & num_players);
 
-    double getCurrentBill() const;
-    void setCurrentBill(const double & current_bill);
+    double getInitBill() const;
+    void setInitBill(const double & bill);
 
 private:
     QDateTime start_time;
     QDateTime end_time;
 
     int num_players;
-    double current_bill;
-
+    double init_bill;
 };
 
 #endif // BILL_H

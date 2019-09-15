@@ -1,13 +1,17 @@
 #include "utils.h"
-#include "tablemanager.h"
 #include "table.h"
 #include <QtGui>
 
 Table::Table(QWidget *parent) :
-    QGroupBox(parent),
+    QWidget(parent),
     ui(new Ui::Table)
 {
     ui->setupUi(this);
+    colormap[0] = "rgb(223, 167, 40)";
+    colormap[1] = "rgb(45, 120, 92)";
+    colormap[2] = "rgb(224, 59, 62)";
+    this->table_manager = dynamic_cast<TableManager*>(parent);
+    this->bill = new Bill();
 }
 
 Table::~Table()
@@ -46,12 +50,13 @@ void Table::setIsIdTaken(const bool &isIdTaken)
     this->is_id_taken = isIdTaken;
 }
 
+
 int Table::getNumPlayers() {
-    return this->bill.getNumPlayers();
+    return this->bill->getNumPlayers();
 }
 
 double Table::getBillTotal() {
-    return Utils::priceCal(&bill);
+    return Utils::priceCal(bill);
 }
 
 TableType Table::getTableType() const{
@@ -60,28 +65,74 @@ TableType Table::getTableType() const{
 
 void Table::setTableType(const TableType & table_type) {
     this->type = table_type;
+    this->setBackgroundColor();
 }
 
-void Table::checkIn(int numPlayers, bool isIdTaken, double currentBill)  {
-    QPalette pal = palette();
-    pal.setColor(QPalette::Background, Qt::black);
-    this->setAutoFillBackground(true);
-    this->setPalette(pal);
+void Table::checkIn(int numPlayers, bool isIdTaken, double initBill)  {
+    this->setBorderColor();
     this->setIsOccupied(true);
     QDateTime now = QDateTime::currentDateTime();
     QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
     this->is_id_taken = isIdTaken;
-    this->bill.setStartTime(now);
-    this->bill.setCurrentBill(currentBill);
-    this->bill.setNumPlayers(numPlayers);
-    ((TableManager*) this->parent())->notifyTableOccupied(this);
+    this->bill->setStartTime(now);
+    this->bill->setNumPlayers(numPlayers);
+    this->bill->setInitBill(initBill);
+    table_manager->notify(this);
 }
 
+
 double Table::checkOut() {
+    setBackgroundColor();
+    this->is_occupied = false;
+    table_manager->notify(this);
     return 0.0;
 }
 
-void Table::mousePressEvent(QMouseEvent *event) {
-    ((TableManager*) this->parent())->changeControl(this);
-    //this->infobox->exec();
+
+void Table::setBackgroundColor() {
+    QString color_setting = "";
+    if (this->getTableType() == TableType::NineFooter) {
+        color_setting = "border-radius:25px;background-color:" +
+                                    colormap[0] + ";";
+    } else if (this->getTableType() == TableType::SevenFooter) {
+        color_setting = "border-radius:25px;background-color:" +
+                                    colormap[1] + ";";
+    } else {
+        color_setting = "border-radius:25px;background-color:" +
+                                    colormap[2] + ";";
+    }
+    this->setStyleSheet(color_setting);
+}
+
+void Table::setBorderColor() {
+    QString color_setting = "";
+    if (this->getTableType() == TableType::NineFooter) {
+        color_setting = "border-radius:25px;background-color:" +
+                                    colormap[0] + ";" +
+                                    "padding: 1px; border-width: 5px;" +
+                                    "border-style: solid; border-color: white;";
+    } else if (this->getTableType() == TableType::SevenFooter) {
+        color_setting = "border-radius:25px;background-color:" +
+                                    colormap[1] + ";" +
+                                    "padding: 1px; border-width: 5px;" +
+                                    "border-style: solid; border-color: white;";
+    } else {
+        color_setting = "border-radius:25px;background-color:" +
+                                    colormap[2] + ";" +
+                                    "padding: 1px; border-width: 5px;" +
+                                    "border-style: solid; border-color: white;";
+    }
+    this->setStyleSheet(color_setting);
+    ui->label->setStyleSheet("border-style:none; border-color: blue;");
+}
+
+void Table::mousePressEvent(QMouseEvent *) {
+    table_manager->changeControl(this);
+}
+
+void Table::paintEvent(QPaintEvent *){
+    QStyleOption opt;
+    opt.init(this);
+    QPainter painter(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }
