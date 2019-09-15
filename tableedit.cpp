@@ -19,8 +19,6 @@ TableEdit::~TableEdit()
     delete ui;
 }
 
-
-
 void TableEdit::on_editTable_CancelButton_clicked()
 {
     this->close();
