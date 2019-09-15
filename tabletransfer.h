@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
+#include <QSortFilterProxyModel>
 #include "table.h"
 
 namespace Ui {
@@ -22,6 +23,8 @@ public:
 private:
     Ui::TableTransfer *ui;
     TableManager* table_manager;
+    QSortFilterProxyModel *proxyFrom, *proxyTo;
+
 
 private slots:
     void on_saveButton_pressed();

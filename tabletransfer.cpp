@@ -9,25 +9,16 @@ TableTransfer::TableTransfer(QWidget *parent) :
 
     for(int i = 1; i<=24; i++)
     {
-        ui->TransferFrom_comboBox->addItem(QString::number(i));
-    }
-    QStandardItemModel *modelTableFrom =
-          qobject_cast<QStandardItemModel *>(ui->TransferFrom_comboBox->model());
-    Q_ASSERT(modelTableFrom != nullptr);
-
-    for(int i = 0; i < 24; i++)
-    {
-        bool disabledTableFrom = true;
-        QStandardItem *itemFrom = modelTableFrom->item(i);
-        itemFrom->setFlags(disabledTableFrom ? itemFrom->flags() & ~Qt::ItemIsEnabled
-                              : itemFrom->flags() | Qt::ItemIsEnabled);
-    }
-
-    for(int i = 1; i<=24; i++)
-    {
         ui->TransferTo_comboBox->addItem(QString::number(i));
     }
     this->table_manager = dynamic_cast<TableManager*>(parent);
+
+    ui->TransferFrom_comboBox->model()->sort(0);
+
+    proxyTo = new QSortFilterProxyModel();
+    proxyTo->setSourceModel(ui->TransferTo_comboBox->model());
+    proxyTo->sort(0);
+    ui->TransferTo_comboBox->setModel(proxyTo);
 }
 
 TableTransfer::~TableTransfer()
@@ -36,32 +27,20 @@ TableTransfer::~TableTransfer()
 }
 
 void TableTransfer::UpdateComboBox(Table* table) {
-    QStandardItemModel *modelTableFrom =
-          qobject_cast<QStandardItemModel *>(ui->TransferFrom_comboBox->model());
-    Q_ASSERT(modelTableFrom != nullptr);
-
-    QStandardItemModel *modelTableTo =
-          qobject_cast<QStandardItemModel *>(ui->TransferTo_comboBox->model());
-    Q_ASSERT(modelTableTo != nullptr);
-
     if (table->getIsOccupied()) {
-        bool disabledTableFrom = false;
-        QStandardItem *itemFrom = modelTableFrom->item(table->getId()-1);
-        itemFrom->setFlags(disabledTableFrom ? itemFrom->flags() & ~Qt::ItemIsEnabled
-                              : itemFrom->flags() | Qt::ItemIsEnabled);
-        bool disabledTableTo = true;
-        QStandardItem *itemTo = modelTableTo->item(table->getId()-1);
-        itemTo->setFlags(disabledTableTo ? itemTo->flags() & ~Qt::ItemIsEnabled
-                              : itemTo->flags() | Qt::ItemIsEnabled);
+        ui->TransferFrom_comboBox->addItem(QString::number(table->getId()));
+        //ui->TransferFrom_comboBox->model()->sort(0);
+        int index = ui->TransferTo_comboBox->findText(QString::number(table->getId()));
+        if ( index != -1 ) { // -1 for not found
+           ui->TransferTo_comboBox->removeItem(index);
+        }
     } else {
-        bool disabledTableFrom = true;
-        QStandardItem *itemFrom = modelTableFrom->item(table->getId()-1);
-        itemFrom->setFlags(disabledTableFrom ? itemFrom->flags() & ~Qt::ItemIsEnabled
-                              : itemFrom->flags() | Qt::ItemIsEnabled);
-        bool disabledTableTo = false;
-        QStandardItem *itemTo = modelTableTo->item(table->getId()-1);
-        itemTo->setFlags(disabledTableTo ? itemTo->flags() & ~Qt::ItemIsEnabled
-                              : itemTo->flags() | Qt::ItemIsEnabled);
+        ui->TransferTo_comboBox->addItem(QString::number(table->getId()));
+        //ui->TransferTo_comboBox->model()->sort(0);
+        int index = ui->TransferFrom_comboBox->findText(QString::number(table->getId()));
+        if ( index != -1 ) { // -1 for not found
+           ui->TransferFrom_comboBox->removeItem(index);
+        }
     }
 }
 

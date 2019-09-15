@@ -70,6 +70,9 @@ void TableManager::notify(Table * table) {
 }
 
 void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
+    if (fromTableIndex == 0 || toTableIndex == 0) {
+        return;
+    }
     Table* tableFrom = tables[fromTableIndex-1];
     Table* tableTo = tables[toTableIndex-1];
     double bill = tableFrom->checkOut();
