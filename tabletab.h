@@ -2,6 +2,7 @@
 #define TABLETAB_H
 
 #include <QDialog>
+#include "tableedit.h"
 
 
 namespace Ui {
@@ -21,6 +22,7 @@ private slots:
 
 private:
     Ui::TableTab *ui;
+    TableEdit* tableEdit;
 
 };
 

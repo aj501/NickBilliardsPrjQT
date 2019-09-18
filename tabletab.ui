@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(44, 44, 44);</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -65,7 +68,7 @@
     <string>F&amp;B $</string>
    </property>
   </widget>
-  <widget class="QLabel" name="timeinDollar_Display">
+  <widget class="QLabel" name="TimeInDollars">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -84,7 +87,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="FnBinDollar_Display">
+  <widget class="QLabel" name="FoodNBeverage">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -103,7 +106,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="timeinDollar_Display_3">
+  <widget class="QLabel" name="TimePlayed">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -122,7 +125,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="timeinDollar_Display_4">
+  <widget class="QLabel" name="TableId">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -154,7 +157,7 @@
     <string>TOTAL</string>
    </property>
   </widget>
-  <widget class="QLabel" name="timeinDollar_Display_5">
+  <widget class="QLabel" name="Total">
    <property name="geometry">
     <rect>
      <x>190</x>

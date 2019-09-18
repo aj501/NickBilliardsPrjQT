@@ -5,6 +5,8 @@
 #include <QLineEdit>
 #include  "table.h"
 
+class TableTab;
+
 namespace Ui {
 class TableEdit;
 }
@@ -16,12 +18,17 @@ class TableEdit : public QWidget
 public:
     explicit TableEdit(QWidget *parent = nullptr);
     ~TableEdit();
-
+    int getTableNumber();
+    QString getTimePlayed();
+    double getTimeInDollars();
+    void tab();
 
 private slots:
     void on_editTable_CancelButton_clicked();
     void on_editTable_TabButton_clicked();
 
+
+    void on_editTable_SaveButton_clicked();
 
 private:
     Ui::TableEdit *ui;

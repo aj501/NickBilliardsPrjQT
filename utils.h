@@ -5,6 +5,9 @@
 
 namespace Utils {
     double priceCal(const Bill * const bill) {
+        // if bill->start > 7
+        // elif bill->end < 7
+        // else priceCal(..)  + priceCal(...)
         return bill->getInitBill();
     }
 }
