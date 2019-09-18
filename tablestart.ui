@@ -208,17 +208,14 @@
     <string/>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_2">
+  <widget class="QComboBox" name="SenMilitary_comboBox">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>170</y>
-     <width>21</width>
-     <height>20</height>
+     <x>180</x>
+     <y>171</y>
+     <width>51</width>
+     <height>21</height>
     </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
  </widget>

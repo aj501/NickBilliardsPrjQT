@@ -15,7 +15,9 @@ TableEdit::TableEdit(QWidget *parent) :
     for (int i=0; i<=8;i++)
     {
         ui->editPlayerNum_comboBox->addItem(QString::number(i));
+        ui->SenMilitary_comboBox->addItem(QString::number(i));
     }
+
     ui->tableNumberLabel->setText(QString::number(this->table->getId()));
 }
 
@@ -58,10 +60,9 @@ void TableEdit::on_editTable_SaveButton_clicked()
 {
     int numPlayers = ui->editPlayerNum_comboBox->currentText().toInt();
     bool isIdTaken = ui->IDcheckBox->isChecked();
-    bool isSenMil = ui->MilCheckBox->isChecked();
     bool isMember = ui->MemberCheckBox->isChecked();
     double fab = ui->FBlineEdit->text().toDouble();
     QString memo = ui->MemoTextEdit->toPlainText();
-    table->update(isIdTaken, numPlayers, isSenMil, fab, isMember, memo);
+    table->update(isIdTaken, numPlayers, fab, isMember, memo);
     this->close();
 }

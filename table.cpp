@@ -95,17 +95,15 @@ double Table::checkOut() {
     this->bill->setNumPlayers(0);
     this->bill->setFoodAndBeverage(0.0);
     this->bill->setIsMember(false);
-    this->bill->setIsSeniorOrMilitary(false);
     this->bill->setStartTime(now);
     table_manager->notify(this);
     return total;
 }
 
-void Table::update(bool isIdTaken, int numPlayers, bool isSeniorOrMilitary, double fab, bool isMember, QString memo) {
+void Table::update(bool isIdTaken, int numPlayers, double fab, bool isMember, QString memo) {
     this->bill->setInitBill(this->getBillTotal());
     this->is_id_taken = isIdTaken;
     this->bill->setNumPlayers(this->bill->getNumPlayers() + numPlayers);
-    this->bill->setIsSeniorOrMilitary(isSeniorOrMilitary);
     this->bill->setFoodAndBeverage(this->bill->getFoodAndBeverage() + fab);
     this->bill->setIsMember(isMember);
     this->memo = memo;

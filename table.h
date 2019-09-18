@@ -34,8 +34,7 @@ public:
 
     void checkIn(int numPlayers, bool isIdTaken, double currentBill);
     double checkOut();
-    void update(bool isIdTaken, int numPlayers, bool isSeniorOrMilitary,
-                double fab, bool isMember, QString memo);
+    void update(bool isIdTaken, int numPlayers, double fab, bool isMember, QString memo);
 
     int getNumPlayers();
 

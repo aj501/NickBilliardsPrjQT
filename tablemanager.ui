@@ -20,8 +20,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(69, 69, 69);
-border-color: rgb(34, 34, 34);</string>
+   <string notr="true">background-color: rgb(59, 59, 59);
+border-color: rgb(44, 44, 44);</string>
   </property>
   <widget class="QLabel" name="Welcome">
    <property name="geometry">

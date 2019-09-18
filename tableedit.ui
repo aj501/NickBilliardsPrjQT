@@ -697,20 +697,7 @@ background-color: rgb(223, 167, 40);</string>
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
-    <string>Sen/Mil</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="MilCheckBox">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>140</y>
-     <width>21</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
+    <string>Sen/Mil ID</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">
@@ -756,6 +743,16 @@ background-color: rgb(223, 167, 40);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="SenMilitary_comboBox">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>141</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
    </property>
   </widget>
  </widget>

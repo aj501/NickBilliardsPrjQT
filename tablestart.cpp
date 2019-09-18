@@ -11,8 +11,13 @@ TableStart::TableStart(QWidget *parent) :
 
     for (int i = 1; i<=8;i++)
     {
-        ui->numPlayersComboBox->addItem(QString::number(i));
+        ui->numPlayersComboBox->addItem(QString::number(i));  
     }
+    for (int i = 0; i<=8;i++)
+    {
+         ui->SenMilitary_comboBox->addItem(QString::number(i));
+    }
+
     ui->tableNumberLabel->setText(QString::number(this->table->getId()));
 }
 
