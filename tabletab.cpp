@@ -1,12 +1,18 @@
 #include "tabletab.h"
 #include "ui_tabletab.h"
 #include "tablestart.h"
+#include "tableedit.h"
 
 TableTab::TableTab(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TableTab)
 {
     ui->setupUi(this);
+    tableEdit = dynamic_cast<TableEdit*>(parent);
+    ui->TableId->setText(QString::number(tableEdit->getTableNumber()));
+    ui->TimePlayed->setText(tableEdit->getTimePlayed());
+    ui->TimeInDollars->setText(QString::number(tableEdit->getTimeInDollars()));
+
 }
 
 TableTab::~TableTab()
@@ -16,6 +22,6 @@ TableTab::~TableTab()
 
 void TableTab::on_CloseTable_Button_clicked()
 {
-    //NEED TO SET THE CURRENT TABLE TO ACTIVE AGAIN BEFORE CLOSING OUT THE TTAB DIALOG. DONT KNOW HOW YET.
+    tableEdit->tab();
     this->close();
 }

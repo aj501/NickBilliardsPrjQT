@@ -34,6 +34,8 @@ public:
 
     void checkIn(int numPlayers, bool isIdTaken, double currentBill);
     double checkOut();
+    void update(bool isIdTaken, int numPlayers, bool isSeniorOrMilitary,
+                double fab, bool isMember, QString memo);
 
     int getNumPlayers();
 
@@ -46,6 +48,7 @@ private:
     TableType type;
     bool is_occupied = false;
     bool is_id_taken;
+    QString memo;
     Bill* bill;
     QString colormap[3];
     void setBackgroundColor();

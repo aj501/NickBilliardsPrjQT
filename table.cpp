@@ -56,7 +56,7 @@ int Table::getNumPlayers() {
 }
 
 double Table::getBillTotal() {
-    return Utils::priceCal(bill);
+    return bill->getInitBill() + Utils::priceCal(bill);
 }
 
 TableType Table::getTableType() const{
@@ -85,7 +85,6 @@ void Table::checkIn(int numPlayers, bool isIdTaken, double initBill)  {
 double Table::checkOut() {
     setBackgroundColor();
     QDateTime now = QDateTime::currentDateTime();
-    QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
     this->bill->setEndTime(now);
     double total = getBillTotal();
     // Reset fields
@@ -100,6 +99,19 @@ double Table::checkOut() {
     this->bill->setStartTime(now);
     table_manager->notify(this);
     return total;
+}
+
+void Table::update(bool isIdTaken, int numPlayers, bool isSeniorOrMilitary, double fab, bool isMember, QString memo) {
+    this->bill->setInitBill(this->getBillTotal());
+    this->is_id_taken = isIdTaken;
+    this->bill->setNumPlayers(this->bill->getNumPlayers() + numPlayers);
+    this->bill->setIsSeniorOrMilitary(isSeniorOrMilitary);
+    this->bill->setFoodAndBeverage(this->bill->getFoodAndBeverage() + fab);
+    this->bill->setIsMember(isMember);
+    this->memo = memo;
+    QDateTime now = QDateTime::currentDateTime();
+    this->bill->setStartTime(now);
+    this->bill->setEndTime(now);
 }
 
 
