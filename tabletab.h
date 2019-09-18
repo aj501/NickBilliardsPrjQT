@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+
 namespace Ui {
 class TableTab;
 }
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::TableTab *ui;
+
 };
 
 #endif // TABLETAB_H

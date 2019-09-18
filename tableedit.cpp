@@ -5,6 +5,7 @@
 #include "tablestart.h"
 
 
+
 TableEdit::TableEdit(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TableEdit)
@@ -12,7 +13,7 @@ TableEdit::TableEdit(QWidget *parent) :
     ui->setupUi(this);
     this->table = dynamic_cast<Table*>(parent);
 
-    for (int i = 1; i<=8;i++)
+    for (int i = 0; i<=8;i++)
     {
         ui->editPlayerNum_comboBox->addItem(QString::number(i));
     }
@@ -36,9 +37,4 @@ void TableEdit::on_editTable_TabButton_clicked()
     tabletab.exec();
 }
 
-void TableEdit::on_editTable_SaveButton_clicked()
-{
-    //NEED TO SAVE THE INFORMATION BEFORE CLOSING OUT THE EDITTABLE DIALOG.
-    //...
-    this->close();
-}
+

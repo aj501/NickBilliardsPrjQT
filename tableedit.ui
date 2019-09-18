@@ -500,7 +500,7 @@
     <rect>
      <x>40</x>
      <y>80</y>
-     <width>53</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -508,7 +508,7 @@
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
-    <string>Players</string>
+    <string>Add Players</string>
    </property>
   </widget>
   <widget class="QComboBox" name="editPlayerNum_comboBox">
@@ -537,7 +537,7 @@
     <string>ID Taken?</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="IDcheckBox">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -586,7 +586,7 @@ background-color: rgb(223, 167, 40);
     <string>Tab</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="MemoTextEdit">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -656,7 +656,7 @@ background-color: rgb(223, 167, 40);</string>
     <string>$ F&amp;B</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditFB">
+  <widget class="QLineEdit" name="FBlineEdit">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -700,7 +700,7 @@ background-color: rgb(223, 167, 40);</string>
     <string>Sen/Mil</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_2">
+  <widget class="QCheckBox" name="MilCheckBox">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -729,7 +729,7 @@ background-color: rgb(223, 167, 40);</string>
     <string>Mem.Rate</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_3">
+  <widget class="QCheckBox" name="MemberCheckBox">
    <property name="geometry">
     <rect>
      <x>170</x>

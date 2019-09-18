@@ -19,8 +19,8 @@
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>240</y>
+     <x>150</x>
+     <y>260</y>
      <width>72</width>
      <height>21</height>
     </rect>
@@ -41,8 +41,8 @@
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>50</x>
+     <y>260</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -57,8 +57,8 @@
   <widget class="QLabel" name="startNewTableLabel">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>10</y>
+     <x>60</x>
+     <y>30</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -76,8 +76,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>60</y>
+     <x>60</x>
+     <y>80</y>
      <width>51</width>
      <height>21</height>
     </rect>
@@ -92,8 +92,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>90</y>
+     <x>60</x>
+     <y>110</y>
      <width>53</width>
      <height>21</height>
     </rect>
@@ -108,8 +108,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>120</y>
+     <x>60</x>
+     <y>140</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -124,8 +124,8 @@
   <widget class="QCheckBox" name="idTakenCheckBox">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>120</y>
+     <x>190</x>
+     <y>140</y>
      <width>31</width>
      <height>20</height>
     </rect>
@@ -137,8 +137,8 @@
   <widget class="QComboBox" name="numPlayersComboBox">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>90</y>
+     <x>180</x>
+     <y>110</y>
      <width>51</width>
      <height>21</height>
     </rect>
@@ -147,8 +147,8 @@
   <widget class="QCheckBox" name="checkBox_3">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>180</y>
+     <x>190</x>
+     <y>200</y>
      <width>21</width>
      <height>20</height>
     </rect>
@@ -160,8 +160,8 @@
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>180</y>
+     <x>60</x>
+     <y>200</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -176,8 +176,8 @@
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>150</y>
+     <x>60</x>
+     <y>170</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -192,8 +192,8 @@
   <widget class="QLabel" name="tableNumberLabel">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>60</y>
+     <x>190</x>
+     <y>80</y>
      <width>41</width>
      <height>20</height>
     </rect>
@@ -208,8 +208,8 @@
   <widget class="QCheckBox" name="checkBox_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>150</y>
+     <x>190</x>
+     <y>170</y>
      <width>21</width>
      <height>20</height>
     </rect>

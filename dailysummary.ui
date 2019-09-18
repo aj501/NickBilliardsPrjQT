@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>20</y>
+     <y>0</y>
      <width>101</width>
      <height>41</height>
     </rect>
@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>110</y>
+     <y>90</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -46,7 +46,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>140</y>
+     <y>120</y>
      <width>59</width>
      <height>16</height>
     </rect>
@@ -59,7 +59,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>80</y>
+     <y>60</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -78,8 +78,8 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>140</y>
-     <width>59</width>
+     <y>120</y>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -97,7 +97,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>110</y>
+     <y>90</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -116,7 +116,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>80</y>
+     <y>60</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -125,12 +125,12 @@
     <string>Table hours</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>220</y>
-     <width>161</width>
+     <x>170</x>
+     <y>160</y>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -141,7 +141,20 @@
     <enum>QFrame::Sunken</enum>
    </property>
    <property name="text">
-    <string>          Nick's Billiards</string>
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>160</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Today's Rev.</string>
    </property>
   </widget>
  </widget>

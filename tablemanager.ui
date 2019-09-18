@@ -12,7 +12,7 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
+    <width>1200</width>
     <height>500</height>
    </size>
   </property>
@@ -21,7 +21,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(69, 69, 69);
-border-color: rgb(54, 54, 54);</string>
+border-color: rgb(34, 34, 34);</string>
   </property>
   <widget class="QLabel" name="Welcome">
    <property name="geometry">
@@ -369,7 +369,7 @@ border-color: rgb(54, 54, 54);</string>
   <widget class="Control" name="control" native="true">
    <property name="geometry">
     <rect>
-     <x>870</x>
+     <x>860</x>
      <y>140</y>
      <width>321</width>
      <height>391</height>
@@ -538,7 +538,7 @@ background:rgb(223,167,40)</string>
   <widget class="QPushButton" name="dailySummray_pushButton">
    <property name="geometry">
     <rect>
-     <x>1130</x>
+     <x>1140</x>
      <y>10</y>
      <width>54</width>
      <height>54</height>
@@ -569,7 +569,7 @@ background:rgb(223,167,40)</string>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>850</x>
      <y>130</y>
      <width>341</width>
      <height>411</height>
