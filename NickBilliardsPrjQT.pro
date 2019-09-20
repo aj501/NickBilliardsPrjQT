@@ -34,14 +34,14 @@ SOURCES += \
         tablemanager.cpp \
         tablestart.cpp \
         tabletab.cpp \
-        tabletransfer.cpp
+        tabletransfer.cpp \
+        utils.cpp
 
 HEADERS += \
         bill.h \
         control.h \
         dailysummary.h \
         discounttype.h \
-        ratetype.h \
         table.h \
         tableedit.h \
         tablemanager.h \

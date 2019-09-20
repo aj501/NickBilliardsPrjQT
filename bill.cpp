@@ -60,5 +60,13 @@ double Bill::getInitBill() const {
     return init_bill;
 }
 
+TableType Bill::getTableType() const {
+    return tableType;
+}
+
+void Bill::setTableType(const TableType & type) {
+    tableType = type;
+}
+
 
 

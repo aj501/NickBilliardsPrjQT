@@ -3,10 +3,7 @@
 
 #include <time.h>
 #include <QDateTime>
-
-namespace  Utils {
-
-};
+#include "tabletype.h"
 
 class Bill
 {
@@ -34,6 +31,9 @@ public:
     double getInitBill() const;
     void setInitBill(const double & bill);
 
+    TableType getTableType() const;
+    void setTableType(const TableType &);
+
 private:
     QDateTime start_time;
     QDateTime end_time;
@@ -44,6 +44,7 @@ private:
     double food_and_beverage;
 
     double init_bill;
+    TableType tableType;
 };
 
 #endif // BILL_H

@@ -12,6 +12,7 @@ Table::Table(QWidget *parent) :
     colormap[2] = "rgb(224, 59, 62)";
     this->table_manager = dynamic_cast<TableManager*>(parent);
     this->bill = new Bill();
+    bill->setTableType(this->type);
 }
 
 Table::~Table()

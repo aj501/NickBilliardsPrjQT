@@ -40,6 +40,7 @@ QString TableEdit::getTimePlayed() {
 
 void TableEdit::tab() {
     this->table->checkOut();
+    this->close();
 }
 
 void TableEdit::on_editTable_CancelButton_clicked()
