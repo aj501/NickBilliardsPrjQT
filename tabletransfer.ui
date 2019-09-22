@@ -25,6 +25,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
+   </property>
    <property name="text">
     <string>Transfer Table</string>
    </property>
@@ -38,6 +41,9 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
+   </property>
    <property name="text">
     <string>From:</string>
    </property>
@@ -50,6 +56,9 @@
      <width>59</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
    </property>
    <property name="text">
     <string>To:</string>

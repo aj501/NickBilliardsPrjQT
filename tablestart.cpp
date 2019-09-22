@@ -9,11 +9,11 @@ TableStart::TableStart(QWidget *parent) :
     ui->setupUi(this);
     this->table = dynamic_cast<Table*>(parent);
 
-    for (int i = 1; i<=8;i++)
+    for (int i = 1; i<=6;i++)
     {
         ui->numPlayersComboBox->addItem(QString::number(i));  
     }
-    for (int i = 0; i<=8;i++)
+    for (int i = 0; i<=6;i++)
     {
          ui->SenMilitary_comboBox->addItem(QString::number(i));
     }
