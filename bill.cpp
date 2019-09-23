@@ -23,24 +23,30 @@ void Bill::setEndTime(QDateTime time) {
 }
 
 int Bill::getNumPlayers() const {
-    return num_players;
+    return last_num_players;
 }
 
-void Bill::setNumPlayers(const int &numPlayers) {
-    this->num_players = numPlayers;
+void Bill::setNumPlayers(const int &np) {
+    this->last_num_players = np;
+    QDateTime now = QDateTime::currentDateTime();
+    QPair<QDateTime, int> p;
+    p.first = now;
+    p.second = np;
+    numPlayers.push_back(p);
 }
 
-bool Bill::getIsSeniorOrMilitary() const {
-    return is_senior_or_military;
+int Bill::getNumSeniorOrMilitary() const {
+    return num_senior_or_military;
 }
 
-void Bill::setIsSeniorOrMilitary(const bool & senmil) {
-    is_senior_or_military = senmil;
+void Bill::setNumSeniorOrMilitary(const int & senmil) {
+    num_senior_or_military = senmil;
 }
 
 bool Bill::getIsMember() const {
     return is_member;
 }
+
 void Bill::setIsMember(const bool & mem) {
     is_member = mem;
 }
@@ -48,16 +54,9 @@ void Bill::setIsMember(const bool & mem) {
 double Bill::getFoodAndBeverage() const {
     return food_and_beverage;
 }
+
 void Bill::setFoodAndBeverage(const double & fb) {
     food_and_beverage = fb;
-}
-
-void Bill::setInitBill(const double &bill) {
-    init_bill = bill;
-}
-
-double Bill::getInitBill() const {
-    return init_bill;
 }
 
 TableType Bill::getTableType() const {
@@ -68,5 +67,18 @@ void Bill::setTableType(const TableType & type) {
     tableType = type;
 }
 
+int Bill::getDiscount() const {
+    return discount;
+}
 
+void Bill::setDiscount(const int &d) {
+    discount = d;
+}
 
+bool Bill::getIsSpecialRate() const {
+    return isSpecialRate;
+}
+
+void Bill::setIsSpecialRate(const bool &rate) {
+    isSpecialRate = rate;
+}

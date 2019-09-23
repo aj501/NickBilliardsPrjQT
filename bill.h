@@ -3,6 +3,8 @@
 
 #include <time.h>
 #include <QDateTime>
+#include <QList>
+#include <QPair>
 #include "tabletype.h"
 
 class Bill
@@ -17,10 +19,10 @@ public:
     void setEndTime(QDateTime time);
 
     int getNumPlayers() const;
-    void setNumPlayers(const int & num_players);
+    void setNumPlayers(const int & np);
 
-    bool getIsSeniorOrMilitary() const;
-    void setIsSeniorOrMilitary(const bool &);
+    int getNumSeniorOrMilitary() const;
+    void setNumSeniorOrMilitary(const int &);
 
     bool getIsMember() const;
     void setIsMember(const bool &);
@@ -31,20 +33,33 @@ public:
     double getInitBill() const;
     void setInitBill(const double & bill);
 
+    bool getIsSpecialRate() const;
+    void setIsSpecialRate(const bool & rate);
+
+    int getDiscount() const;
+    void setDiscount(const int & discount);
+
     TableType getTableType() const;
     void setTableType(const TableType &);
+
+    QList<QPair<QDateTime, int>> getAllNumPlayers() {
+        return numPlayers;
+    }
 
 private:
     QDateTime start_time;
     QDateTime end_time;
 
-    int num_players;
-    bool is_senior_or_military;
+    int last_num_players;
+    int num_senior_or_military;
     bool is_member;
     double food_and_beverage;
+    bool isSpecialRate;
+    int discount;
 
     double init_bill;
     TableType tableType;
+    QList<QPair<QDateTime, int>> numPlayers;
 };
 
 #endif // BILL_H

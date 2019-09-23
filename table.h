@@ -30,13 +30,18 @@ public:
     TableType getTableType() const;
     void setTableType(const TableType & table_type);
 
+    QString getMemo() const;
+    void setMemo(const QString & memo);
+
     double getBillTotal();
 
-    void checkIn(int numPlayers, bool isIdTaken, double currentBill);
+    void checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
+                 double fab, int discount, QString memo);
     double checkOut();
-    void update(bool isIdTaken, int numPlayers, double fab, bool isMember, QString memo);
+    void update(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
+                 double fab, int discount, QString memo);
 
-    int getNumPlayers();
+    Bill* getBill() const;
 
 protected:
      void mousePressEvent (QMouseEvent *event) override;
