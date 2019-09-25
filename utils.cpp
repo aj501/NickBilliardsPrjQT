@@ -1,91 +1,214 @@
 #include "utils.h"
+#include "rate.h"
 
 namespace Utils {
-    double Utils::priceCal(const Bill * const bill) {
+    double priceCal(const Bill * const bill) {
         double total = 0;
-        if (bill->getIsMember() && bill->getTableType() == TableType::SevenFooter) {
-            if (isBeforeSevenPm(bill->getStartTime())) {
-
-            } else {
-                bill->getStartTime();
+        QList<QPair<QTime, int>> numPlayers = bill->getAllNumPlayers();
+        QTime start = bill->getStartTime();
+        for (int i = 0; i < numPlayers.length(); i++) {
+            QPair<QTime, int> numPlayer = numPlayers[i];
+            total += priceCal(start, numPlayer.first, numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
+                              bill->getTableType());
+            if (i == numPlayers.length()-1) {
+                total += priceCal(numPlayer.first, bill->getEndTime(), numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
+                                  bill->getTableType());
             }
-        } else if (isBeforeSevenPm(bill->getEndTime())) {
-            //total = priceCalBefore7pm(bill->getNumPlayers(), );
-        } else if (isAfterSevenPm(bill->getStartTime())) {
-            //total = priceCalBefore7pm(bill);
-        } else {
-
+            start = numPlayer.first;
         }
-        // Apply discount rate
+        // Discount
+        total *= (100-bill->getDiscount())/100;
+
+        // Senior/Military
+        double eachPersonBill = total/bill->getNumPlayers();
+        int numSenMil = bill->getNumSeniorOrMilitary();
+        int numNonSenMil = bill->getNumPlayers()-numSenMil;
+        total = eachPersonBill*numNonSenMil +
+                eachPersonBill/2*numSenMil;
+
+        // Food
+        total += bill->getFoodAndBeverage();
         return total;
     }
 
-    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, int numSenMil, double hours,double food, bool isBeforeSevenPm) {
+    double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, TableType tableType) {
+        double total = 0.0;
+        if (isMemberRate && tableType == TableType::SevenFooter && isAfterSevenPm(start)) {
+            total = Rate::SpecialMemberRate * numPlayers;
+        } else if (isBeforeSevenPm(end)) {
+            double hours = CalculateHours(start, end);
+            total = priceCalBefore7pm(numPlayers, isSpecialRate, hours);
+        } else if (isAfterSevenPm(start)) {
+            double hours = CalculateHours(start, end);
+            total = priceCalAfter7pm(numPlayers, hours);
+        } else {
+            double dayHours = CalculateHours(start, QTime(19, 0, 0));
+            double nightHours = CalculateHours(QTime(19, 0, 0), end);
+            total = priceCalBefore7pm(numPlayers, isSpecialRate, dayHours) + priceCalAfter7pm(numPlayers, nightHours);
+        }
+        return total;
+    }
+
+    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, double hours) {
         double total;
-        if(isBeforeSevenPm == true &&  isSpecialRate==true)
+        if(isSpecialRate)
         {
-            total = (numPlayers*9) + food;
+            total = numPlayers*Rate::DailySpecialRate;
         }
-        else if(isSpecialRate==false && isBeforeSevenPm ==true)
+        else
         {
-            total  = (numPlayers*3)+food;
+            total  = numPlayers*hours*Rate::DailyRate;
         }
-
-
+        return total;
     }
 
-    double priceCalAfter7pm(int numPlayers, int numSenMil, double hours, double food) {
-    double total;
-        if(numPlayers<=2 && numSenMil==0)
-    {
-        total = numPlayers*6*hours;
+    double priceCalAfter7pm(int numPlayers, double hours) {
+        double total = 0.0;
+        LoadRate();
+        QTextStream out(stdout);
+        out << Rate::NightRateOnePlayer;
+        switch (numPlayers) {
+        case 1:
+            total = Rate::NightRateOnePlayer*hours;
+            break;
+        case 2:
+            total = Rate::NightRateTwoPlayer*hours;
+            break;
+        case 3:
+            total = Rate::NightRateThreePlayer*hours;
+            break;
+        case 4:
+            total = Rate::NightRateFourPlayer*hours;
+            break;
+        case 5:
+            total = Rate::NightRateFivePlayer*hours;
+            break;
+        case 6:
+            total = Rate::NightRateSixPlayer*hours;
+            break;
+        }
+        return total;
     }
-        else if(numPlayers<=2 && numSenMil==1)
-        {
-            total = (numPlayers*(6*hours))-((6*hours)/2);
+
+    bool isBeforeSevenPm(QTime time) {
+        if (time.hour() >= 10 && time.hour() < 19) {
+            return true;
         }
-        else if(numPlayers <=2 && numSenMil==2)
-        {
-            total = (numPlayers*(6*hours))/2;
+        return false;
+    }
+
+    bool isAfterSevenPm(QTime time) {
+        if (time.hour() >= 19 || time.hour() <= 2) {
+            return true;
         }
-        if(numPlayers>2 && numPlayers<=4 && numSenMil==0)
-        {
-            total = numPlayers*5*hours;
+        return false;
+    }
+
+    double CalculateHours(QTime start, QTime end) {
+        int msecs = start.msecsTo(end);
+        if (msecs < 0) {
+            msecs += 86400000;
         }
-        else if (numPlayers>2 && numPlayers<=4 && numSenMil>0)
+        return msecs/3.6e+6;
+    }
+
+    void LoadRate() {
+        QTextStream out(stdout);
+
+        //The QDomDocument class represents an XML document.
+        QDomDocument xmlBOM;
+        // Load xml file as raw data
+
+        QDir bin(QCoreApplication::applicationDirPath());
+        #if defined(Q_OS_DARWIN)
+            bin.cdUp();    /* Fix this on Mac because of the .app folder, */
+            bin.cdUp();    /* which means that the actual executable is   */
+            bin.cdUp();    /* three levels deep. Grrr.                    */
+        #endif
+            QDir::setCurrent(bin.absolutePath());
+
+        QString path = bin.path();
+        path.append("/ratedata.xml");
+        out << path;
+        QFile f(path);
+
+        if (!f.open(QIODevice::ReadOnly ))
         {
-            for(numSenMil = 1; numSenMil<=4; numSenMil++)
+            // Error while loading file
+            out << "can't open file";
+            return;
+        }
+        // Set data into the QDomDocument before processing
+        xmlBOM.setContent(&f);
+        f.close();
+
+        QDomElement root=xmlBOM.documentElement();
+        // Get the first child of the root (Markup COMPONENT is expected)
+        //QDomElement Rate=root.firstChildElement("Rate");
+        QDomNode child = root.firstChild();
+        QDomElement Rate = child.toElement();
+        out << Rate.isNull();
+        // Loop while there is a child
+        while(!Rate.isNull())
+        {
+            out << Rate.tagName();
+            // Check if the child tag name is COMPONENT
+            if (Rate.tagName()=="RATE")
             {
-                total = (numPlayers*5*hours)-((numSenMil*hours)/2);
+                // Get the first child of the component
+                QDomElement Child=Rate.firstChild().toElement();
+                out << Child.tagName() + "\n";
+                // Read each child of the component node
+                while (!Child.isNull())
+                {
+                    out << Child.tagName();
+                    // Read Name and value
+                    if (Child.tagName()=="NAME") {
+                        out << Child.tagName();
+                        if (Child.firstChild().toText().data() == "SpecialMemberRate") {
+                            Rate::SpecialMemberRate = Child.firstChild().toText().data().toDouble();
+                        }
+                        if (Child.firstChild().toText().data() == "DailyRate") {
+                            Rate::DailyRate = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "DailySpecialRate") {
+                            Rate::DailySpecialRate = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "NightRateOnePlayer") {
+                            Rate::NightRateOnePlayer = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "NightRateTwoPlayer") {
+                            Rate::NightRateTwoPlayer = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "NightRateThreePlayer") {
+                            Rate::NightRateThreePlayer = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "NightRateFourPlayer") {
+                            Rate::NightRateFourPlayer = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "NightRateFivePlayer") {
+                            Rate::NightRateFivePlayer = Child.firstChild().toText().data().toDouble();
+                        }
+
+                        if (Child.firstChild().toText().data() == "NightRateSixPlayer") {
+                            Rate::NightRateSixPlayer = Child.firstChild().toText().data().toDouble();
+                        }
+
+
+                    }
+                    // Next child
+                    Child = Child.nextSibling().toElement();
+                }
             }
 
+            // Next component
+            Rate = Rate.nextSibling().toElement();
         }
-        if(numPlayers>4 && numSenMil==0){
-            total = (4*(hours*5))+((numPlayers-4)*(2*hours));
-        }
-        else if(numPlayers>4 && numSenMil>0)
-        {
-            for(numSenMil = 1; numSenMil<= numPlayers;numSenMil++)
-            {
-                double billPerPersonBeforeDiscount =  (4*(hours*5))+((numPlayers-4)*(2*hours))/numPlayers;
-                total = (4*(hours*5))+((numPlayers-4)*(2*hours))-((numSenMil*billPerPersonBeforeDiscount)/2);
-            }
-
-        }
-
-    }
-
-
-
-    bool isBeforeSevenPm(QDateTime time) {
-        return true;
-    }
-
-    bool isAfterSevenPm(QDateTime time) {
-        return true;
-    }
-
-    double CalculateHours(QDateTime start, QDateTime end) {
-
     }
 }

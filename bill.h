@@ -2,7 +2,7 @@
 #define BILL_H
 
 #include <time.h>
-#include <QDateTime>
+#include <QTime>
 #include <QList>
 #include <QPair>
 #include "tabletype.h"
@@ -12,11 +12,11 @@ class Bill
 public:
     Bill();
 
-    QDateTime getStartTime ()  const;
-    void setStartTime(QDateTime time);
+    QTime getStartTime ()  const;
+    void setStartTime(QTime time);
 
-    QDateTime getEndTime() const;
-    void setEndTime(QDateTime time);
+    QTime getEndTime() const;
+    void setEndTime(QTime time);
 
     int getNumPlayers() const;
     void setNumPlayers(const int & np);
@@ -42,13 +42,13 @@ public:
     TableType getTableType() const;
     void setTableType(const TableType &);
 
-    QList<QPair<QDateTime, int>> getAllNumPlayers() {
+    QList<QPair<QTime, int>> getAllNumPlayers() const {
         return numPlayers;
     }
 
 private:
-    QDateTime start_time;
-    QDateTime end_time;
+    QTime start_time;
+    QTime end_time;
 
     int last_num_players;
     int num_senior_or_military;
@@ -59,7 +59,7 @@ private:
 
     double init_bill;
     TableType tableType;
-    QList<QPair<QDateTime, int>> numPlayers;
+    QList<QPair<QTime, int>> numPlayers;
 };
 
 #endif // BILL_H

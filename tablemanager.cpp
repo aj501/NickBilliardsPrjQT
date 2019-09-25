@@ -6,6 +6,7 @@
 #include "ui_table.h"
 #include <QPixmap>
 #include "dailysummary.h"
+#include "utils.h"
 
 
 TableManager::TableManager(QWidget *parent) :
@@ -55,6 +56,7 @@ TableManager::TableManager(QWidget *parent) :
         tables[i]->setTableType(TableType::Snooker);
     }
 
+    Utils::LoadRate();
 }
 
 TableManager::~TableManager()

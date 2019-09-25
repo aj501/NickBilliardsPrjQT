@@ -6,19 +6,19 @@ Bill::Bill()
 
 }
 
-QDateTime Bill::getStartTime() const {
+QTime Bill::getStartTime() const {
     return start_time;
 }
 
-void Bill::setStartTime(QDateTime time) {
+void Bill::setStartTime(QTime time) {
     start_time = time;
 }
 
-QDateTime Bill::getEndTime() const {
+QTime Bill::getEndTime() const {
     return end_time;
 }
 
-void Bill::setEndTime(QDateTime time) {
+void Bill::setEndTime(QTime time) {
     end_time = time;
 }
 
@@ -28,8 +28,8 @@ int Bill::getNumPlayers() const {
 
 void Bill::setNumPlayers(const int &np) {
     this->last_num_players = np;
-    QDateTime now = QDateTime::currentDateTime();
-    QPair<QDateTime, int> p;
+    QTime now = QTime::currentTime();
+    QPair<QTime, int> p;
     p.first = now;
     p.second = np;
     numPlayers.push_back(p);

@@ -1,15 +1,24 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+// Library needed for processing XML documents
+#include <QtXml>
+// Library needed for processing files
+#include <QFile>
 #include "bill.h"
+#include <QDomNode>
 
 namespace Utils {
     double priceCal(const Bill * const bill);
-    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, int numSenMil, double hours,double food, bool isBeforeSevenPm);
-    double priceCalAfter7pm(int numPlayers, int numSenMil, double hours,double food);
-    bool isBeforeSevenPm(QDateTime time);
-    bool isAfterSevenPm(QDateTime time);
-    double CalculateHours(QDateTime start, QDateTime end);
+    double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, TableType tableType);
+    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, double hours);
+    double priceCalAfter7pm(int numPlayers, double hours);
+    bool isBeforeSevenPm(QTime time);
+    bool isAfterSevenPm(QTime time);
+    double CalculateHours(QTime start, QTime end);
+
+    void LoadRate();
+
 }
 
 #endif // UTILS_H

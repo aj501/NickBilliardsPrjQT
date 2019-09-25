@@ -52,6 +52,7 @@ void Table::setIsIdTaken(const bool &isIdTaken)
 }
 
 double Table::getBillTotal() {
+    bill->setEndTime(QTime::currentTime());
     return Utils::priceCal(bill);
 }
 
@@ -80,7 +81,7 @@ void Table::checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember
                                  double fnb, int discount, QString memo) {
     setBorderColor();
     setIsOccupied(true);
-    QDateTime now = QDateTime::currentDateTime();
+    QTime now = QTime::currentTime();
     bill->setNumPlayers(numPlayers);
     is_id_taken = isIdTaken;
     bill->setNumSeniorOrMilitary(numSenMil);
@@ -94,15 +95,14 @@ void Table::checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember
     table_manager->notify(this);
 }
 
-
 double Table::checkOut() {
     setBackgroundColor();
-    this->bill->setEndTime(QDateTime::currentDateTime());
+    this->bill->setEndTime(QTime::currentTime());
     double total = getBillTotal();
     // Reset fields
     this->is_occupied = false;
     this->is_id_taken = false;
-    this->bill->setStartTime(QDateTime::currentDateTime());
+    this->bill->setStartTime(QTime::currentTime());
     this->bill->setNumPlayers(0);
     this->bill->setFoodAndBeverage(0.0);
     this->bill->setIsMember(false);
