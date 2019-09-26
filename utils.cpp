@@ -5,7 +5,6 @@ namespace Utils {
         double total = 0;
         if (bill->getIsMember() && bill->getTableType() == TableType::SevenFooter) {
             if (isBeforeSevenPm(bill->getStartTime())) {
-
             } else {
                 bill->getStartTime();
             }
@@ -20,21 +19,18 @@ namespace Utils {
         return total;
     }
 
-    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, int numSenMil, double hours,double food, bool isBeforeSevenPm) {
+    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, int numSenMil, double hours, bool isBeforeSevenPm) {
         double total;
         if(isBeforeSevenPm == true &&  isSpecialRate==true)
         {
-            total = (numPlayers*9) + food;
+            total = (numPlayers*9);
         }
         else if(isSpecialRate==false && isBeforeSevenPm ==true)
         {
-            total  = (numPlayers*3)+food;
+            total  = (numPlayers*3);
         }
-
-
     }
-
-    double priceCalAfter7pm(int numPlayers, int numSenMil, double hours, double food) {
+    double priceCalAfter7pm(int numPlayers, int numSenMil, double hours) {
     double total;
         if(numPlayers<=2 && numSenMil==0)
     {
@@ -58,7 +54,6 @@ namespace Utils {
             {
                 total = (numPlayers*5*hours)-((numSenMil*hours)/2);
             }
-
         }
         if(numPlayers>4 && numSenMil==0){
             total = (4*(hours*5))+((numPlayers-4)*(2*hours));
@@ -70,13 +65,8 @@ namespace Utils {
                 double billPerPersonBeforeDiscount =  (4*(hours*5))+((numPlayers-4)*(2*hours))/numPlayers;
                 total = (4*(hours*5))+((numPlayers-4)*(2*hours))-((numSenMil*billPerPersonBeforeDiscount)/2);
             }
-
         }
-
     }
-
-
-
     bool isBeforeSevenPm(QDateTime time) {
         return true;
     }

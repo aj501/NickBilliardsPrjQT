@@ -10,8 +10,6 @@ TableEdit::TableEdit(QWidget *parent) :
 {
     ui->setupUi(this);
     this->table = dynamic_cast<Table*>(parent);
-
-
     for (int i=0; i<=6;i++)
     {
         ui->editPlayerNum_comboBox->addItem(QString::number(i));
@@ -54,8 +52,6 @@ void TableEdit::on_editTable_TabButton_clicked()
     tableTab->setModal(true);
     tableTab->exec();
 }
-
-
 
 void TableEdit::on_editTable_SaveButton_clicked()
 {

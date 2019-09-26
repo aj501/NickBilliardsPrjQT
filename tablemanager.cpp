@@ -66,7 +66,6 @@ void TableManager::changeControl(Table* table){
     ((Control*)ui->control)->setType(table);
     //table->setIsInUse(!table->getIsInUse());
 }
-
 void TableManager::notify(Table * table) {
     ((TableTransfer*)ui->transfer)->UpdateComboBox(table);
 }
@@ -80,9 +79,6 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
     double bill = tableFrom->checkOut();
     tableTo->checkIn(tableFrom->getNumPlayers(), tableFrom->getIsIdTaken(), bill);
 }
-
-
-
 void TableManager::on_dailySummray_pushButton_clicked()
 {
     dailysummary dailysum;
