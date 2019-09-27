@@ -12,8 +12,8 @@ TableEdit::TableEdit(QWidget *parent) :
     this->table = dynamic_cast<Table*>(parent);
     for (int i=0; i<=6;i++)
     {
-        ui->editPlayerNum_comboBox->addItem(QString::number(i));
-        ui->SenMilitary_comboBox->addItem(QString::number(i));
+        ui->numPlayers->addItem(QString::number(i));
+        ui->numSenMil->addItem(QString::number(i));
     }
 
     ui->tableNumberLabel->setText(QString::number(this->table->getId()));
@@ -31,9 +31,13 @@ int TableEdit::getTableNumber() {
 double TableEdit::getTimeInDollars() {
     return table->getBillTotal();
 }
+double TableEdit::getFnBDollar()
+{
+    return table->getBill()->getFoodAndBeverage();
+}
 
-QString TableEdit::getTimePlayed() {
-    return "";
+double TableEdit::getTimePlayed() {
+    return Utils::CalculateHours(table->getBill()->getStartTime(), table->getBill()->getEndTime());
 }
 
 void TableEdit::tab() {
@@ -55,11 +59,14 @@ void TableEdit::on_editTable_TabButton_clicked()
 
 void TableEdit::on_editTable_SaveButton_clicked()
 {
-    int numPlayers = ui->editPlayerNum_comboBox->currentText().toInt();
-    bool isIdTaken = ui->IDcheckBox->isChecked();
-    bool isMember = ui->MemberCheckBox->isChecked();
-    double fab = ui->FBlineEdit->text().toDouble();
-    QString memo = ui->MemoTextEdit->toPlainText();
-    table->update(isIdTaken, numPlayers, fab, isMember, memo);
+    int numPlayers = ui->numPlayers->currentText().toInt();
+    bool isIdTaken = ui->idTaken->isChecked();
+    int numSenMil = ui->numSenMil->currentText().toInt();
+    bool isMember = ui->isMemberRate->isChecked();
+    bool isSpecialRate = ui->isSpecialRate->isChecked();
+    int discount = ui->discount->currentData().toInt();
+    double fnb = ui->fnb->text().toDouble();
+    QString memo = ui->memo->toPlainText();
+    table->update(numPlayers, isIdTaken, numSenMil, isMember, isSpecialRate, fnb, discount, memo);
     this->close();
 }

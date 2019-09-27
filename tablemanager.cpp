@@ -6,6 +6,7 @@
 #include "ui_table.h"
 #include <QPixmap>
 #include "dailysummary.h"
+#include "utils.h"
 
 
 TableManager::TableManager(QWidget *parent) :
@@ -55,6 +56,7 @@ TableManager::TableManager(QWidget *parent) :
         tables[i]->setTableType(TableType::Snooker);
     }
 
+    Utils::LoadRate();
 }
 
 TableManager::~TableManager()
@@ -76,8 +78,12 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
     }
     Table* tableFrom = tables[fromTableIndex-1];
     Table* tableTo = tables[toTableIndex-1];
-    double bill = tableFrom->checkOut();
-    tableTo->checkIn(tableFrom->getNumPlayers(), tableFrom->getIsIdTaken(), bill);
+    tableTo->checkIn(tableFrom->getBill()->getNumPlayers(), tableFrom->getIsIdTaken(),
+                     tableFrom->getBill()->getNumSeniorOrMilitary(), tableFrom->getBill()->getIsMember(),
+                     tableFrom->getBill()->getIsSpecialRate(),
+                     tableFrom->getBill()->getFoodAndBeverage(),
+                     tableFrom->getBill()->getDiscount(),
+                     tableFrom->getMemo());
 }
 void TableManager::on_dailySummray_pushButton_clicked()
 {

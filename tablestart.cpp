@@ -11,14 +11,19 @@ TableStart::TableStart(QWidget *parent) :
 
     for (int i = 1; i<=6;i++)
     {
-        ui->numPlayersComboBox->addItem(QString::number(i));  
+        ui->numPlayers->addItem(QString::number(i));
     }
     for (int i = 0; i<=6;i++)
     {
-         ui->SenMilitary_comboBox->addItem(QString::number(i));
+         ui->numSenMil->addItem(QString::number(i));
     }
+    for (int i = 0; i<=5;i++)
+    {
+         ui->discount->addItem(QString::number(i*5) + "%", i*5);
+    }
+    ui->discount->addItem(QString::number(50) + "%", 50);
 
-    ui->tableNumberLabel->setText(QString::number(this->table->getId()));
+    ui->tableNumber->setText(QString::number(this->table->getId()));
 }
 
 TableStart::~TableStart()
@@ -27,9 +32,13 @@ TableStart::~TableStart()
 }
 
 void TableStart::on_startButton_pressed() {
-    int numPlayers = ui->numPlayersComboBox->currentText().toInt();
-    bool isIdTaken = ui->idTakenCheckBox->isChecked();
-    this->table->checkIn(numPlayers, isIdTaken, 0.0);
+    int numPlayers = ui->numPlayers->currentText().toInt();
+    bool isIdTaken = ui->idTaken->isChecked();
+    int numSenMil = ui->numSenMil->currentText().toInt();
+    bool isMember = ui->memberRate->isChecked();
+    bool isSpecialRate = ui->specialRate->isChecked();
+    int discount = ui->discount->currentData().toInt();
+    this->table->checkIn(numPlayers, isIdTaken, numSenMil, isMember, isSpecialRate, 0.0, discount, "");
     this->close();
 }
 

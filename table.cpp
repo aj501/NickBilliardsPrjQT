@@ -51,17 +51,17 @@ void Table::setIsIdTaken(const bool &isIdTaken)
     this->is_id_taken = isIdTaken;
 }
 
-
-int Table::getNumPlayers() {
-    return this->bill->getNumPlayers();
-}
-
 double Table::getBillTotal() {
-    return bill->getInitBill() + Utils::priceCal(bill);
+    bill->setEndTime(QTime::currentTime());
+    return Utils::priceCal(bill);
 }
 
 TableType Table::getTableType() const{
     return type;
+}
+
+Bill* Table::getBill() const {
+    return  bill;
 }
 
 void Table::setTableType(const TableType & table_type) {
@@ -69,48 +69,58 @@ void Table::setTableType(const TableType & table_type) {
     this->setBackgroundColor();
 }
 
-void Table::checkIn(int numPlayers, bool isIdTaken, double initBill)  {
-    this->setBorderColor();
-    this->setIsOccupied(true);
-    QDateTime now = QDateTime::currentDateTime();
-    QString as = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
-    this->is_id_taken = isIdTaken;
-    this->bill->setStartTime(now);
-    this->bill->setEndTime(now);
-    this->bill->setNumPlayers(numPlayers);
-    this->bill->setInitBill(initBill);
+QString Table::getMemo() const {
+    return memo;
+}
+
+void Table::setMemo(const QString & m){
+    memo = m;
+}
+
+void Table::checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
+                                 double fnb, int discount, QString memo) {
+    setBorderColor();
+    setIsOccupied(true);
+    QTime now = QTime::currentTime();
+    bill->setNumPlayers(numPlayers);
+    is_id_taken = isIdTaken;
+    bill->setNumSeniorOrMilitary(numSenMil);
+    bill->setIsMember(isMember);
+    bill->setIsSpecialRate(isSpecialRate);
+    bill->setFoodAndBeverage(fnb);
+    bill->setDiscount(discount);
+    bill->setStartTime(now);
+    bill->setEndTime(now);
+    setMemo(memo);
     table_manager->notify(this);
 }
 
-
 double Table::checkOut() {
     setBackgroundColor();
-    QDateTime now = QDateTime::currentDateTime();
-    this->bill->setEndTime(now);
+    this->bill->setEndTime(QTime::currentTime());
     double total = getBillTotal();
     // Reset fields
     this->is_occupied = false;
     this->is_id_taken = false;
-    this->bill->setInitBill(0.0);
-    this->bill->setStartTime(now);
+    this->bill->setStartTime(QTime::currentTime());
     this->bill->setNumPlayers(0);
     this->bill->setFoodAndBeverage(0.0);
     this->bill->setIsMember(false);
-    this->bill->setStartTime(now);
     table_manager->notify(this);
     return total;
 }
 
-void Table::update(bool isIdTaken, int numPlayers, double fab, bool isMember, QString memo) {
-    this->bill->setInitBill(this->getBillTotal());
-    this->is_id_taken = isIdTaken;
-    this->bill->setNumPlayers(this->bill->getNumPlayers() + numPlayers);
-    this->bill->setFoodAndBeverage(this->bill->getFoodAndBeverage() + fab);
-    this->bill->setIsMember(isMember);
-    this->memo = memo;
-    QDateTime now = QDateTime::currentDateTime();
-    this->bill->setStartTime(now);
-    this->bill->setEndTime(now);
+void Table::update(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
+                   double fnb, int discount, QString memo) {
+    bill->setNumPlayers(this->bill->getNumPlayers() + numPlayers);
+    bill->setFoodAndBeverage(this->bill->getFoodAndBeverage() + fnb);
+    is_id_taken = isIdTaken;
+    bill->setNumSeniorOrMilitary(numSenMil);
+    bill->setIsMember(isMember);
+    bill->setIsSpecialRate(isSpecialRate);
+    bill->setFoodAndBeverage(fnb);
+    bill->setDiscount(discount);
+    setMemo(memo);
 }
 
 

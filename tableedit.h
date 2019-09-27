@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLineEdit>
 #include  "table.h"
+#include "utils.h"
 
 class TableTab;
 
@@ -19,9 +20,10 @@ public:
     explicit TableEdit(QWidget *parent = nullptr);
     ~TableEdit();
     int getTableNumber();
-    QString getTimePlayed();
+    double getTimePlayed();
     double getTimeInDollars();
     void tab();
+    double getFnBDollar();
 
 private slots:
     void on_editTable_CancelButton_clicked();
