@@ -25,9 +25,8 @@ namespace Utils {
         int numNonSenMil = bill->getNumPlayers()-numSenMil;
         total = eachPersonBill*numNonSenMil +
                 eachPersonBill/2*numSenMil;
-
         // Food
-        total += bill->getFoodAndBeverage();
+       // total += bill->getFoodAndBeverage();
         return total;
     }
 
