@@ -33,13 +33,16 @@ public:
     QString getMemo() const;
     void setMemo(const QString & memo);
 
-    double getBillTotal();
+    double getCurrentBill();
 
-    void checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
-                 double fab, int discount, QString memo);
-    double checkOut();
-    void update(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
-                 double fab, int discount, QString memo);
+    void checkIn(int lastNumPlayers,
+                 int lastNumSenMils,
+                 bool isIdTaken, bool isMember, bool isSpecialRate,
+                 int discount, QString memo);
+    void checkOut();
+    void update(int numPlayers, int numSenMil,
+                bool isIdTaken,bool isMember, bool isSpecialRate,
+                double fnb, int discount, QString memo);
 
     Bill* getBill() const;
 

@@ -20,10 +20,10 @@ public:
     explicit TableEdit(QWidget *parent = nullptr);
     ~TableEdit();
     int getTableNumber();
-    double getTimePlayed();
-    double getTimeInDollars();
     void tab();
-    double getFnBDollar();
+    void UpdateTable();
+
+    Table* getTable() const;
 
 private slots:
     void on_editTable_CancelButton_clicked();
@@ -31,6 +31,10 @@ private slots:
 
 
     void on_editTable_SaveButton_clicked();
+
+    void on_numPlayers_activated(int index);
+
+    void on_numSenMil_activated(int index);
 
 private:
     Ui::TableEdit *ui;

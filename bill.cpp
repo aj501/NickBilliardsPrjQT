@@ -14,20 +14,12 @@ void Bill::setStartTime(QTime time) {
     start_time = time;
 }
 
-QTime Bill::getEndTime() const {
-    return end_time;
-}
-
-void Bill::setEndTime(QTime time) {
-    end_time = time;
-}
-
 int Bill::getNumPlayers() const {
     return last_num_players;
 }
 
-void Bill::setNumPlayers(const int &np) {
-    this->last_num_players = np;
+void Bill::updateNumPlayers(const int &np) {
+    last_num_players = np;
     QTime now = QTime::currentTime();
     QPair<QTime, int> p;
     p.first = now;
@@ -36,11 +28,12 @@ void Bill::setNumPlayers(const int &np) {
 }
 
 int Bill::getNumSeniorOrMilitary() const {
-    return num_senior_or_military;
+    return last_num_senior_or_military;
 }
 
-void Bill::setNumSeniorOrMilitary(const int & senmil) {
-    num_senior_or_military = senmil;
+void Bill::updateNumSeniorOrMilitary(const int & senmil) {
+    last_num_senior_or_military = senmil;
+    numSenMils.push_back(senmil);
 }
 
 bool Bill::getIsMember() const {

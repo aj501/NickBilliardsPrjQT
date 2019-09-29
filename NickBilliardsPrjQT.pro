@@ -9,7 +9,7 @@ QT += xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = NickBilliardsPrjQT
+TARGET = NickBilliards
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -29,6 +29,7 @@ SOURCES += \
         bill.cpp \
         control.cpp \
         dailysummary.cpp \
+        idreturnreminder.cpp \
         main.cpp \
         table.cpp \
         tableedit.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
         bill.h \
         control.h \
         dailysummary.h \
+        idreturnreminder.h \
         rate.h \
         table.h \
         tableedit.h \
@@ -55,6 +57,7 @@ HEADERS += \
 FORMS += \
         control.ui \
         dailysummary.ui \
+        idreturnreminder.ui \
         table.ui \
         tableedit.ui \
         tablemanager.ui \

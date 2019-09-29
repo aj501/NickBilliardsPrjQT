@@ -21,15 +21,16 @@
     <rect>
      <x>120</x>
      <y>10</y>
-     <width>91</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: transparent;</string>
+    <string notr="true">background-color: transparent;
+color: rgb(223, 167, 40);</string>
    </property>
    <property name="text">
-    <string>Transfer Table</string>
+    <string>TRANSFER TABLE</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">
@@ -42,7 +43,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: transparent;</string>
+    <string notr="true">background-color: transparent;
+color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>From:</string>
@@ -58,7 +60,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: transparent;</string>
+    <string notr="true">background-color: transparent;
+color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>To:</string>
@@ -90,6 +93,10 @@ background-color: rgb(223, 167, 40);</string>
      <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(44, 44, 44);</string>
+   </property>
   </widget>
   <widget class="QComboBox" name="TransferTo_comboBox">
    <property name="geometry">
@@ -99,6 +106,10 @@ background-color: rgb(223, 167, 40);</string>
      <width>71</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(44, 44, 44);</string>
    </property>
   </widget>
  </widget>

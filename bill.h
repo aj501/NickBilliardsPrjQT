@@ -15,14 +15,11 @@ public:
     QTime getStartTime ()  const;
     void setStartTime(QTime time);
 
-    QTime getEndTime() const;
-    void setEndTime(QTime time);
-
     int getNumPlayers() const;
-    void setNumPlayers(const int & np);
+    void updateNumPlayers(const int & np);
 
     int getNumSeniorOrMilitary() const;
-    void setNumSeniorOrMilitary(const int &);
+    void updateNumSeniorOrMilitary(const int &);
 
     bool getIsMember() const;
     void setIsMember(const bool &);
@@ -46,12 +43,34 @@ public:
         return numPlayers;
     }
 
+    QList<int> getAllSenMils() const {
+        return numSenMils;
+    }
+
+    void setAllNumPlayers(const QList<QPair<QTime, int>> allPlayers) {
+        numPlayers = allPlayers;
+    }
+
+    void setAllNumSenMils(const QList<int> allSenMils) {
+        numSenMils = allSenMils;
+    }
+
+    void reset() {
+        setStartTime(QTime::currentTime());
+        setFoodAndBeverage(0.0);
+        setIsMember(false);
+        setIsSpecialRate(false);
+        setDiscount(0);
+        last_num_players = 0;
+        last_num_senior_or_military = 0;
+        numPlayers.clear();
+        numSenMils.clear();
+    }
+
 private:
     QTime start_time;
-    QTime end_time;
-
     int last_num_players;
-    int num_senior_or_military;
+    int last_num_senior_or_military;
     bool is_member;
     double food_and_beverage;
     bool isSpecialRate;
@@ -60,6 +79,7 @@ private:
     double init_bill;
     TableType tableType;
     QList<QPair<QTime, int>> numPlayers;
+    QList<int> numSenMils;
 };
 
 #endif // BILL_H

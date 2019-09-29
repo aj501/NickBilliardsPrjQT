@@ -24,6 +24,8 @@ private:
 private slots:
     void on_startButton_pressed();
     void on_cancelButton_clicked();
+    void on_numPlayers_activated(int index);
+    void on_numSenMil_activated(int index);
 };
 
 #endif // TABLESTART_H

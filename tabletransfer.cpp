@@ -52,7 +52,6 @@ QString TableTransfer::convertToIDString(int id) {
 }
 
 void TableTransfer::on_saveButton_pressed() {
-
     int fromTableIndex = ui->TransferFrom_comboBox->currentText().toInt();
     int toTableIndex = ui->TransferTo_comboBox->currentText().toInt();
     this->table_manager->transferTable(fromTableIndex, toTableIndex);

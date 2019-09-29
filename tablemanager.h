@@ -23,6 +23,11 @@ public:
     void changeControl(Table*);
     void notify(Table*);
     void transferTable(int fromTableIndex, int toTableIndex);
+    void UpdateRevenue(Table* table);
+
+    double getTotalHours();
+    double getTotalHoursInDollars();
+    double getTotalFnB();
 
 private slots:
     void on_dailySummray_pushButton_clicked();
@@ -32,6 +37,10 @@ private:
     Table* tables[24];
     Control* control;
     TableTransfer* table_transfer;
+
+    double totalHours;
+    double totalHoursInDollars;
+    double totalFnB;
 };
 
 #endif // TABLEMANAGER_H
