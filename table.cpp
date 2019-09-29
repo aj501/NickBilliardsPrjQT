@@ -81,9 +81,10 @@ void Table::checkIn(int lastNumPlayers,
                     int lastNumSenMils, bool isIdTaken,
                     bool isMember, bool isSpecialRate,
                     int discount, QString memo) {
-    setBorderColor();
-    setIsOccupied(true);
     QTime now = QTime::currentTime();
+    setBorderColor();
+    ui->startTime->setText(now.toString("hh:mm"));
+    is_occupied = true;
     is_id_taken = isIdTaken;
     bill->updateNumPlayers(lastNumPlayers);
     bill->updateNumSeniorOrMilitary(lastNumSenMils);
@@ -97,6 +98,7 @@ void Table::checkIn(int lastNumPlayers,
 
 void Table::checkOut() {
     setBackgroundColor();
+    ui->startTime->setText("");
     table_manager->UpdateRevenue(this);
     // Reset fields
     bill->reset();
@@ -152,7 +154,8 @@ void Table::setBorderColor() {
                         "border-style: solid; border-color: white;";
     }
     this->setStyleSheet(color_setting);
-    ui->label->setStyleSheet("border-style:none; border-color: blue;");
+    ui->label->setStyleSheet("border-style:none;");
+    ui->startTime->setStyleSheet("border-style:none;");
 }
 
 void Table::mousePressEvent(QMouseEvent *) {
