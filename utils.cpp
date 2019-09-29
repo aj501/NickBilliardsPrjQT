@@ -4,18 +4,14 @@
 namespace Utils {
     double priceCal(const Bill * const bill) {
         double total = 0;
-        QTextStream out(stdout);
-
         QList<QPair<QTime, int>> numPlayers = bill->getAllNumPlayers();
-        out << numPlayers.length();
-        out << bill->getAllSenMils().length();
         QTime start = bill->getStartTime();
         for (int i = 0; i < numPlayers.length(); i++) {
             QPair<QTime, int> numPlayer = numPlayers[i];
             total += priceCal(start, numPlayer.first, numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
                               bill->getAllSenMils()[i], bill->getTableType());
             if (i == numPlayers.length()-1) {
-                total += priceCal(numPlayer.first, bill->getEndTime(), numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
+                total += priceCal(numPlayer.first, QTime::currentTime(), numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
                                   bill->getAllSenMils()[i], bill->getTableType());
             }
             start = numPlayer.first;
@@ -26,26 +22,19 @@ namespace Utils {
     }
 
     double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, int numSenMils, TableType tableType) {
-        QTextStream out(stdout);
         double total = 0.0;
         if (isMemberRate && tableType == TableType::SevenFooter && isAfterSevenPm(start)) {
-            out << 1;
             total = Rate::SpecialMemberRate * numPlayers;
         } else if (isBeforeSevenPm(end)) {
-            out << 2;
             double hours = CalculateHours(start, end);
             total = priceCalBefore7pm(numPlayers, isSpecialRate, hours);
         } else if (isAfterSevenPm(start)) {
-            out << 3;
             double hours = CalculateHours(start, end);
             total = priceCalAfter7pm(numPlayers, hours);
         } else if (isBeforeSevenPm(start) && isAfterSevenPm(end)) {
             double dayHours = CalculateHours(start, QTime(19, 0, 0));
             double nightHours = CalculateHours(QTime(19, 0, 0), end);
             total = priceCalBefore7pm(numPlayers, isSpecialRate, dayHours) + priceCalAfter7pm(numPlayers, nightHours);
-            out << dayHours;
-            out << "\n";
-            out << nightHours;
         } else {
             return 0;
         }

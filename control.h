@@ -17,7 +17,7 @@ class Control : public QWidget
 
 public:
     explicit Control(QWidget *parent = nullptr);
-    ~Control();
+    ~Control() override;
 
     void setType(Table* table);
 

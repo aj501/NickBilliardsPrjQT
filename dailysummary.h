@@ -5,19 +5,19 @@
 #include "tablemanager.h"
 
 namespace Ui {
-class dailysummary;
+class DailySummary;
 }
 
-class dailysummary : public QDialog
+class DailySummary : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit dailysummary(QWidget *parent = nullptr);
-    ~dailysummary();
+    explicit DailySummary(QWidget *parent = nullptr);
+    ~DailySummary();
 
 private:
-    Ui::dailysummary *ui;
+    Ui::DailySummary *ui;
     TableManager* tableManager;
 };
 

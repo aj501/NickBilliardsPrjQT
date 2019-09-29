@@ -84,8 +84,8 @@ void TableManager::notify(Table * table) {
 }
 
 void TableManager::UpdateRevenue(Table *table) {
-    totalHours += Utils::CalculateHours(table->getBill()->getStartTime(), table->getBill()->getEndTime());
-    totalHoursInDollars += table->getFinalBill();
+    totalHours += Utils::CalculateHours(table->getBill()->getStartTime(), QTime::currentTime());
+    totalHoursInDollars += table->getCurrentBill();
     totalFnB += table->getBill()->getFoodAndBeverage();
 }
 
@@ -99,7 +99,6 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
     tableTo->checkIn(tableFrom->getBill()->getNumPlayers(), tableFrom->getBill()->getNumSeniorOrMilitary(),
                      tableFrom->getIsIdTaken(), tableFrom->getBill()->getIsMember(),
                      tableFrom->getBill()->getIsSpecialRate(),
-                     tableFrom->getBill()->getFoodAndBeverage(),
                      tableFrom->getBill()->getDiscount(),
                      tableFrom->getMemo());
     tableFrom->checkOut();
@@ -107,7 +106,7 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
 
 void TableManager::on_dailySummray_pushButton_clicked()
 {
-    dailysummary* summary = new dailysummary(this);
+    DailySummary* summary = new DailySummary(this);
     summary->setModal(true);
     summary->exec();
 }

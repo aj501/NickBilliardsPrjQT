@@ -6,7 +6,7 @@ IdReturnReminder::IdReturnReminder(QWidget *parent) :
     ui(new Ui::IdReturnReminder)
 {
     ui->setupUi(this);
-    this->tableEdit = dynamic_cast<TableEdit*>(parent);
+    this->tableTab = dynamic_cast<TableTab*>(parent);
 }
 
 IdReturnReminder::~IdReturnReminder()
@@ -16,6 +16,6 @@ IdReturnReminder::~IdReturnReminder()
 
 void IdReturnReminder::on_close_clicked()
 {
+    tableTab->setIdTaken(false);
     this->close();
-    tableEdit->setIdTaken(false);
 }

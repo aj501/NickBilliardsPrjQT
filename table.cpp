@@ -51,14 +51,8 @@ void Table::setIsIdTaken(const bool &isIdTaken)
     this->is_id_taken = isIdTaken;
 }
 
-double Table::calculateCurrentBill() {
-    bill->setEndTime(QTime::currentTime());
-    finalBill = Utils::priceCal(bill);
-    return finalBill;
-}
-
-double Table::getFinalBill() {
-    return finalBill;
+double Table::getCurrentBill() {
+    return Utils::priceCal(bill);
 }
 
 
@@ -86,7 +80,7 @@ void Table::setMemo(const QString & m){
 void Table::checkIn(int lastNumPlayers,
                     int lastNumSenMils, bool isIdTaken,
                     bool isMember, bool isSpecialRate,
-                    double fnb, int discount, QString memo) {
+                    int discount, QString memo) {
     setBorderColor();
     setIsOccupied(true);
     QTime now = QTime::currentTime();
@@ -95,22 +89,20 @@ void Table::checkIn(int lastNumPlayers,
     bill->updateNumSeniorOrMilitary(lastNumSenMils);
     bill->setIsMember(isMember);
     bill->setIsSpecialRate(isSpecialRate);
-    bill->setFoodAndBeverage(fnb);
     bill->setDiscount(discount);
     bill->setStartTime(now);
-    bill->setEndTime(now);
     setMemo(memo);
     table_manager->notify(this);
 }
 
 void Table::checkOut() {
     setBackgroundColor();
+    table_manager->UpdateRevenue(this);
     // Reset fields
     bill->reset();
     this->is_occupied = false;
     this->is_id_taken = false;
     table_manager->notify(this);
-    table_manager->UpdateRevenue(this);
 }
 
 void Table::update(int numPlayers, int numSenMil, bool isIdTaken, bool isMember, bool isSpecialRate,

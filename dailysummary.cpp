@@ -1,9 +1,9 @@
 #include "dailysummary.h"
 #include "ui_dailysummary.h"
 
-dailysummary::dailysummary(QWidget *parent) :
+DailySummary::DailySummary(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::dailysummary)
+    ui(new Ui::DailySummary)
 {
     ui->setupUi(this);
     this->tableManager = dynamic_cast<TableManager*>(parent);
@@ -18,7 +18,7 @@ dailysummary::dailysummary(QWidget *parent) :
     ui->revenue->setText(QString::number(hoursInDollars + fnb, 'f', 2));
 }
 
-dailysummary::~dailysummary()
+DailySummary::~DailySummary()
 {
     delete ui;
 }

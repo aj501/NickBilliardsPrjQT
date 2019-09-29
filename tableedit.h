@@ -7,7 +7,6 @@
 #include "utils.h"
 
 class TableTab;
-class IdReturnReminder;
 
 namespace Ui {
 class TableEdit;
@@ -21,11 +20,10 @@ public:
     explicit TableEdit(QWidget *parent = nullptr);
     ~TableEdit();
     int getTableNumber();
-    double getTimePlayed();
-    double getTimeInDollars();
     void tab();
-    void setIdTaken(bool idTaken);
-    double getFnBDollar();
+    void UpdateTable();
+
+    Table* getTable() const;
 
 private slots:
     void on_editTable_CancelButton_clicked();

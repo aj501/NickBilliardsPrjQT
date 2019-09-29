@@ -14,26 +14,9 @@ void Bill::setStartTime(QTime time) {
     start_time = time;
 }
 
-QTime Bill::getEndTime() const {
-    return end_time;
-}
-
-void Bill::setEndTime(QTime time) {
-    end_time = time;
-}
-
 int Bill::getNumPlayers() const {
     return last_num_players;
 }
-
-void Bill::setNumPlayers(const int &np) {
-    last_num_players = np;
-}
-
-void Bill::setNumSeniorOrMilitary(const int &np) {
-    last_num_senior_or_military = np;
-}
-
 
 void Bill::updateNumPlayers(const int &np) {
     last_num_players = np;

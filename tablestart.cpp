@@ -43,7 +43,7 @@ void TableStart::on_startButton_pressed() {
 
     this->table->checkIn(numPlayers, numSenMil,
                          isIdTaken, isMember, isSpecialRate,
-                         0.0, discount, "");
+                         discount, "");
     this->close();
 }
 

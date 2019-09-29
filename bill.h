@@ -15,15 +15,10 @@ public:
     QTime getStartTime ()  const;
     void setStartTime(QTime time);
 
-    QTime getEndTime() const;
-    void setEndTime(QTime time);
-
     int getNumPlayers() const;
-    void setNumPlayers(const int & np);
     void updateNumPlayers(const int & np);
 
     int getNumSeniorOrMilitary() const;
-    void setNumSeniorOrMilitary(const int &);
     void updateNumSeniorOrMilitary(const int &);
 
     bool getIsMember() const;
@@ -62,7 +57,6 @@ public:
 
     void reset() {
         setStartTime(QTime::currentTime());
-        setEndTime(QTime::currentTime());
         setFoodAndBeverage(0.0);
         setIsMember(false);
         setIsSpecialRate(false);
@@ -75,8 +69,6 @@ public:
 
 private:
     QTime start_time;
-    QTime end_time;
-
     int last_num_players;
     int last_num_senior_or_military;
     bool is_member;

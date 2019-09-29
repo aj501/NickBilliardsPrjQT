@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "tableedit.h"
+#include "idreturnreminder.h"
 
 
 namespace Ui {
@@ -16,6 +17,8 @@ class TableTab : public QDialog
 public:
     explicit TableTab(QWidget *parent = nullptr);
     ~TableTab();
+
+    void setIdTaken(bool idIdTaken);
 
 private slots:
     void on_CloseTable_Button_clicked();

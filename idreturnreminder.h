@@ -2,7 +2,7 @@
 #define IDRETURNREMINDER_H
 
 #include <QDialog>
-#include "tableedit.h"
+#include "tabletab.h"
 
 namespace Ui {
 class IdReturnReminder;
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::IdReturnReminder *ui;
-    TableEdit* tableEdit;
+    TableTab* tableTab;
 
 };
 

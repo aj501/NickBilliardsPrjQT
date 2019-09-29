@@ -40,34 +40,16 @@ TableEdit::~TableEdit()
     delete ui;
 }
 
+Table* TableEdit::getTable() const {
+    return table;
+}
+
 int TableEdit::getTableNumber() {
     return table->getId();
 }
 
-double TableEdit::getTimeInDollars() {
-    return table->calculateCurrentBill();
-}
-
-double TableEdit::getFnBDollar()
-{
-    return table->getBill()->getFoodAndBeverage();
-}
-
-double TableEdit::getTimePlayed() {
-    return Utils::CalculateHours(table->getBill()->getStartTime(), table->getBill()->getEndTime());
-}
-
-void TableEdit::setIdTaken(bool idTaken) {
-    table->setIsIdTaken(idTaken);
-}
-
 void TableEdit::tab() {
     this->table->checkOut();
-    if (table->getIsIdTaken()) {
-        IdReturnReminder* reminder = new IdReturnReminder(this);
-        reminder->setModal(true);
-        reminder->exec();
-    }
     this->close();
 }
 
@@ -78,13 +60,25 @@ void TableEdit::on_editTable_CancelButton_clicked()
 
 void TableEdit::on_editTable_TabButton_clicked()
 {
-    TableTab* tableTab = new TableTab(this);
-    tableTab->setModal(true);
-    tableTab->exec();
+    if (table->getIsOccupied()) {
+        UpdateTable();
+        TableTab* tableTab = new TableTab(this);
+        tableTab->setModal(true);
+        tableTab->exec();
+    } else {
+        this->close();
+    }
 }
 
 void TableEdit::on_editTable_SaveButton_clicked()
 {
+    if (table->getIsOccupied()) {
+        UpdateTable();
+    }
+    this->close();
+}
+
+void TableEdit::UpdateTable() {
     int numPlayers = ui->numPlayers->currentText().toInt();
     bool isIdTaken = ui->idTaken->isChecked();
     int numSenMil = ui->numSenMil->currentText().toInt();
@@ -93,10 +87,7 @@ void TableEdit::on_editTable_SaveButton_clicked()
     int discount = ui->discount->currentData().toInt();
     double fnb = ui->fnb->text().toDouble();
     QString memo = ui->memo->toPlainText();
-    QTextStream out(stdout);
-    out << discount;
-    table->update(numPlayers, isIdTaken, numSenMil, isMember, isSpecialRate, fnb, discount, memo);
-    this->close();
+    table->update(numPlayers, numSenMil, isIdTaken, isMember, isSpecialRate, fnb, discount, memo);
 }
 
 void TableEdit::on_numPlayers_activated(int index)
