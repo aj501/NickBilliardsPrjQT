@@ -12,13 +12,13 @@ TableTab::TableTab(QWidget *parent) :
     ui->setupUi(this);
     tableEdit = dynamic_cast<TableEdit*>(parent);
     ui->TableId->setText(QString::number(tableEdit->getTableNumber()));
-    ui->TimePlayed->setText(QString::number(tableEdit->getTimePlayed()));
+    ui->TimePlayed->setText(QString::number(tableEdit->getTimePlayed(), 'f', 2));
 
     double timeInDollars = tableEdit->getTimeInDollars();
-    ui->TimeInDollars->setText(QString::number(timeInDollars));
-    ui->FoodNBeverage->setText(QString::number(tableEdit->getFnBDollar()));
+    ui->TimeInDollars->setText(QString::number(timeInDollars, 'f', 2));
+    ui->FoodNBeverage->setText(QString::number(tableEdit->getFnBDollar(), 'f', 2));
 
-    ui->Total->setText(QString::number(timeInDollars + tableEdit->getFnBDollar()));
+    ui->Total->setText(QString::number(timeInDollars + tableEdit->getFnBDollar(), 'f', 2));
 
 }
 

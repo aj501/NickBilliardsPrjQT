@@ -55,8 +55,8 @@ TableManager::TableManager(QWidget *parent) :
     for (int i = 20; i < 24; i++) {
         tables[i]->setTableType(TableType::Snooker);
     }
-
-    Utils::LoadRate();
+    control = ui->control;
+    table_transfer = ui->transfer;
 }
 
 TableManager::~TableManager()
@@ -64,12 +64,29 @@ TableManager::~TableManager()
     delete ui;
 }
 
+double TableManager::getTotalHours() {
+    return totalHours;
+}
+
+double TableManager::getTotalHoursInDollars() {
+    return totalHoursInDollars;
+}
+
+double TableManager::getTotalFnB() {
+    return totalFnB;
+}
+
 void TableManager::changeControl(Table* table){
-    ((Control*)ui->control)->setType(table);
-    //table->setIsInUse(!table->getIsInUse());
+    control->setType(table);
 }
 void TableManager::notify(Table * table) {
-    ((TableTransfer*)ui->transfer)->UpdateComboBox(table);
+    table_transfer->UpdateComboBox(table);
+}
+
+void TableManager::UpdateRevenue(Table *table) {
+    totalHours += Utils::CalculateHours(table->getBill()->getStartTime(), table->getBill()->getEndTime());
+    totalHoursInDollars += table->getFinalBill();
+    totalFnB += table->getBill()->getFoodAndBeverage();
 }
 
 void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
@@ -78,16 +95,19 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
     }
     Table* tableFrom = tables[fromTableIndex-1];
     Table* tableTo = tables[toTableIndex-1];
-    tableTo->checkIn(tableFrom->getBill()->getNumPlayers(), tableFrom->getIsIdTaken(),
-                     tableFrom->getBill()->getNumSeniorOrMilitary(), tableFrom->getBill()->getIsMember(),
+
+    tableTo->checkIn(tableFrom->getBill()->getNumPlayers(), tableFrom->getBill()->getNumSeniorOrMilitary(),
+                     tableFrom->getIsIdTaken(), tableFrom->getBill()->getIsMember(),
                      tableFrom->getBill()->getIsSpecialRate(),
                      tableFrom->getBill()->getFoodAndBeverage(),
                      tableFrom->getBill()->getDiscount(),
                      tableFrom->getMemo());
+    tableFrom->checkOut();
 }
+
 void TableManager::on_dailySummray_pushButton_clicked()
 {
-    dailysummary dailysum;
-    dailysum.setModal(true);
-    dailysum.exec();
+    dailysummary* summary = new dailysummary(this);
+    summary->setModal(true);
+    summary->exec();
 }

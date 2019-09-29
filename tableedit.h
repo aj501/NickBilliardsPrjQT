@@ -7,6 +7,7 @@
 #include "utils.h"
 
 class TableTab;
+class IdReturnReminder;
 
 namespace Ui {
 class TableEdit;
@@ -23,6 +24,7 @@ public:
     double getTimePlayed();
     double getTimeInDollars();
     void tab();
+    void setIdTaken(bool idTaken);
     double getFnBDollar();
 
 private slots:
@@ -31,6 +33,10 @@ private slots:
 
 
     void on_editTable_SaveButton_clicked();
+
+    void on_numPlayers_activated(int index);
+
+    void on_numSenMil_activated(int index);
 
 private:
     Ui::TableEdit *ui;

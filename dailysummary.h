@@ -2,6 +2,7 @@
 #define DAILYSUMMARY_H
 
 #include <QDialog>
+#include "tablemanager.h"
 
 namespace Ui {
 class dailysummary;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::dailysummary *ui;
+    TableManager* tableManager;
 };
 
 #endif // DAILYSUMMARY_H

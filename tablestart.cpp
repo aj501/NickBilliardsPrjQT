@@ -13,10 +13,11 @@ TableStart::TableStart(QWidget *parent) :
     {
         ui->numPlayers->addItem(QString::number(i));
     }
-    for (int i = 0; i<=6;i++)
+    for (int i = 0; i<=1;i++)
     {
-         ui->numSenMil->addItem(QString::number(i));
+        ui->numSenMil->addItem((QString::number(i)));
     }
+
     for (int i = 0; i<=5;i++)
     {
          ui->discount->addItem(QString::number(i*5) + "%", i*5);
@@ -33,16 +34,39 @@ TableStart::~TableStart()
 
 void TableStart::on_startButton_pressed() {
     int numPlayers = ui->numPlayers->currentText().toInt();
-    bool isIdTaken = ui->idTaken->isChecked();
     int numSenMil = ui->numSenMil->currentText().toInt();
+
+    bool isIdTaken = ui->idTaken->isChecked();
     bool isMember = ui->memberRate->isChecked();
     bool isSpecialRate = ui->specialRate->isChecked();
     int discount = ui->discount->currentData().toInt();
-    this->table->checkIn(numPlayers, isIdTaken, numSenMil, isMember, isSpecialRate, 0.0, discount, "");
+
+    this->table->checkIn(numPlayers, numSenMil,
+                         isIdTaken, isMember, isSpecialRate,
+                         0.0, discount, "");
     this->close();
 }
 
 void TableStart::on_cancelButton_clicked()
 {
     this->close();
+}
+
+void TableStart::on_numPlayers_activated(int index)
+{
+    ui->numSenMil->clear();
+    for (int i=0; i<=index+1; i++)
+    {
+        ui->numSenMil->addItem(QString::number(i));
+    }
+}
+
+
+void TableStart::on_numSenMil_activated(int index)
+{
+    if (index != 0) {
+        ui->idTaken->setChecked(true);
+    } else {
+        ui->idTaken->setChecked(false);
+    }
 }

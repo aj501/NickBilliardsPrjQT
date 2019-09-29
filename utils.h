@@ -10,13 +10,12 @@
 
 namespace Utils {
     double priceCal(const Bill * const bill);
-    double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, TableType tableType);
+    double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, int numSenMils, TableType tableType);
     double priceCalBefore7pm(int numPlayers, bool isSpecialRate, double hours);
     double priceCalAfter7pm(int numPlayers, double hours);
     bool isBeforeSevenPm(QTime time);
     bool isAfterSevenPm(QTime time);
     double CalculateHours(QTime start, QTime end);
 
-    void LoadRate();
 }
 #endif // UTILS_H

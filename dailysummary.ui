@@ -7,36 +7,45 @@
     <x>0</x>
     <y>0</y>
     <width>292</width>
-    <height>252</height>
+    <height>208</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Summary</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(69, 69, 69)</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>90</x>
      <y>0</y>
-     <width>101</width>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(223, 167, 40);</string>
+   </property>
    <property name="text">
-    <string>Daily Summary</string>
+    <string>DAILY SUMMARY</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>90</y>
+     <x>60</x>
+     <y>80</y>
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Table $:</string>
@@ -45,24 +54,30 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>120</y>
+     <x>60</x>
+     <y>110</y>
      <width>59</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>F&amp;B$:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="hours">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>60</y>
+     <x>160</x>
+     <y>50</y>
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -74,14 +89,17 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="fnb">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>120</y>
+     <x>160</x>
+     <y>110</y>
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -93,14 +111,17 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="hoursInDollars">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>90</y>
+     <x>160</x>
+     <y>80</y>
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -115,24 +136,30 @@
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>60</y>
+     <x>60</x>
+     <y>50</y>
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Table hours</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_10">
+  <widget class="QLabel" name="revenue">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>160</y>
+     <x>160</x>
+     <y>150</y>
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -147,11 +174,14 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>160</y>
+     <x>60</x>
+     <y>150</y>
      <width>81</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Today's Rev.</string>

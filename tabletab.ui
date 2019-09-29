@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>TableTab</class>
  <widget class="QDialog" name="TableTab">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Check</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 44, 44);</string>
@@ -20,10 +23,13 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>40</y>
+     <y>60</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Table #</string>
@@ -33,10 +39,13 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>70</y>
+     <y>90</y>
      <width>81</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Time played</string>
@@ -46,10 +55,13 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>100</y>
+     <y>120</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Time in $</string>
@@ -59,10 +71,13 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>130</y>
+     <y>150</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>F&amp;B $</string>
@@ -72,10 +87,13 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>100</y>
+     <y>120</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -91,10 +109,13 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>130</y>
+     <y>150</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -110,10 +131,13 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>70</y>
+     <y>90</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -129,10 +153,13 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>40</y>
+     <y>60</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -148,10 +175,13 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>180</y>
+     <y>200</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>TOTAL</string>
@@ -161,10 +191,14 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>180</y>
+     <y>200</y>
      <width>59</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -180,7 +214,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>230</y>
+     <y>20</y>
      <width>241</width>
      <height>20</height>
     </rect>
@@ -196,10 +230,13 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>260</y>
+     <y>250</y>
      <width>113</width>
      <height>32</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:10px;background-color: rgb(223, 167, 40);</string>
    </property>
    <property name="text">
     <string>Close Table</string>

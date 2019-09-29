@@ -51,10 +51,16 @@ void Table::setIsIdTaken(const bool &isIdTaken)
     this->is_id_taken = isIdTaken;
 }
 
-double Table::getBillTotal() {
+double Table::calculateCurrentBill() {
     bill->setEndTime(QTime::currentTime());
-    return Utils::priceCal(bill);
+    finalBill = Utils::priceCal(bill);
+    return finalBill;
 }
+
+double Table::getFinalBill() {
+    return finalBill;
+}
+
 
 TableType Table::getTableType() const{
     return type;
@@ -77,14 +83,16 @@ void Table::setMemo(const QString & m){
     memo = m;
 }
 
-void Table::checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
-                                 double fnb, int discount, QString memo) {
+void Table::checkIn(int lastNumPlayers,
+                    int lastNumSenMils, bool isIdTaken,
+                    bool isMember, bool isSpecialRate,
+                    double fnb, int discount, QString memo) {
     setBorderColor();
     setIsOccupied(true);
     QTime now = QTime::currentTime();
-    bill->setNumPlayers(numPlayers);
     is_id_taken = isIdTaken;
-    bill->setNumSeniorOrMilitary(numSenMil);
+    bill->updateNumPlayers(lastNumPlayers);
+    bill->updateNumSeniorOrMilitary(lastNumSenMils);
     bill->setIsMember(isMember);
     bill->setIsSpecialRate(isSpecialRate);
     bill->setFoodAndBeverage(fnb);
@@ -95,30 +103,24 @@ void Table::checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember
     table_manager->notify(this);
 }
 
-double Table::checkOut() {
+void Table::checkOut() {
     setBackgroundColor();
-    this->bill->setEndTime(QTime::currentTime());
-    double total = getBillTotal();
     // Reset fields
+    bill->reset();
     this->is_occupied = false;
     this->is_id_taken = false;
-    this->bill->setStartTime(QTime::currentTime());
-    this->bill->setNumPlayers(0);
-    this->bill->setFoodAndBeverage(0.0);
-    this->bill->setIsMember(false);
     table_manager->notify(this);
-    return total;
+    table_manager->UpdateRevenue(this);
 }
 
-void Table::update(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
+void Table::update(int numPlayers, int numSenMil, bool isIdTaken, bool isMember, bool isSpecialRate,
                    double fnb, int discount, QString memo) {
-    bill->setNumPlayers(this->bill->getNumPlayers() + numPlayers);
+    bill->updateNumPlayers(bill->getNumPlayers() + numPlayers);
+    bill->updateNumSeniorOrMilitary(bill->getNumSeniorOrMilitary() + numSenMil);
     bill->setFoodAndBeverage(this->bill->getFoodAndBeverage() + fnb);
     is_id_taken = isIdTaken;
-    bill->setNumSeniorOrMilitary(numSenMil);
     bill->setIsMember(isMember);
     bill->setIsSpecialRate(isSpecialRate);
-    bill->setFoodAndBeverage(fnb);
     bill->setDiscount(discount);
     setMemo(memo);
 }
@@ -127,14 +129,14 @@ void Table::update(int numPlayers, bool isIdTaken, int numSenMil, bool isMember,
 void Table::setBackgroundColor() {
     QString color_setting = "";
     if (this->getTableType() == TableType::NineFooter) {
-        color_setting = "border-radius:25px;background-color:" +
-                                    colormap[0] + ";";
+        color_setting = "border-radius:25px;color: rgb(255, 255, 255);"
+                        "background-color:" + colormap[0] + ";";
     } else if (this->getTableType() == TableType::SevenFooter) {
-        color_setting = "border-radius:25px;background-color:" +
-                                    colormap[1] + ";";
+        color_setting = "border-radius:25px;color: rgb(255, 255, 255);"
+                        "background-color:" + colormap[1] + ";";
     } else {
-        color_setting = "border-radius:25px;background-color:" +
-                                    colormap[2] + ";";
+        color_setting = "border-radius:25px;color: rgb(255, 255, 255);"
+                        "background-color:" + colormap[2] + ";";
     }
     this->setStyleSheet(color_setting);
 }
@@ -142,20 +144,20 @@ void Table::setBackgroundColor() {
 void Table::setBorderColor() {
     QString color_setting = "";
     if (this->getTableType() == TableType::NineFooter) {
-        color_setting = "border-radius:25px;background-color:" +
-                                    colormap[0] + ";" +
-                                    "padding: 1px; border-width: 5px;" +
-                                    "border-style: solid; border-color: white;";
+        color_setting = "border-radius:25px;color: rgb(255, 255, 255);"
+                        "background-color:" + colormap[0] + ";" +
+                        "padding: 1px; border-width: 5px;" +
+                        "border-style: solid; border-color: white;";
     } else if (this->getTableType() == TableType::SevenFooter) {
-        color_setting = "border-radius:25px;background-color:" +
-                                    colormap[1] + ";" +
-                                    "padding: 1px; border-width: 5px;" +
-                                    "border-style: solid; border-color: white;";
+        color_setting = "border-radius:25px;color: rgb(255, 255, 255);"
+                        "background-color:" + colormap[1] + ";" +
+                        "padding: 1px; border-width: 5px;" +
+                        "border-style: solid; border-color: white;";
     } else {
-        color_setting = "border-radius:25px;background-color:" +
-                                    colormap[2] + ";" +
-                                    "padding: 1px; border-width: 5px;" +
-                                    "border-style: solid; border-color: white;";
+        color_setting = "border-radius:25px;color: rgb(255, 255, 255);"
+                        "background-color:" + colormap[2] + ";" +
+                        "padding: 1px; border-width: 5px;" +
+                        "border-style: solid; border-color: white;";
     }
     this->setStyleSheet(color_setting);
     ui->label->setStyleSheet("border-style:none; border-color: blue;");

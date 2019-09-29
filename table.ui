@@ -32,7 +32,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:transparent</string>
+    <string notr="true">background:transparent;
+color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#f93aff;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

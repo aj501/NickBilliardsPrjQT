@@ -33,13 +33,18 @@ public:
     QString getMemo() const;
     void setMemo(const QString & memo);
 
-    double getBillTotal();
+    double calculateCurrentBill();
 
-    void checkIn(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
+    void checkIn(int lastNumPlayers,
+                 int lastNumSenMils,
+                 bool isIdTaken, bool isMember, bool isSpecialRate,
                  double fab, int discount, QString memo);
-    double checkOut();
-    void update(int numPlayers, bool isIdTaken, int numSenMil, bool isMember, bool isSpecialRate,
-                 double fab, int discount, QString memo);
+    void checkOut();
+    void update(int numPlayers, int numSenMil,
+                bool isIdTaken,bool isMember, bool isSpecialRate,
+                double fnb, int discount, QString memo);
+
+    double getFinalBill();
 
     Bill* getBill() const;
 
@@ -59,6 +64,7 @@ private:
     void setBorderColor();
 
     TableManager* table_manager;
+    double finalBill = 0;
 
     void paintEvent(QPaintEvent *) override;
 };
