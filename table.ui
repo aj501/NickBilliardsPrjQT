@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>119</width>
-    <height>77</height>
+    <width>114</width>
+    <height>72</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -45,7 +45,7 @@ color: rgb(255, 255, 255);</string>
      <x>60</x>
      <y>40</y>
      <width>41</width>
-     <height>20</height>
+     <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">

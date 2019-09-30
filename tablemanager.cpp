@@ -97,12 +97,17 @@ void TableManager::transferTable(int fromTableIndex, int toTableIndex) {
     Table* tableFrom = tables[fromTableIndex-1];
     Table* tableTo = tables[toTableIndex-1];
 
+    tableTo->copy(tableFrom);
+    tableFrom->endTransferTable();
+    tableTo->startTransferTable();
+    /*
     tableTo->checkIn(tableFrom->getBill()->getNumPlayers(), tableFrom->getBill()->getNumSeniorOrMilitary(),
                      tableFrom->getIsIdTaken(), tableFrom->getBill()->getIsMember(),
                      tableFrom->getBill()->getIsSpecialRate(),
                      tableFrom->getBill()->getDiscount(),
                      tableFrom->getMemo());
     tableFrom->checkOut();
+    */
 }
 
 void TableManager::on_dailySummray_pushButton_clicked()

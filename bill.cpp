@@ -75,3 +75,15 @@ bool Bill::getIsSpecialRate() const {
 void Bill::setIsSpecialRate(const bool &rate) {
     isSpecialRate = rate;
 }
+
+void Bill::copy(Bill* other) {
+    numPlayers = other->getAllNumPlayers();
+    numSenMils = other->getAllSenMils();
+    last_num_players = other->getNumPlayers();
+    last_num_senior_or_military = other->getNumSeniorOrMilitary();
+    start_time = other->getStartTime();
+    is_member = other->getIsMember();
+    food_and_beverage = other->getFoodAndBeverage();
+    isSpecialRate = other->getIsSpecialRate();
+    discount = other->getDiscount();
+}
