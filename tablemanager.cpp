@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include "dailysummary.h"
 #include "utils.h"
+#include "closeappdialog.h"
 
 
 TableManager::TableManager(QWidget *parent) :
@@ -109,4 +110,16 @@ void TableManager::on_dailySummray_pushButton_clicked()
     DailySummary* summary = new DailySummary(this);
     summary->setModal(true);
     summary->exec();
+}
+
+void TableManager::closeEvent(QCloseEvent *event) {
+    for (int i = 0; i < 24; i++) {
+        if (tables[i]->getIsOccupied()) {
+            CloseAppDialog* closeAppDialog = new CloseAppDialog();
+            closeAppDialog->setModal(true);
+            closeAppDialog->exec();
+            event->ignore();
+            break;
+        }
+    }
 }

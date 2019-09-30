@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         bill.cpp \
+        closeappdialog.cpp \
         control.cpp \
         dailysummary.cpp \
         idreturnreminder.cpp \
@@ -41,6 +42,7 @@ SOURCES += \
 
 HEADERS += \
         bill.h \
+        closeappdialog.h \
         control.h \
         dailysummary.h \
         idreturnreminder.h \
@@ -55,6 +57,7 @@ HEADERS += \
         utils.h
 
 FORMS += \
+        closeappdialog.ui \
         control.ui \
         dailysummary.ui \
         idreturnreminder.ui \
