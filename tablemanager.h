@@ -41,6 +41,8 @@ private:
     double totalHours;
     double totalHoursInDollars;
     double totalFnB;
+
+    void closeEvent(QCloseEvent *event) override;
 };
 
 #endif // TABLEMANAGER_H
