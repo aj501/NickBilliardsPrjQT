@@ -32,7 +32,7 @@ private slots:
 
     void on_editTable_SaveButton_clicked();
 
-    void on_numPlayers_activated(int index);
+    void on_numPlayersAdd_activated(int index);
 
     void on_numSenMil_activated(int index);
 

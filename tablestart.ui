@@ -58,9 +58,9 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>9</y>
-     <width>151</width>
-     <height>31</height>
+     <y>39</y>
+     <width>91</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -73,26 +73,7 @@
     <enum>QFrame::Sunken</enum>
    </property>
    <property name="text">
-    <string>START NEW TABLE</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tableLabel">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>59</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="text">
-    <string>Table</string>
+    <string>START TABLE</string>
    </property>
   </widget>
   <widget class="QLabel" name="playerLabel">
@@ -224,13 +205,13 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>59</y>
+     <y>50</y>
      <width>41</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color:  rgb(223, 167, 40);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
