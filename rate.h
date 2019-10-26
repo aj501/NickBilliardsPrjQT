@@ -2,7 +2,7 @@
 #define RATE_H
 
 namespace Rate {
-    double SpecialMemberRate = 12;;
+    double SpecialMemberRate = 12;
     double DailyRate = 3;
     double DailySpecialRate = 9;
     double NightRateOnePlayer = 6;

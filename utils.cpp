@@ -7,18 +7,28 @@ namespace Utils {
         QTextStream out(stdout);
         QList<QPair<QTime, int>> numPlayers = bill->getAllNumPlayers();
         QTime start = bill->getStartTime();
-        for (int i = 0; i < numPlayers.length(); i++) {
-            QPair<QTime, int> numPlayer = numPlayers[i];
-            total += priceCal(start, numPlayer.first, numPlayer.second,
-                              bill->getIsMember(), bill->getIsSpecialRate(),
-                              bill->getAllSenMils()[i], bill->getTableType());
-            if (i == numPlayers.length()-1) {
-                total += priceCal(numPlayer.first, QTime::currentTime(), numPlayer.second,
+        // Special cases: hours not taken into account
+        int lastNumPlayers = numPlayers[numPlayers.length()-1].second;
+        if (bill->getIsMember() && bill->getTableType() == TableType::SevenFooter && isAfterSevenPm(start)) {
+            total = Rate::SpecialMemberRate * lastNumPlayers;
+        } else if (bill->getIsSpecialRate() && isBeforeSevenPm(numPlayers[0].first)
+                   && isBeforeSevenPm(numPlayers[numPlayers.length()-1].first)) {
+            total = Rate::DailySpecialRate * lastNumPlayers;
+        } else { // regular cases
+            for (int i = 0; i < numPlayers.length(); i++) {
+                QPair<QTime, int> numPlayer = numPlayers[i];
+                total += priceCal(start, numPlayer.first, numPlayer.second,
                                   bill->getIsMember(), bill->getIsSpecialRate(),
                                   bill->getAllSenMils()[i], bill->getTableType());
+                if (i == numPlayers.length()-1) {
+                    total += priceCal(numPlayer.first, QTime::currentTime(), numPlayer.second,
+                                      bill->getIsMember(), bill->getIsSpecialRate(),
+                                      bill->getAllSenMils()[i], bill->getTableType());
+                }
+                start = numPlayer.first;
             }
-            start = numPlayer.first;
         }
+
         // Discount
         total *= static_cast<double>(100-bill->getDiscount())/100;
         if (isBeforeSevenPm(start)) {
@@ -32,9 +42,7 @@ namespace Utils {
 
     double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, int numSenMils, TableType tableType) {
         double total = 0.0;
-        if (isMemberRate && tableType == TableType::SevenFooter && isAfterSevenPm(start)) {
-            total = Rate::SpecialMemberRate * numPlayers;
-        } else if (isBeforeSevenPm(end)) {
+        if (isBeforeSevenPm(end)) {
             double hours = CalculateHours(start, end);
             total = priceCalBefore7pm(numPlayers, isSpecialRate, hours);
         } else if (isAfterSevenPm(start)) {
@@ -43,7 +51,8 @@ namespace Utils {
         } else if (isBeforeSevenPm(start) && isAfterSevenPm(end)) {
             double dayHours = CalculateHours(start, QTime(19, 0, 0));
             double nightHours = CalculateHours(QTime(19, 0, 0), end);
-            total = priceCalBefore7pm(numPlayers, isSpecialRate, dayHours) + priceCalAfter7pm(numPlayers, nightHours);
+            total = priceCalBefore7pm(numPlayers, isSpecialRate, dayHours) +
+                    priceCalAfter7pm(numPlayers, nightHours);
         } else {
             return 0;
         }
@@ -57,16 +66,7 @@ namespace Utils {
     }
 
     double priceCalBefore7pm(int numPlayers, bool isSpecialRate, double hours) {
-        double total;
-        if(isSpecialRate)
-        {
-            total = numPlayers*Rate::DailySpecialRate;
-        }
-        else
-        {
-            total  = numPlayers*hours*Rate::DailyRate;
-        }
-        return total;
+        return numPlayers*hours*Rate::DailyRate;
     }
 
     double priceCalAfter7pm(int numPlayers, double hours) {
