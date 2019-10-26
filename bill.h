@@ -27,9 +27,6 @@ public:
     double getFoodAndBeverage() const;
     void setFoodAndBeverage(const double &);
 
-    double getInitBill() const;
-    void setInitBill(const double & bill);
-
     bool getIsSpecialRate() const;
     void setIsSpecialRate(const bool & rate);
 
@@ -67,6 +64,8 @@ public:
         numSenMils.clear();
     }
 
+    void copy(Bill* other);
+
 private:
     QTime start_time;
     int last_num_players;
@@ -75,8 +74,6 @@ private:
     double food_and_beverage;
     bool isSpecialRate;
     int discount;
-
-    double init_bill;
     TableType tableType;
     QList<QPair<QTime, int>> numPlayers;
     QList<int> numSenMils;

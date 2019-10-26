@@ -2,6 +2,8 @@
 #include "ui_tabletab.h"
 #include "table.h"
 #include "tableedit.h"
+#include "tablemanager.h"
+#include "bill.h"
 #include <QWidget>
 
 TableTab::TableTab(QWidget *parent) :
@@ -15,6 +17,8 @@ TableTab::TableTab(QWidget *parent) :
     double timePlayed = Utils::CalculateHours(tableEdit->getTable()->getBill()->getStartTime(),
                           QTime::currentTime());
     ui->TimePlayed->setText(QString::number(timePlayed, 'f', 2));
+    int PlayerNum = tableEdit->getTable()->getBill()->getNumPlayers();
+    ui->PlayerNumTab->setText(QString::number(PlayerNum));
     double timeInDollars = tableEdit->getTable()->getCurrentBill();
     ui->TimeInDollars->setText(QString::number(timeInDollars, 'f', 2));
     double fnb = tableEdit->getTable()->getBill()->getFoodAndBeverage();

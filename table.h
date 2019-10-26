@@ -43,6 +43,9 @@ public:
     void update(int numPlayers, int numSenMil,
                 bool isIdTaken,bool isMember, bool isSpecialRate,
                 double fnb, int discount, QString memo);
+    void startTransferTable();
+    void endTransferTable();
+    void copy(Table* other);
 
     Bill* getBill() const;
 

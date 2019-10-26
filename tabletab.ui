@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>323</width>
-    <height>310</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>90</y>
+     <y>120</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -55,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>120</y>
+     <y>150</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -71,7 +71,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>150</y>
+     <y>180</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -87,7 +87,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>120</y>
+     <y>150</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -109,7 +109,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>150</y>
+     <y>180</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -131,7 +131,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>90</y>
+     <y>120</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -175,7 +175,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>200</y>
+     <y>239</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -191,7 +191,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>200</y>
+     <y>239</y>
      <width>59</width>
      <height>21</height>
     </rect>
@@ -229,10 +229,10 @@
   <widget class="QPushButton" name="CloseTable_Button">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>250</y>
-     <width>113</width>
-     <height>32</height>
+     <x>112</x>
+     <y>280</y>
+     <width>101</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -240,6 +240,44 @@
    </property>
    <property name="text">
     <string>Close Table</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="PlayerNumTab">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>90</y>
+     <width>59</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>90</y>
+     <width>59</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>#Player</string>
    </property>
   </widget>
  </widget>

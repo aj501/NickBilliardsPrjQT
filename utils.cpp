@@ -95,14 +95,14 @@ namespace Utils {
     }
 
     bool isBeforeSevenPm(QTime time) {
-        if (time.hour() >= 10 && time.hour() < 19) {
+        if (time.hour() >= 8 && time.hour() < 19) {
             return true;
         }
         return false;
     }
 
     bool isAfterSevenPm(QTime time) {
-        if (time.hour() >= 19 || time.hour() <= 2) {
+        if (time.hour() >= 19 || time.hour() < 4) {
             return true;
         }
         return false;

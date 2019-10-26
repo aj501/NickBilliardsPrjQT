@@ -119,6 +119,28 @@ void Table::update(int numPlayers, int numSenMil, bool isIdTaken, bool isMember,
     setMemo(memo);
 }
 
+void Table::startTransferTable() {
+    setBorderColor();
+    ui->startTime->setText(this->bill->getStartTime().toString("hh:mm"));
+    is_occupied = true;
+    table_manager->notify(this);
+}
+
+void Table::endTransferTable() {
+    setBackgroundColor();
+    ui->startTime->setText("");
+    is_occupied = false;
+    table_manager->notify(this);
+    //cai' ban luc' starttable bi loi UI do em thay khong?
+}
+
+void Table::copy(Table* other) {
+    this->getBill()->copy(other->bill);
+    is_occupied = other->getIsOccupied();
+    is_id_taken = other->getIsIdTaken();
+    QString memo = other->getMemo();
+}
+
 
 void Table::setBackgroundColor() {
     QString color_setting = "";
