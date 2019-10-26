@@ -4,20 +4,29 @@
 namespace Utils {
     double priceCal(const Bill * const bill) {
         double total = 0;
+        QTextStream out(stdout);
         QList<QPair<QTime, int>> numPlayers = bill->getAllNumPlayers();
         QTime start = bill->getStartTime();
         for (int i = 0; i < numPlayers.length(); i++) {
             QPair<QTime, int> numPlayer = numPlayers[i];
-            total += priceCal(start, numPlayer.first, numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
+            total += priceCal(start, numPlayer.first, numPlayer.second,
+                              bill->getIsMember(), bill->getIsSpecialRate(),
                               bill->getAllSenMils()[i], bill->getTableType());
             if (i == numPlayers.length()-1) {
-                total += priceCal(numPlayer.first, QTime::currentTime(), numPlayer.second, bill->getIsMember(), bill->getIsSpecialRate(),
+                total += priceCal(numPlayer.first, QTime::currentTime(), numPlayer.second,
+                                  bill->getIsMember(), bill->getIsSpecialRate(),
                                   bill->getAllSenMils()[i], bill->getTableType());
             }
             start = numPlayer.first;
         }
         // Discount
-        total *= (100-bill->getDiscount())/100;
+        total *= static_cast<double>(100-bill->getDiscount())/100;
+        if (isBeforeSevenPm(start)) {
+            total = std::max(3.0, total);
+        }
+        if (isAfterSevenPm(start)) {
+            total = std::max(6.0, total);
+        }
         return total;
     }
 

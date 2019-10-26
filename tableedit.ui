@@ -470,9 +470,9 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>-10</y>
-     <width>241</width>
-     <height>31</height>
+     <y>10</y>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -485,31 +485,11 @@
     <string>EDIT TABLE</string>
    </property>
   </widget>
-  <widget class="QLabel" name="tableNumberLabel_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>30</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
-</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="text">
-    <string>Table</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="addPlayerLabel">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>60</y>
+     <y>40</y>
      <width>101</width>
      <height>21</height>
     </rect>
@@ -525,11 +505,11 @@
     <string>Add Players</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="numPlayers">
+  <widget class="QComboBox" name="numPlayersAdd">
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>60</y>
+     <y>40</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -543,7 +523,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>90</y>
+     <y>100</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -563,7 +543,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>90</y>
+     <y>100</y>
      <width>31</width>
      <height>20</height>
     </rect>
@@ -576,7 +556,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>330</y>
+     <y>340</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -595,7 +575,7 @@ color: rgb(255, 255, 255);
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>330</y>
+     <y>340</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -615,7 +595,7 @@ color: rgb(255, 255, 255);
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>330</y>
+     <y>340</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -634,7 +614,7 @@ color: rgb(255, 255, 255);
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>210</y>
+     <y>220</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -657,7 +637,7 @@ color: rgb(255, 255, 255);
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>210</y>
+     <y>220</y>
      <width>51</width>
      <height>21</height>
     </rect>
@@ -683,7 +663,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>120</y>
+     <y>130</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -703,7 +683,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>150</y>
+     <y>160</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -723,7 +703,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>150</y>
+     <y>160</y>
      <width>21</width>
      <height>20</height>
     </rect>
@@ -732,17 +712,17 @@ color: rgb(255, 255, 255);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="tableNumberLabel">
+  <widget class="QLabel" name="tableNumber">
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>30</y>
+     <y>10</y>
      <width>41</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
+    <string notr="true">color:  rgb(223, 167, 40);
 </string>
    </property>
    <property name="frameShape">
@@ -756,7 +736,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>121</y>
+     <y>131</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -770,7 +750,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>241</y>
+     <y>251</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -784,7 +764,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>240</y>
+     <y>250</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -804,7 +784,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>180</y>
+     <y>190</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -824,7 +804,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>180</y>
+     <y>190</y>
      <width>21</width>
      <height>20</height>
     </rect>
@@ -837,7 +817,7 @@ background-color: rgb(44, 44, 44);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>270</y>
+     <y>280</y>
      <width>241</width>
      <height>51</height>
     </rect>
@@ -848,6 +828,40 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="placeholderText">
     <string>Tell me what you need to remember...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="subtractPlayers">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string>Subtract Players</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="numPlayersSubtract">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>70</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(44, 44, 44);</string>
    </property>
   </widget>
  </widget>

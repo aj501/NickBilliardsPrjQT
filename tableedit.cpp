@@ -11,13 +11,17 @@ TableEdit::TableEdit(QWidget *parent) :
 {
     ui->setupUi(this);
     this->table = dynamic_cast<Table*>(parent);
-    ui->tableNumberLabel->setText(QString::number(table->getId()));
+    ui->tableNumber->setText(QString::number(table->getId()));
     ui->idTaken->setChecked(table->getIsIdTaken());
     ui->isMemberRate->setChecked(table->getBill()->getIsMember());
     ui->isSpecialRate->setChecked(table->getBill()->getIsSpecialRate());
     for (int i=0; i<=6-table->getBill()->getNumPlayers();i++)
     {
-        ui->numPlayers->addItem(QString::number(i));
+        ui->numPlayersAdd->addItem(QString::number(i));
+    }
+    for (int i=0; i<=table->getBill()->getNumPlayers();i++)
+    {
+        ui->numPlayersSubtract->addItem(QString::number(i));
     }
     ui->numSenMil->addItem(QString::number(0));
     ui->memo->setPlainText(table->getMemo());
@@ -79,18 +83,18 @@ void TableEdit::on_editTable_SaveButton_clicked()
 }
 
 void TableEdit::UpdateTable() {
-    int numPlayers = ui->numPlayers->currentText().toInt();
+    int numPlayers = ui->numPlayersAdd->currentText().toInt() - ui->numPlayersSubtract->currentText().toInt();
     bool isIdTaken = ui->idTaken->isChecked();
     int numSenMil = ui->numSenMil->currentText().toInt();
     bool isMember = ui->isMemberRate->isChecked();
     bool isSpecialRate = ui->isSpecialRate->isChecked();
     int discount = ui->discount->currentData().toInt();
-    double fnb = ui->fnb->text().toDouble();
+    double fnb = std::max(ui->fnb->text().toDouble(), 0.0);
     QString memo = ui->memo->toPlainText();
     table->update(numPlayers, numSenMil, isIdTaken, isMember, isSpecialRate, fnb, discount, memo);
 }
 
-void TableEdit::on_numPlayers_activated(int index)
+void TableEdit::on_numPlayersAdd_activated(int index)
 {
     ui->numSenMil->clear();
     for (int i=0; i<=index; i++)
