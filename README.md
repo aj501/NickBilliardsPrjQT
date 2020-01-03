@@ -8,6 +8,8 @@
   
 ### Framework 
   The project was built and tested in QT Creator version 10.14, 10.15, and initially built for Mac Desktop use.
+### Mac Os Compatibility
+  We haven't tested all Mac OS versions to figure out which versions are compatible with this app. However, we noticed that our released version woudn't work on Sierra and High Sierra. Our current Mac OS is Catalina.
 
   
   
