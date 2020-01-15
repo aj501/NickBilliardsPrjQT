@@ -29,14 +29,14 @@ namespace Utils {
             }
         }
 
-        // Discount
-        total *= static_cast<double>(100-bill->getDiscount())/100;
         if (isBeforeSevenPm(start)) {
             total = std::max(3.0, total);
         }
         if (isAfterSevenPm(start)) {
             total = std::max(6.0, total);
         }
+        // Discount
+        total *= static_cast<double>(100-bill->getDiscount())/100;
         return total;
     }
 
