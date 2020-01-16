@@ -179,7 +179,7 @@ background-color: rgb(44, 44, 44);</string>
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
-    <string>Member Rate</string>
+    <string>APA Rate</string>
    </property>
   </widget>
   <widget class="QLabel" name="senMilLabel">

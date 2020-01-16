@@ -9,10 +9,10 @@ namespace Utils {
         QTime start = bill->getStartTime();
         // Special cases: hours not taken into account
         int lastNumPlayers = numPlayers[numPlayers.length()-1].second;
-        if (bill->getIsMember() && bill->getTableType() == TableType::SevenFooter && isAfterSevenPm(start)) {
+        if (bill->getIsMember() && bill->getTableType() == TableType::SevenFooter && isAfterSixPm(start)) {
             total = Rate::SpecialMemberRate * lastNumPlayers;
-        } else if (bill->getIsSpecialRate() && isBeforeSevenPm(numPlayers[0].first)
-                   && isBeforeSevenPm(numPlayers[numPlayers.length()-1].first)) {
+        } else if (bill->getIsSpecialRate() && isBeforeSixPm(numPlayers[0].first)
+                   && isBeforeSixPm(numPlayers[numPlayers.length()-1].first)) {
             total = Rate::DailySpecialRate * lastNumPlayers;
         } else { // regular cases
             for (int i = 0; i < numPlayers.length(); i++) {
@@ -29,10 +29,10 @@ namespace Utils {
             }
         }
 
-        if (isBeforeSevenPm(start)) {
+        if (isBeforeSixPm(start)) {
             total = std::max(3.0, total);
         }
-        if (isAfterSevenPm(start)) {
+        if (isAfterSixPm(start)) {
             total = std::max(6.0, total);
         }
         // Discount
@@ -42,17 +42,17 @@ namespace Utils {
 
     double priceCal(QTime start, QTime end, int numPlayers, bool isMemberRate, bool isSpecialRate, int numSenMils, TableType tableType) {
         double total = 0.0;
-        if (isBeforeSevenPm(end)) {
+        if (isBeforeSixPm(end)) {
             double hours = CalculateHours(start, end);
-            total = priceCalBefore7pm(numPlayers, isSpecialRate, hours);
-        } else if (isAfterSevenPm(start)) {
+            total = priceCalBefore6pm(numPlayers, isSpecialRate, hours);
+        } else if (isAfterSixPm(start)) {
             double hours = CalculateHours(start, end);
-            total = priceCalAfter7pm(numPlayers, hours);
-        } else if (isBeforeSevenPm(start) && isAfterSevenPm(end)) {
+            total = priceCalAfter6pm(numPlayers, hours);
+        } else if (isBeforeSixPm(start) && isAfterSixPm(end)) {
             double dayHours = CalculateHours(start, QTime(19, 0, 0));
             double nightHours = CalculateHours(QTime(19, 0, 0), end);
-            total = priceCalBefore7pm(numPlayers, isSpecialRate, dayHours) +
-                    priceCalAfter7pm(numPlayers, nightHours);
+            total = priceCalBefore6pm(numPlayers, isSpecialRate, dayHours) +
+                    priceCalAfter6pm(numPlayers, nightHours);
         } else {
             return 0;
         }
@@ -65,11 +65,18 @@ namespace Utils {
         return total;
     }
 
-    double priceCalBefore7pm(int numPlayers, bool isSpecialRate, double hours) {
-        return numPlayers*hours*Rate::DailyRate;
+    double priceCalBefore6pm(int numPlayers, bool isSpecialRate, double hours) {
+        //Tuan added conditions for number of players and according rates
+        double total = 0.0;
+        if (numPlayers == 1){
+            total = hours*5;
+        } else if (numPlayers > 1){
+            total = numPlayers*hours*Rate::DailyRate;
+        }
+        return total;
     }
 
-    double priceCalAfter7pm(int numPlayers, double hours) {
+    double priceCalAfter6pm(int numPlayers, double hours) {
         double total = 0.0;
         switch (numPlayers) {
         case 1:
@@ -94,15 +101,15 @@ namespace Utils {
         return total;
     }
 
-    bool isBeforeSevenPm(QTime time) {
-        if (time.hour() >= 8 && time.hour() < 19) {
+    bool isBeforeSixPm(QTime time) {
+        if (time.hour() >= 8 && time.hour() < 18) {
             return true;
         }
         return false;
     }
 
-    bool isAfterSevenPm(QTime time) {
-        if (time.hour() >= 19 || time.hour() < 4) {
+    bool isAfterSixPm(QTime time) {
+        if (time.hour() >= 18 || time.hour() < 4) {
             return true;
         }
         return false;
